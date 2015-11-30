@@ -78,7 +78,8 @@ public class IOWriter {
 	        long aantalItems = reader.getAantalItems("klanten.txt");
 			
 			String write = 
-					"Klant:" + klantID + 
+					aantalItems +
+					";Klant:" + klantID + 
 					";Item:" + item.getID() +
 					";Prijs:" + prijs.toString() +
 					";StartDatum:" + startDatum.toString() + 
