@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import io.IOWriter;
+
 public class WinkelPanel extends JFrame {
 
 	
@@ -145,7 +147,11 @@ public class WinkelPanel extends JFrame {
 	    jlItemType = new JLabel("Type item: "); jlItemType.setBounds(10, 40, 100, 20); jpItem.add(jlItemType);
 	    cbType = new JComboBox(type); cbType.setBounds(110, 40, 50, 20); jpItem.add(cbType);
 	    btnTypeAdd = new JButton("Voeg item toe"); btnTypeAdd.setBounds(60, 70, 150, 20);
-	    // Nog ActionListener toevoegen
+	    btnTypeAdd.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		IOWriter.schrijfItemWeg();
+	    	}
+	    });
 	    jpItem.add(btnTypeAdd);
 	    cardPanel.add(jpKlant, "1");
 	    cardPanel.add(jpUitlening, "2");
