@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import domain.Item;
+import domain.*;
 
 public class IOWriter {
 	
@@ -58,8 +58,52 @@ public class IOWriter {
 	    
 	}
 	
-	public boolean writeReservatie() {
-		return true;
+	public boolean writeReservatie(Reservatie reservatie) {
+		IOReader reader = new IOReader();
+		
+		Double prijs = reservatie.getPrijs();
+		Datum startDatum = reservatie.getStartDatum();
+		Item item = reservatie.getItem();
+		int aantalDagen = reservatie.getAatalDagen();
+		Double boete = reservatie.getBoete();
+		Boolean betaald = reservatie.getBetaald();
+		int klantID = reservatie.klantID();
+		
+		BufferedWriter output = null;
+		
+	    try {
+	    	
+	    	File file = new File("klanten.txt");
+	        output = new BufferedWriter(new FileWriter(file, true));
+	        long aantalItems = reader.getAantalItems("klanten.txt");
+			
+			String write = 
+					"Klant:" + klantID + 
+					";Item:" + item.getID() +
+					";Prijs:" + prijs.toString() +
+					";StartDatum:" + startDatum.toString() + 
+					";AantalDagen:" + Integer.toString(aantalDagen) +
+					";Boete:" + boete.toString() +
+					";betaald:" + betaald.toString()
+					;
+	        if (reader.hasItems("klanten.txt")) {
+	        	write = "\r\n" + write;
+	        }
+	        output.write(write);
+	        
+	        reader.refreshItems();
+	        
+	    } catch ( IOException e ) {
+	    	
+	    	e.printStackTrace();
+	    	
+	    } finally {
+	    	
+	    	if ( output != null ) output.close();
+	    	
+	    }
+	    
+	    return true;
 	}
 	
 	/*public static void main(String [] args) throws IOException {
