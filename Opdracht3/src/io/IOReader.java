@@ -9,11 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import domain.Item;
-
 public class IOReader {
-
-	private Item item;
 	
 	private HashMap<String,String> movies;
 	private HashMap<String,String> games;
@@ -28,7 +24,8 @@ public class IOReader {
 	public Boolean refreshItems() throws IOException {
 		movies = new HashMap<String, String>();
         String regel;
-        BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
+        @SuppressWarnings("resource")
+		BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
         while ((regel = readerMovies.readLine()) != null)
         {
             String[] splits = regel.split("=");
@@ -37,7 +34,8 @@ public class IOReader {
             movies.put(id, titel);
         }
         games = new HashMap<String, String>();
-        BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
+        @SuppressWarnings("resource")
+		BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
         while ((regel = readerGames.readLine()) != null)
         {
             String[] splits = regel.split("=");
@@ -46,7 +44,8 @@ public class IOReader {
             games.put(id, titel);
         }
         cds = new HashMap<String, String>();
-        BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
+        @SuppressWarnings("resource")
+		BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
         while ((regel = readerCds.readLine()) != null)
         {
             String[] splits = regel.split("=");
@@ -100,7 +99,7 @@ public class IOReader {
 		return cds;
 	}
 	
-	public static void main(String [] args) throws IOException {
-	}
+	//public static void main(String [] args) throws IOException {
+	//}
 
 }
