@@ -14,8 +14,6 @@ public class Main {
             @Override
             public void run() {
                 WinkelController frame = new WinkelController();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
             }
         });
     }
