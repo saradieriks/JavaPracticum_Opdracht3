@@ -5,7 +5,9 @@ import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -16,15 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import domain.Item;
+import domain.Reservatie;
 
 public class WinkelController extends JFrame {
 
-	/*
-	 * 1. items: hashmap
-	 * 2. reservaties: hashmap
-	 */
+	private static Map <String,List<Item>> Items = new HashMap<>();
+	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
 	private static final long serialVersionUID = 1L;
-    private JPanel cardPanel, jpKlant, jpUitlening, jpTerugbrengen, jpItem, buttonPanel, exitPanel;
+    private JPanel cardPanel, jpKlant, jpUitlening, jpTerugbrengen, jpItem, buttonPanel, exitPanel, opvragenPanel;
     private JLabel jlKlantVoornaam, jlKlantNaam, jlKlantStraat, jlKlantNummer, jlKlantBox, jlKlantPostcode, jlKlantGemeente, jlKlantLand, jlKlantEmail,
     	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel1, jlUitleningTitel2, jlUitleningTitel3, jlUitleningTitel4, jlUitleningTitel5, 
     	jlUitleningType1, jlUitleningType2, jlUitleningType3, jlUitleningType4, jlUitleningType5, jlUitleningDag, jlUitleningMaand, jlUitleningJaar,
@@ -34,7 +35,7 @@ public class WinkelController extends JFrame {
     	txtUitleningTitel4, txtUitleningTitel5, txtUitleningPrijs, txtUitleningDagen, txtTerugbrengenBoete;
     private JButton btnKlant, btnUitlening, btnTerugbrengen, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, btnTerugbrengenAdd;
     private CardLayout cardLayout = new CardLayout();
-    private Character[] type = { 'M', 'G' };
+    private Character[] type = { 'M', 'G', 'C' };
     private Integer[] dag = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
     private String[] maand = { "januari", "februari", "maart", "april", "mei", "juni",
     		"juli", "augustus", "september", "oktober", "november", "december" };
@@ -151,7 +152,9 @@ public class WinkelController extends JFrame {
         jlItemType = new JLabel("Type item: "); jlItemType.setBounds(10, 40, 100, 20); jpItem.add(jlItemType);
         cbType = new JComboBox(type); cbType.setBounds(110, 40, 50, 20); jpItem.add(cbType);
         btnTypeAdd = new JButton("Voeg item toe"); btnTypeAdd.setBounds(60, 70, 150, 20);
-        // Nog actionlistener toevoegen
+
+
+        
         jpItem.add(btnTypeAdd);
         cardPanel.add(jpKlant, "1");
         cardPanel.add(jpUitlening, "2");
@@ -178,7 +181,7 @@ public class WinkelController extends JFrame {
                 cardLayout.show(cardPanel, "3");
             }
         });
-        btnItem = new JButton("Item");
+        btnItem = new JButton("Nieuw item");
         btnItem.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -199,18 +202,6 @@ public class WinkelController extends JFrame {
         add(cardPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.NORTH);
         add(exitPanel, BorderLayout.SOUTH);
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                WinkelController frame = new WinkelController();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
-        });
     }
 	
 	// Deze methode moet nog verder afgewerkt worden
@@ -249,5 +240,4 @@ public class WinkelController extends JFrame {
 		 */
 		return "";
 	}
-	
 }

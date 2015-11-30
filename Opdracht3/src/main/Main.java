@@ -1,7 +1,23 @@
 package main;
 
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+import controller.WinkelController;
+
 public class Main {
 
-	// Deze klasse start de WinkelController op
+	public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                WinkelController frame = new WinkelController();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
 	
 }
