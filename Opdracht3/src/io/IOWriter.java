@@ -23,9 +23,9 @@ public class IOWriter {
 		String titel = item.getTitel().replace(' ', '+');
 		
 		String cat = "undefined";
-		if (type == 'm') { cat = "movies"; }
-		else if (type == 'g') { cat = "games"; }
-		else if (type == 'c') { cat = "cds"; }
+		if (type == 'M') { cat = "movies"; }
+		else if (type == 'G') { cat = "games"; }
+		else if (type == 'C') { cat = "cds"; }
 		
 		BufferedWriter output = null;
 		
@@ -41,6 +41,8 @@ public class IOWriter {
 	        	write = "\r\n" + write;
 	        }
 	        output.write(write);
+	        
+	        reader.refreshItems();
 	        
 	    } catch ( IOException e ) {
 	    	
