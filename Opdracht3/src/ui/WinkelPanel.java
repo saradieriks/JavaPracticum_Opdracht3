@@ -149,7 +149,7 @@ public class WinkelPanel extends JFrame {
 	    btnTypeAdd = new JButton("Voeg item toe"); btnTypeAdd.setBounds(60, 70, 150, 20);
 	    btnTypeAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		IOWriter.schrijfItemWeg();
+	    		
 	    	}
 	    });
 	    jpItem.add(btnTypeAdd);
