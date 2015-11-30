@@ -73,13 +73,12 @@ public class IOWriter {
 		
 	    try {
 	    	
-	    	File file = new File("klanten.txt");
+	    	File file = new File("reservaties.txt");
 	        output = new BufferedWriter(new FileWriter(file, true));
-	        long aantalItems = reader.getAantalItems("klanten.txt");
+	        long aantalItems = reader.getAantalItems("reservaties.txt");
 			
 			String write = 
-					aantalItems +
-					";Klant:" + klantID + 
+					"Klant:" + klantID + 
 					";Item:" + item.getID() +
 					";Prijs:" + prijs.toString() +
 					";StartDatum:" + startDatum.toString() + 
@@ -87,7 +86,7 @@ public class IOWriter {
 					";Boete:" + boete.toString() +
 					";betaald:" + betaald.toString()
 					;
-	        if (reader.hasItems("klanten.txt")) {
+	        if (reader.hasItems("reservaties.txt")) {
 	        	write = "\r\n" + write;
 	        }
 	        output.write(write);

@@ -57,6 +57,17 @@ public class IOReader {
 	}
 
 	public Boolean refreshReservaties() {
+		/*reservaties = new HashMap<String, String>();
+		String regel;
+        @SuppressWarnings("resource")
+		BufferedReader readerCds = new BufferedReader(new FileReader("reservaties.txt"));
+        while ((regel = readerCds.readLine()) != null)
+        {
+            String[] splits = regel.split("=");
+            String id = splits[0];
+            String titel = splits[1];
+            reservaties.put(id, titel);
+        }*/
 		return true;
 	}
 	
