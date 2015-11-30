@@ -58,7 +58,7 @@ public class IOWriter {
 	    
 	}
 	
-	public boolean writeReservatie(Reservatie reservatie) {
+	public boolean writeReservatie(Reservatie reservatie) throws IOException {
 		IOReader reader = new IOReader();
 		
 		Double prijs = reservatie.getPrijs();
@@ -78,7 +78,8 @@ public class IOWriter {
 	        long aantalItems = reader.getAantalItems("reservaties.txt");
 			
 			String write = 
-					"Klant:" + klantID + 
+					aantalItems +
+					";Klant:" + klantID + 
 					";Item:" + item.getID() +
 					";Prijs:" + prijs.toString() +
 					";StartDatum:" + startDatum.toString() + 
