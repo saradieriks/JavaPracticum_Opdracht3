@@ -4,7 +4,7 @@ public class Reservatie {
 
 	private Double prijs;
 	private Datum startDatum;
-	private Item id;
+	private Item item;
 	private int aantalDagen;
 	private Double boete;
 	private Boolean betaald;
@@ -22,11 +22,11 @@ public class Reservatie {
 	public void setStartDatum(Datum startDatum) {
 		this.startDatum = startDatum;
 	}
-	public Item getID() {
-		return id;
+	public Item getItem() {
+		return item;
 	}
-	public void setID(Item id) {
-		this.id = id;
+	public void setItem(Item item) {
+		this.item = item;
 	}
 	public int getAatalDagen() {
 		return aantalDagen;
@@ -55,45 +55,45 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item id, int aantalDagen,
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen,
 			Double boete, Boolean betaald, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
-		this.id = id;
+		this.item = item;
 		this.aantalDagen = aantalDagen;
 		this.boete = boete;
 		this.betaald = false;
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item id, 
+	public Reservatie (Double prijs, Datum startDatum, Item item, 
 			int aantalDagen, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
-		this.id = id;
+		this.item = item;
 		this.aantalDagen = aantalDagen;
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item id, int aantalDagen,
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen,
 			Double boete, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
-		this.id = id;
+		this.item = item;
 		this.aantalDagen = aantalDagen;
 		this.boete = boete;
 		this.betaald = false;
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Item id, int aantalDagen, int klantID) {
-		this.id = id;
+	public Reservatie (Item item, int aantalDagen, int klantID) {
+		this.item = item;
 		this.aantalDagen = aantalDagen;
 		this.klantID = klantID;
 	}
 	
 	// Deze methode moet nog verder uitgewerkt worden
-	public Boolean isAvailable (Item id) {
+	public Boolean isAvailable (Item item) {
 		return true;
 	}
 }
