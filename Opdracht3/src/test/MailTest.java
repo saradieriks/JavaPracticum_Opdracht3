@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import datum.Datum;
+import domain.Datum;
 import domain.Klant;
 import domain.Item;
 import domain.Mail;
