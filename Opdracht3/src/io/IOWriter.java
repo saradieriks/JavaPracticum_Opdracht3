@@ -75,11 +75,11 @@ public class IOWriter {
 	    	
 	    	File file = new File("reservaties.txt");
 	        output = new BufferedWriter(new FileWriter(file, true));
-	        long aantalItems = reader.getAantalItems("reservaties.txt");
+	        long aantalItems = reader.getAantalItems("reservaties");
 			
 			String write = 
 					aantalItems +
-					";Klant:" + klantID + 
+					"=Klant:" + klantID + 
 					";Item:" + item.getID() +
 					";Prijs:" + prijs.toString() +
 					";StartDatum:" + startDatum.toString() + 
@@ -87,7 +87,7 @@ public class IOWriter {
 					";Boete:" + boete.toString() +
 					";betaald:" + betaald.toString()
 					;
-	        if (reader.hasItems("reservaties.txt")) {
+	        if (reader.hasItems("reservaties")) {
 	        	write = "\r\n" + write;
 	        }
 	        output.write(write);
@@ -108,6 +108,11 @@ public class IOWriter {
 	}
 	
 	/*public static void main(String [] args) throws IOException {
+		Datum datum = new Datum(21,9,2015);
+		Item item = new Item("Eerste product", 'A', 1);
+		Reservatie reservatie = new Reservatie(20.5, datum, item, 2, 30.5, false, 1);
+		IOWriter writer = new IOWriter();
+		writer.writeReservatie(reservatie);
 	}*/
 	
 }

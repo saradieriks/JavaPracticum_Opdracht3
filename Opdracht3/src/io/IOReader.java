@@ -14,6 +14,7 @@ public class IOReader {
 	private HashMap<String,String> movies;
 	private HashMap<String,String> games;
 	private HashMap<String,String> cds;
+	private HashMap<String,String> reservaties;
 	
 	// FILE VERSIE
 	
@@ -55,19 +56,27 @@ public class IOReader {
         }
 		return true;
 	}
-
-	public Boolean refreshReservaties() {
-		/*reservaties = new HashMap<String, String>();
+	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
+	public Boolean refreshReservaties() throws IOException {
+		reservaties = new HashMap<String, String>();
 		String regel;
         @SuppressWarnings("resource")
-		BufferedReader readerCds = new BufferedReader(new FileReader("reservaties.txt"));
-        while ((regel = readerCds.readLine()) != null)
+		BufferedReader readerReservaties = new BufferedReader(new FileReader("reservaties.txt"));
+        while ((regel = readerReservaties.readLine()) != null)
         {
             String[] splits = regel.split("=");
             String id = splits[0];
-            String titel = splits[1];
-            reservaties.put(id, titel);
-        }*/
+            String reservatie = splits[1];
+            /*
+            String klant = splits[1];
+            String item = splits[2];
+            String prijs = splits[3];
+            String startDatum = splits[4];
+            String aantalDagen = splits[5];
+            String boete = splits[6];
+            String betaald = splits[7];*/
+            reservaties.put(id, reservatie);
+        }
 		return true;
 	}
 	
@@ -94,8 +103,19 @@ public class IOReader {
 		return aantal;
 	}
 	
+	@SuppressWarnings("resource")
 	public Boolean hasReservaties() {
-		return true;
+		BufferedReader input = null;
+		try {
+            String file = "reservaties.txt";
+            input = new BufferedReader(new FileReader(file));
+    		if (input.readLine() != null) {
+    		    return true;
+    		}
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        }
+		return false;
 	}
 	
 	public HashMap<String,String> getMovies() {
@@ -108,6 +128,10 @@ public class IOReader {
 	
 	public HashMap<String,String> getCDs() {
 		return cds;
+	}
+	
+	public HashMap<String,String> getReservaties() {
+		return reservaties;
 	}
 	
 	//public static void main(String [] args) throws IOException {

@@ -18,8 +18,8 @@ public class Item {
 	public void setType(char type) {
 		this.type = type;
 	}
-	public char getID() {
-		return (char) id;
+	public int getID() {
+		return id;
 	}
 	public void setID(int id) {
 		this.id = id;
