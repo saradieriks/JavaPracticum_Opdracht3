@@ -7,14 +7,28 @@ import java.util.Map;
 /*
 * De Winkel klasse is de facade klasse
 * 
-* Groep, momenteel is functionaliteit van deze klasse ook nog beschikbaar in Winkelcontroller.
-* (GELIEVE DUBBELE METHODES E.D. momenteel NOG NIET TE VERWIJDEREN!!)
+* WORK IN PROGRESS :-)
 *
 */
+
+
 public class Winkel {
 	
-	private static Map <String,List<Item>> Items = new HashMap<>();
-	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
+	//prijs van een item zonder te weten welk type
+	public double getPrijs(Item item, int aantalDagen)
+	{
+		if (item.getClass().getName() == "Cd")
+		{
+			return ((Cd) item).getPrijs(aantalDagen);
+		}
+		
+		if (item.getClass().getName() == "Film")
+		{
+			return ((Film) item).getPrijs(aantalDagen);
+		}
+		return 0;
+	}
+	
 	
 	// Deze methode moet nog verder afgewerkt worden
 	public Boolean maakNieuweReservatie(String id, int klantID, int aantalDagen) {
