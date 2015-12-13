@@ -14,7 +14,8 @@ import java.util.Map;
 
 public class Winkel {
 	
-	//prijs van een item zonder te weten welk type
+	//prijs van een item zonder te weten welk type - dit gaat er nog vanuit dat 
+	//casten nodig is hiervoor
 	public double getPrijs(Item item, int aantalDagen)
 	{
 		if (item.getClass().getName() == "Cd")
@@ -26,46 +27,57 @@ public class Winkel {
 		{
 			return ((Film) item).getPrijs(aantalDagen);
 		}
+		
+		if (item.getClass().getName() == "Spel")
+		{
+			return ((Spel) item).getPrijs(aantalDagen);
+		}
 		return 0;
+
 	}
 	
-	
-	// Deze methode moet nog verder afgewerkt worden
-	public Boolean maakNieuweReservatie(String id, int klantID, int aantalDagen) {
-		/*
-		 * Deze maakt een nieuwe reservatie aan en zal indien positief dan ook
-		 * een refresh doen van de reservaties via de ioReader
-		 */
-		return true;
+	public Cd getCd(String titel, int id)
+	{
+		Cd CD = new Cd(titel,'C', id);
+		return CD;
+
 	}
 	
-	// Deze methode moet nog verder afgewerkt worden
-	public Double brengTerug(List<Item> lijst) {
-		/*
-		 * Deze functie bepaalt het totaal te betalen bedrag en de boeten. 
-		 * Concreet past deze functie de objecten aan en vult overal het bedrag 
-		 * en de boete in.
-		 */
-		return 0D; 
+	public Cd getCd(String titel)
+	{
+		Cd CD = new Cd(titel, 'C');
+		return CD;
 	}
 	
-	// Deze methode moet nog afgewerkt worden
-	public String geefAlleItems() {
-		/*
-		 * Dit geeft een geformateerde lijst voor consoledisplay terug.
-		 * opgave punt 4
-		 */
-		return "";
+	public Film getFilm(String titel, int id)
+	{
+		Film FILM = new Film(titel,'C', id);
+		return FILM;
+
 	}
 	
-	// Deze methode moet nog afgewerkt worden
-	public String zoekItems(String woord, String type) {
-		/*
-		 * Geeft geformateerde lijst van alle items met dit woord in de titel 
-		 * van dat type. Het type moet meegegeven worden als "movie" of "game".
-		 */
-		return "";
+	public Film getFilm(String titel)
+	{
+		Film FILM = new Film(titel, 'C');
+		return FILM;
 	}
+	
+	public Spel getSpel(String titel, int id)
+	{
+		Spel SPEL = new Spel(titel,'S', id);
+		return SPEL;
+
+	}
+	
+	public Spel getSpel(String titel)
+	{
+		Spel SPEL = new Spel(titel, 'S');
+		return SPEL;
+	}
+
+	
+	
+
 	
 	
 
