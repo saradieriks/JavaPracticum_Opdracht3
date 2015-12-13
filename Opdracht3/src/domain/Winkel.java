@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /*
-* De Winkel klasse is de facade klasse
+* De Winkel klasse is de facade klasse van het domein
 * 
 * WORK IN PROGRESS :-)
 *
@@ -74,11 +74,103 @@ public class Winkel {
 		Spel SPEL = new Spel(titel, 'S');
 		return SPEL;
 	}
+	
+	public Adres getAdres(String straat, String nummer, String box, String postcode,
+			  String gemeente, String land)
+	{
+		Adres ADRES = new Adres (straat,nummer,box,postcode,
+				  gemeente, land);
+		return ADRES;
+	}
+	
+	public Adres getAdres(String straat, String nummer, String postcode,
+			  String gemeente, String land)
+	{
+		Adres ADRES = new Adres (straat,nummer,postcode,
+				  gemeente, land);
+		return ADRES;
+	}
+	
+	public Adres getAdres(String straat, String nummer, String postcode,
+			  String gemeente)
+	{
+		Adres ADRES = new Adres(straat,nummer,postcode,
+				  gemeente);
+		return ADRES;
+				
+	}
+	
+	public Reservatie getReservatie (Double prijs, Datum startDatum, 
+			Item item, int aantalDagen, Double boete, Boolean betaald, int klantID)
+	{
+		Reservatie RESERVATIE = new Reservatie (prijs,startDatum, 
+				item,aantalDagen,boete, betaald, klantID);
+		return RESERVATIE;
+	}
+	
+	public Reservatie getReservatie(Double prijs, Datum startDatum, 
+			Item item, int aantalDagen, Double boete, Boolean betaald)
+	{
+		Reservatie RESERVATIE = new Reservatie(prijs,startDatum, 
+				item, aantalDagen,boete, betaald);
+		return RESERVATIE;
+	}
+	
+	public Reservatie getReservatie(Double prijs, Datum startDatum, Item item, 
+			int aantalDagen, int klantID)
+	{
+		Reservatie RESERVATIE = new Reservatie(prijs, startDatum,item, 
+				aantalDagen, klantID);
+		return RESERVATIE;
+	}
+	
+	public Reservatie getReservatie(Double prijs, Datum startDatum, 
+			Item item, int aantalDagen, Double boete, int klantID)
+	{
+		Reservatie RESERVATIE = new Reservatie(prijs,startDatum, 
+				item,aantalDagen,boete, klantID);
+		return RESERVATIE;
+	}
+	
+	public Reservatie getReservatie(Item item, int aantalDagen, int klantID)
+	{
+		Reservatie RESERVATIE = new Reservatie(item,aantalDagen,klantID);
+		return RESERVATIE;
+	}
+	
+	public Klant getKlant (int klantID, String naam, String voornaam, Adres adres,
+			  String email)
+	{
+		Klant KLANT = new Klant(klantID,naam,voornaam,adres,
+				   email);
+		return KLANT;
+				
+		
+	}
+	
+	public Klant getKlant(String naam, String voornaam, Adres adres, String email)
+	{
+		Klant KLANT = new Klant (naam,voornaam,adres,email);
+		return KLANT;
+				
+		
+	}
+	
+	public Klant getKlant(int klantID, String naam, String voornaam, Adres adres)
+	{
+		Klant KLANT = new Klant(klantID,naam,voornaam,adres);
+		return KLANT;
+		
+	}
+	
+	public Klant getKlant(String naam, String voornaam, Adres adres)
+	{
+		Klant KLANT = new Klant(naam,voornaam,adres);
+		return KLANT;
+		
+	}
 
-	
-	
 
-	
-	
+
 
 }
