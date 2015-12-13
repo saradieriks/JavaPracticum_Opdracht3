@@ -2,6 +2,15 @@ package domain;
 
 public class Film extends Item{
 
+	public Film(String titel, char type, int id) {
+		super(titel, type, id);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Film(String titel, char type) {
+		super(titel, type);
+	}
+
 	/**
 	 * Geeft de prijs terug van het artikel. 
 	 * De integer aantalDagen moet het aantal dagen 
@@ -20,10 +29,10 @@ public class Film extends Item{
 		int dagenOver = aantalDagen - 3;
 		if (dagenOver > 0) {
 			prijs += (dagenOver * 2);
-			
+			}
 		return prijs;
 	}
-	
-	
 }
+	
+
 

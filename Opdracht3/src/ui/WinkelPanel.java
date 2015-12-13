@@ -16,7 +16,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import domain.Adres;
+import domain.Cd;
+import domain.Datum;
+import domain.Film;
+import domain.Item;
 import domain.Klant;
+import domain.Reservatie;
+import domain.Spel;
 import io.IOWriter;
 
 public class WinkelPanel extends JFrame {
@@ -128,7 +134,22 @@ public class WinkelPanel extends JFrame {
 	    jlUitleningBetaald = new JLabel("Betaald: "); jlUitleningBetaald.setBounds(320, 280, 100, 20); jpUitlening.add(jlUitleningBetaald);
 	    cbBetaald = new JCheckBox(); cbBetaald.setBounds(430, 280, 20, 20); jpUitlening.add(cbBetaald);
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 310, 150, 20);
-	    // Nog ActionListener toevoegen
+	    btnUitleningAdd.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	  		  	Reservatie nieuwe = new Reservatie(getTxtUitleningPrijs(), new Datum(getCbDag(), getCbMaand(), getCbJaar()), 
+	  		  			Item.vindItem(getTxtUitleningTitel1(), getCbType()), getTxtUitleningDagen(), 0D, false);
+	    		try {
+	    			if (IOWriter.writeReservatie(nieuwe) == true) {
+						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+	    	}
+	    });
 	    jpUitlening.add(btnUitleningAdd);        
 	    jlUitleningType1 = new JLabel("Type item: "); jlUitleningType1.setBounds(10, 10, 100, 20); jpTerugbrengen.add(jlUitleningType1);
 	    cbType = new JComboBox(type); cbType.setBounds(110, 10, 50, 20); jpTerugbrengen.add(cbType);
@@ -166,7 +187,26 @@ public class WinkelPanel extends JFrame {
 	    btnTypeAdd = new JButton("Voeg item toe"); btnTypeAdd.setBounds(60, 70, 150, 20);
 	    btnTypeAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		
+	    		Item nieuwe;
+	    		if (getCbType() == 'M') {
+	    			nieuwe = new Film(getTxtItemTitel(), getCbType());
+	    		}
+	    		else if (getCbType() == 'G') {
+	    			nieuwe = new Spel(getTxtItemTitel(), getCbType());
+	    		}
+	    		else {
+	    			nieuwe = new Cd(getTxtItemTitel(), getCbType());
+	    		}
+	    		try {
+					if (IOWriter.writeItem(nieuwe) == true) {
+						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 	    	}
 	    });
 	    jpItem.add(btnTypeAdd);

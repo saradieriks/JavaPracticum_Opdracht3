@@ -55,8 +55,7 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen,
-			Double boete, Boolean betaald, int klantID) {
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen, Double boete, Boolean betaald, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
 		this.item = item;
@@ -66,8 +65,16 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item item, 
-			int aantalDagen, int klantID) {
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen, Double boete, Boolean betaald) {
+		this.prijs = prijs;
+		this.startDatum = startDatum;
+		this.item = item;
+		this.aantalDagen = aantalDagen;
+		this.boete = boete;
+		this.betaald = false;
+	}
+	
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
 		this.item = item;
@@ -75,8 +82,7 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen,
-			Double boete, int klantID) {
+	public Reservatie (Double prijs, Datum startDatum, Item item, int aantalDagen, Double boete, int klantID) {
 		this.prijs = prijs;
 		this.startDatum = startDatum;
 		this.item = item;

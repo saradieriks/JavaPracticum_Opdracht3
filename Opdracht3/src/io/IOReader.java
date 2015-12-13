@@ -13,11 +13,11 @@ import domain.Klant;
 
 public class IOReader {
 	
-	private HashMap<String,String> movies;
-	private HashMap<String,String> games;
-	private HashMap<String,String> cds;
+	private static HashMap<String,String> movies;
+	private static HashMap<String,String> games;
+	private static HashMap<String,String> cds;
 	private HashMap<String,String> reservaties;
-	private HashMap<Integer,String> klanten;
+	private static HashMap<Integer,String> klanten;
 	
 	// FILE VERSIE
 	
@@ -137,20 +137,24 @@ public class IOReader {
 		return false;
 	}
 	
-	public HashMap<String,String> getMovies() {
+	public static HashMap<String,String> getMovies() {
 		return movies;
 	}
 	
-	public HashMap<String,String> getGames() {
+	public static HashMap<String,String> getGames() {
 		return games;
 	}
 	
-	public HashMap<String,String> getCDs() {
+	public static HashMap<String,String> getCDs() {
 		return cds;
 	}
 	
 	public HashMap<String,String> getReservaties() {
 		return reservaties;
+	}
+	
+	public static HashMap<Integer,String> getKlanten() {
+		return klanten;
 	}
 
 	public long getAantalKlanten() throws IOException {

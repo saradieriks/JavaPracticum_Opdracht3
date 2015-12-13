@@ -15,7 +15,7 @@ public class IOWriter {
 		
 	}
 	
-	public boolean writeItem(Item item) throws IOException {
+	public static boolean writeItem(Item item) throws IOException {
 		
 		IOReader reader = new IOReader();
 		
@@ -95,7 +95,7 @@ public class IOWriter {
 	    
 	}
 	
-	public boolean writeReservatie(Reservatie reservatie) throws IOException {
+	public static boolean writeReservatie(Reservatie reservatie) throws IOException {
 		IOReader reader = new IOReader();
 		
 		Double prijs = reservatie.getPrijs();

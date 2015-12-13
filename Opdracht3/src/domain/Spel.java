@@ -2,6 +2,15 @@ package domain;
 
 public class Spel extends Item{
 
+	public Spel(String titel, char type, int id) {
+		super(titel, type, id);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Spel(String titel, char type) {
+		super(titel, type);
+	}
+
 	/**
 	 * Geeft de prijs terug van het artikel. 
 	 * De integer aantalDagen moet het aantal dagen 
