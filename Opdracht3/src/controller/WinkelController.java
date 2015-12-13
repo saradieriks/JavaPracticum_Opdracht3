@@ -1,18 +1,46 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.swing.JFrame;
 import domain.Item;
+import domain.Observer;
 import domain.Reservatie;
+import domain.Subject;
 import ui.WinkelPanel;
 
-public class WinkelController extends JFrame {
+public class WinkelController extends JFrame implements Subject {
 
-	private static Map <String,List<Item>> Items = new HashMap<>();
+	public static Map <String,List<Item>> Items = new HashMap<>();
 	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
+	private static List<Observer>observers = new ArrayList<Observer>();
+	
+	/*
+	 * De list observers moet alle klanten bevatten met IsObserver == true
+	 * klanten die at runtime observer worden, worden toegevoegd via de methode binnen klant
+	 * maakKlantObserver
+	 * Wanneer een nieuw item wordt toegevoegd moet de methode
+	 * notifyObservers(item) uitgevoerd worden.
+	 */
+	
+	//observer methods
+	public void addObserver(Observer o) {
+		observers.add(o);	
+	}
+	public void removeObserver(Observer o) {
+		observers.add(o);
+	}
+	private void notifyObservers(Item item) {
+		Iterator i = observers.iterator();
+		while (i.hasNext() ) {
+			Observer o = (Observer) i.next();
+			o.update(this, item);
+		}
+	}
 
     public WinkelController() {
         WinkelPanel paneel = new WinkelPanel();
@@ -57,4 +85,6 @@ public class WinkelController extends JFrame {
 		 */
 		return "";
 	}
+
+
 }

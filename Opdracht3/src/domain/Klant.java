@@ -1,12 +1,17 @@
 package domain;
 
-public class Klant {
+import controller.WinkelController;
+
+public class Klant implements Observer {
 
 	private int klantID;
 	private String naam;
 	private String voornaam;
 	private Adres adres;
 	private String email;
+	private Boolean isObserver;
+	private WinkelController winkelController;
+	
 	public int getKlantID() {
 		return klantID;
 	}
@@ -70,6 +75,31 @@ public class Klant {
 	public String toString() {
 		return voornaam + " " + naam  + "\n" + adres.toString() + "\n" + 
 			   email;
+	}
+	
+	//observer pattern
+	
+	public void maakKlantObserver(Boolean isObserver, WinkelController winkelController)
+	{
+		this.isObserver = isObserver;
+		if (isObserver == true)
+		{
+			winkelController.addObserver(this);
+		}
+		else
+		{
+			winkelController.removeObserver(this);
+		}
+		
+	}
+	
+	public void update(Subject o, Item item) {
+		
+		if (this.isObserver == true && o == winkelController ) {
+			Mail mailClient = new Mail();
+			mailClient.stuurMailnaarKlant(this,item);
+					}
+		
 	}
 	
 }
