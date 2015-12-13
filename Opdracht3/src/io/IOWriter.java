@@ -58,6 +58,43 @@ public class IOWriter {
 	    
 	}
 	
+	public static boolean writeKlant(Klant klant) throws IOException {
+		
+		IOReader reader = new IOReader();
+		
+		BufferedWriter output = null;
+		
+	    try {
+	    	
+	    	File file = new File("klant.txt");
+	        output = new BufferedWriter(new FileWriter(file, true));
+	        long aantalItems = reader.getAantalKlanten();
+			long id = aantalItems;
+			
+			String write = id + "=" + klant.getVoornaam() + ";" + klant.getNaam() + ";" + klant.getAdres().getStraat() + ";" + klant.getAdres().getNummer() +
+					";" + klant.getAdres().getBox() + ";" + klant.getAdres().getPostcode() + ";" + klant.getAdres().getGemeente() + ";" 
+					+ klant.getAdres().getLand() + ";" + klant.getEmail();
+	        if (reader.hasItems("klant")) {
+	        	write = "\r\n" + write;
+	        }
+	        output.write(write);
+	        
+	        reader.refreshItems();
+	        
+	    } catch ( IOException e ) {
+	    	
+	    	e.printStackTrace();
+	    	
+	    } finally {
+	    	
+	    	if ( output != null ) output.close();
+	    	
+	    }
+	    
+	    return true;
+	    
+	}
+	
 	public boolean writeReservatie(Reservatie reservatie) throws IOException {
 		IOReader reader = new IOReader();
 		

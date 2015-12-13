@@ -9,12 +9,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import domain.Klant;
+
 public class IOReader {
 	
 	private HashMap<String,String> movies;
 	private HashMap<String,String> games;
 	private HashMap<String,String> cds;
 	private HashMap<String,String> reservaties;
+	private HashMap<Integer,String> klanten;
 	
 	// FILE VERSIE
 	
@@ -80,6 +83,22 @@ public class IOReader {
 		return true;
 	}
 	
+	//0=Bart;Jaspers;Steegje;1;1;3000;Leuven;belgie;bartje@gmail.com
+	public Boolean refreshKlanten() throws IOException {
+		klanten = new HashMap<Integer, String>();
+		String regel;
+	    @SuppressWarnings("resource")
+		BufferedReader readerKlanten = new BufferedReader(new FileReader("klant.txt"));
+	    while ((regel = readerKlanten.readLine()) != null)
+	    {
+	        String[] splits = regel.split("=");
+	        Integer id = Integer.parseInt(splits[0]);
+	        String klant = splits[1];
+	        klanten.put(id, klant);
+	    }
+		return true;
+	}
+	
 	@SuppressWarnings("resource")
 	public Boolean hasItems(String cat) {
 		BufferedReader input = null;
@@ -132,6 +151,14 @@ public class IOReader {
 	
 	public HashMap<String,String> getReservaties() {
 		return reservaties;
+	}
+
+	public long getAantalKlanten() throws IOException {
+		List<String> regels = Files.newBufferedReader(
+				Paths.get("klant.txt")).lines().collect(Collectors.toList()
+			  );
+		long aantal = regels.size();
+		return aantal;
 	}
 	
 	//public static void main(String [] args) throws IOException {

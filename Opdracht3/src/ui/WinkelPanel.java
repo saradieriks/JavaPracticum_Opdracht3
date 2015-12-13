@@ -4,20 +4,22 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import domain.Adres;
+import domain.Klant;
 import io.IOWriter;
 
 public class WinkelPanel extends JFrame {
-
-	
 
 	private static final long serialVersionUID = 1L;
     private JPanel cardPanel, jpKlant, jpUitlening, jpTerugbrengen, jpItem, buttonPanel, exitPanel;
@@ -72,7 +74,22 @@ public class WinkelPanel extends JFrame {
 	    jlKlantEmail = new JLabel("Email: "); jlKlantEmail.setBounds(10, 160, 100, 20); jpKlant.add(jlKlantEmail);
 	    txtKlantEmail = new JTextField(); txtKlantEmail.setBounds(110, 160, 200, 20); jpKlant.add(txtKlantEmail);
 	    btnKlantAdd = new JButton("Voeg klant toe"); btnKlantAdd.setBounds(60, 190, 150, 20);
-	    // Nog actionListener toevoegen
+	    btnKlantAdd.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		Klant nieuwe = new Klant(getTxtKlantNaam(), getTxtKlantVoornaam(), new Adres(getTxtKlantStraat(), getTxtKlantNummer(), getTxtKlantBox(),
+	    				getTxtKlantPostcode(), getTxtKlantGemeente(), getTxtKlantLand()), getTxtKlantEmail());
+	    		try {
+					if (IOWriter.writeKlant(nieuwe) == true) {
+						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+	    	}
+	    });
 	    jpKlant.add(btnKlantAdd);
 	    jlUitleningVoornaam = new JLabel("Voornaam klant: "); jlUitleningVoornaam.setBounds(10, 10, 100, 20); jpUitlening.add(jlUitleningVoornaam);
 	    txtUitleningVoornaam = new JTextField(); txtUitleningVoornaam.setBounds(110, 10, 200, 20); jpUitlening.add(txtUitleningVoornaam);
