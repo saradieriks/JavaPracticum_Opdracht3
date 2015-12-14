@@ -22,7 +22,7 @@ public class Film extends Item implements IItem{
 	 * @return				De prijs uitgedrukt in een double
 	 * @see					Item
 	 */
-	
+	@Override
 	public double getPrijs(int aantalDagen){
 		double prijs = 5;
 		

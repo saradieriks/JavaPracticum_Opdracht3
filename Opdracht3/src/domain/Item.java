@@ -5,7 +5,7 @@ import java.util.Map;
 
 import io.IOReader;
 
-public class Item {
+public class Item implements IItem{
 	
 	private String titel;
 	private char type;
@@ -79,6 +79,10 @@ public class Item {
 		}
 		
 		return null;
+	}
+	@Override
+	public double getPrijs(int aantalDagen) {
+		return 0;
 	}
 	
 }
