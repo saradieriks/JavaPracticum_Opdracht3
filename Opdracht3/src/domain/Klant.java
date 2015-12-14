@@ -110,6 +110,7 @@ public class Klant implements Observer {
 		
 	}
 	
+	// Klant id zoeken op basis van naam en voornaam
 	public static int vindKlantId(String naam, String voornaam) {
 		Klant teVinden = new Klant(naam, voornaam);
 		int idGevonden = 0;

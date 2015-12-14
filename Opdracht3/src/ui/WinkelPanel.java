@@ -110,7 +110,8 @@ public class WinkelPanel extends JFrame {
 	    	public void actionPerformed(ActionEvent e) {
 	    		Item uitlenen = new Item(getTxtUitleningTitel(), getCbType());
 	    		if (Reservatie.isAvailable(uitlenen)) {
-	    			Reservatie nieuwe = new Reservatie(uitlenen, getTxtUitleningDagen(), Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()));
+	    			Reservatie nieuwe = new Reservatie(uitlenen, getTxtUitleningDagen(), 
+	    					Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()));
 	    			try {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);

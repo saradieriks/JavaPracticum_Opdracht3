@@ -102,7 +102,6 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	// Deze methode moet nog verder uitgewerkt worden
 	public static Boolean isAvailable (Item item) {
 		Boolean teruggeven = false;
 		if (item.getType() == 'M') {
