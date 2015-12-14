@@ -1,6 +1,6 @@
 package domain;
 
-public class Cd extends Item{
+public class Cd extends Item implements IItem{
 
 	public Cd(String titel, char type, int id) {
 		super(titel, type, id);

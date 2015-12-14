@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import domain.Adres;
@@ -28,27 +29,22 @@ import io.IOWriter;
 public class WinkelPanel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-    private JPanel cardPanel, jpKlant, jpUitlening, jpTerugbrengen, jpItem, buttonPanel, exitPanel;
+    private JPanel cardPanel, jpKlant, jpUitlening, jpItem, buttonPanel, exitPanel;
     private JLabel jlKlantVoornaam, jlKlantNaam, jlKlantStraat, jlKlantNummer, jlKlantBox, jlKlantPostcode, jlKlantGemeente, jlKlantLand, jlKlantEmail,
-    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel1, jlUitleningTitel2, jlUitleningTitel3, jlUitleningTitel4, jlUitleningTitel5, 
-    	jlUitleningType1, jlUitleningType2, jlUitleningType3, jlUitleningType4, jlUitleningType5, jlUitleningDag, jlUitleningMaand, jlUitleningJaar,
-    	jlUitleningPrijs, jlUitleningDagen, jlUitleningBetaald, jlItemTitel, jlItemType, jlTerugbrengenBoete;
+    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType;
     private JTextField txtItemTitel, txtKlantVoornaam, txtKlantNaam, txtKlantStraat, txtKlantNummer, txtKlantBox, txtKlantPostcode, txtKlantGemeente,
-    	txtKlantLand, txtKlantEmail,txtUitleningNaam, txtUitleningVoornaam, txtUitleningTitel1, txtUitleningTitel2, txtUitleningTitel3,
-    	txtUitleningTitel4, txtUitleningTitel5, txtUitleningPrijs, txtUitleningDagen, txtTerugbrengenBoete;
-    private JButton btnKlant, btnUitlening, btnTerugbrengen, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, btnTerugbrengenAdd;
+    	txtKlantLand, txtKlantEmail,txtUitleningNaam, txtUitleningVoornaam, txtUitleningTitel, txtUitleningPrijs, txtUitleningDagen, txtTerugbrengenBoete;
+    private JButton btnKlant, btnUitlening, btnTerugbrengen, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, 
+    	btnUitleningVoegToe, btnUitleningVerwijder;
     private CardLayout cardLayout = new CardLayout();
     private Character[] type = { 'M', 'G', 'C' };
-    private Integer[] dag = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
-    private String[] maand = { "januari", "februari", "maart", "april", "mei", "juni",
-    		"juli", "augustus", "september", "oktober", "november", "december" };
-    private Integer[] jaar = { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030 };
     private JComboBox cbType, cbDag, cbMaand, cbJaar;
     private JCheckBox cbBetaald;
+    private JTable tblUitleningen;
     
     public WinkelPanel() {
 	    setTitle("Winkel");
-	    setSize(700, 450);
+	    setSize(700, 700);
 	    cardPanel = new JPanel();
 	    buttonPanel = new JPanel();
 	    exitPanel = new JPanel();
@@ -57,10 +53,10 @@ public class WinkelPanel extends JFrame {
 	    jpKlant.setLayout(null);
 	    jpUitlening = new JPanel();
 	    jpUitlening.setLayout(null);;
-	    jpTerugbrengen = new JPanel();
-	    jpTerugbrengen.setLayout(null);
 	    jpItem = new JPanel();
 	    jpItem.setLayout(null);
+	    
+	    // Klant-paneel
 	    jlKlantVoornaam = new JLabel("Voornaam: "); jlKlantVoornaam.setBounds(10, 10, 100, 20); jpKlant.add(jlKlantVoornaam); 
 	    txtKlantVoornaam = new JTextField(); txtKlantVoornaam.setBounds(110, 10, 200, 20); jpKlant.add(txtKlantVoornaam);
 	    jlKlantNaam = new JLabel("Naam: "); jlKlantNaam.setBounds(10, 40, 100, 20); jpKlant.add(jlKlantNaam);
@@ -97,89 +93,30 @@ public class WinkelPanel extends JFrame {
 	    	}
 	    });
 	    jpKlant.add(btnKlantAdd);
+	    
+	    // Uitlening-paneel
 	    jlUitleningVoornaam = new JLabel("Voornaam klant: "); jlUitleningVoornaam.setBounds(10, 10, 100, 20); jpUitlening.add(jlUitleningVoornaam);
 	    txtUitleningVoornaam = new JTextField(); txtUitleningVoornaam.setBounds(110, 10, 200, 20); jpUitlening.add(txtUitleningVoornaam);
 	    jlUitleningNaam = new JLabel("Naam klant: "); jlUitleningNaam.setBounds(10, 40, 100, 20); jpUitlening.add(jlUitleningNaam);
 	    txtUitleningNaam = new JTextField(); txtUitleningNaam.setBounds(110, 40, 200, 20); jpUitlening.add(txtUitleningNaam);
-	    jlUitleningDag = new JLabel("Dag uitlening: "); jlUitleningDag.setBounds(10, 70, 100, 20); jpUitlening.add(jlUitleningDag);
-	    cbDag = new JComboBox(dag); cbDag.setBounds(110, 70, 50, 20); jpUitlening.add(cbDag);
-	    jlUitleningMaand = new JLabel("Maand uitlening: "); jlUitleningMaand.setBounds(170, 70, 100, 20); jpUitlening.add(jlUitleningMaand);
-	    cbMaand = new JComboBox(maand); cbMaand.setBounds(280, 70, 100, 20); jpUitlening.add(cbMaand);
-	    jlUitleningJaar = new JLabel("Jaar uitlening: "); jlUitleningJaar.setBounds(390,  70,  100,  20); jpUitlening.add(jlUitleningJaar);
-	    cbJaar = new JComboBox(jaar); cbJaar.setBounds(500, 70, 100, 20); jpUitlening.add(cbJaar);
-	    jlUitleningDagen = new JLabel("Aantal dagen: "); jlUitleningDagen.setBounds(10, 100, 100, 20); jpUitlening.add(jlUitleningDagen);
-	    txtUitleningDagen = new JTextField(); txtUitleningDagen.setBounds(110, 100, 200, 20); jpUitlening.add(txtUitleningDagen);
-	    jlUitleningType1 = new JLabel("Type item: "); jlUitleningType1.setBounds(10, 130, 100, 20); jpUitlening.add(jlUitleningType1);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 130, 50, 20); jpUitlening.add(cbType);
-	    jlUitleningTitel1 = new JLabel("Titel item: "); jlUitleningTitel1.setBounds(170, 130, 100, 20); jpUitlening.add(jlUitleningTitel1);
-	    txtUitleningTitel1 = new JTextField(); txtUitleningTitel1.setBounds(280, 130, 200, 20); jpUitlening.add(txtUitleningTitel1);
-	    jlUitleningType2 = new JLabel("Type item: "); jlUitleningType2.setBounds(10, 160, 100, 20); jpUitlening.add(jlUitleningType2);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 160, 50, 20); jpUitlening.add(cbType);
-	    jlUitleningTitel2 = new JLabel("Titel item: "); jlUitleningTitel2.setBounds(170, 160, 100, 20); jpUitlening.add(jlUitleningTitel2);
-	    txtUitleningTitel2 = new JTextField(); txtUitleningTitel2.setBounds(280, 160, 200, 20); jpUitlening.add(txtUitleningTitel2);
-	    jlUitleningType3 = new JLabel("Type item: "); jlUitleningType3.setBounds(10, 190, 100, 20); jpUitlening.add(jlUitleningType3);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 190, 50, 20); jpUitlening.add(cbType);
-	    jlUitleningTitel3 = new JLabel("Titel item: "); jlUitleningTitel3.setBounds(170, 190, 100, 20); jpUitlening.add(jlUitleningTitel3);
-	    txtUitleningTitel3 = new JTextField(); txtUitleningTitel3.setBounds(280, 190, 200, 20); jpUitlening.add(txtUitleningTitel3);
-	    jlUitleningType4 = new JLabel("Type item: "); jlUitleningType4.setBounds(10, 220, 100, 20); jpUitlening.add(jlUitleningType4);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 220, 50, 20); jpUitlening.add(cbType);
-	    jlUitleningTitel4 = new JLabel("Titel item: "); jlUitleningTitel4.setBounds(170, 220, 100, 20); jpUitlening.add(jlUitleningTitel4);
-	    txtUitleningTitel4 = new JTextField(); txtUitleningTitel4.setBounds(280, 220, 200, 20); jpUitlening.add(txtUitleningTitel4);
-	    jlUitleningType5 = new JLabel("Type item: "); jlUitleningType5.setBounds(10, 250, 100, 20); jpUitlening.add(jlUitleningType5);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 250, 50, 20); jpUitlening.add(cbType);
-	    jlUitleningTitel5 = new JLabel("Titel item: "); jlUitleningTitel5.setBounds(170, 250, 100, 20); jpUitlening.add(jlUitleningTitel5);
-	    txtUitleningTitel5 = new JTextField(); txtUitleningTitel5.setBounds(280, 250, 200, 20); jpUitlening.add(txtUitleningTitel5);
-	    jlUitleningPrijs = new JLabel("Prijs uitleningen: "); jlUitleningPrijs.setBounds(10,280,100,20); jpUitlening.add(jlUitleningPrijs);
-	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 280, 200, 20); jpUitlening.add(txtUitleningPrijs);
-	    jlUitleningBetaald = new JLabel("Betaald: "); jlUitleningBetaald.setBounds(320, 280, 100, 20); jpUitlening.add(jlUitleningBetaald);
-	    cbBetaald = new JCheckBox(); cbBetaald.setBounds(430, 280, 20, 20); jpUitlening.add(cbBetaald);
-	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 310, 150, 20);
+	    jlUitleningType = new JLabel("Type item: "); jlUitleningType.setBounds(10, 70, 100, 20); jpUitlening.add(jlUitleningType);
+	    cbType = new JComboBox(type); cbType.setBounds(110, 70, 50, 20); jpUitlening.add(cbType);
+	    jlUitleningTitel = new JLabel("Titel item: "); jlUitleningTitel.setBounds(170, 70, 100, 20); jpUitlening.add(jlUitleningTitel);
+	    txtUitleningTitel = new JTextField(); txtUitleningTitel.setBounds(280, 70, 200, 20); jpUitlening.add(txtUitleningTitel);
+	    btnUitleningVoegToe = new JButton("Voeg item toe"); btnUitleningVoegToe.setBounds(10, 100, 200, 20); jpUitlening.add(btnUitleningVoegToe);
+	    btnUitleningVerwijder = new JButton("Verwijder item"); btnUitleningVerwijder.setBounds(220, 100, 200, 20); jpUitlening.add(btnUitleningVerwijder);
+	    tblUitleningen = new JTable(); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
+	    jlUitleningPrijs = new JLabel("Prijs:"); jlUitleningPrijs.setBounds(10, 540, 100, 20); jpUitlening.add(jlUitleningPrijs);
+	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 540, 200, 20); jpUitlening.add(txtUitleningPrijs);
+	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
 	    btnUitleningAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	  		  	Reservatie nieuwe = new Reservatie(getTxtUitleningPrijs(), new Datum(getCbDag(), getCbMaand(), getCbJaar()), 
-	  		  			Item.vindItem(getTxtUitleningTitel1(), getCbType()), getTxtUitleningDagen(), 0D, false);
-	    		try {
-	    			if (IOWriter.writeReservatie(nieuwe) == true) {
-						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-					}
-					else {
-						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-					}
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+	  		  	
 	    	}
 	    });
-	    jpUitlening.add(btnUitleningAdd);        
-	    jlUitleningType1 = new JLabel("Type item: "); jlUitleningType1.setBounds(10, 10, 100, 20); jpTerugbrengen.add(jlUitleningType1);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 10, 50, 20); jpTerugbrengen.add(cbType);
-	    jlUitleningTitel1 = new JLabel("Titel item: "); jlUitleningTitel1.setBounds(170, 10, 100, 20); jpTerugbrengen.add(jlUitleningTitel1);
-	    txtUitleningTitel1 = new JTextField(); txtUitleningTitel1.setBounds(280, 10, 200, 20); jpTerugbrengen.add(txtUitleningTitel1);
-	    jlUitleningType2 = new JLabel("Type item: "); jlUitleningType2.setBounds(10, 40, 100, 20); jpTerugbrengen.add(jlUitleningType2);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 40, 50, 20); jpTerugbrengen.add(cbType);
-	    jlUitleningTitel2 = new JLabel("Titel item: "); jlUitleningTitel2.setBounds(170, 40, 100, 20); jpTerugbrengen.add(jlUitleningTitel2);
-	    txtUitleningTitel2 = new JTextField(); txtUitleningTitel2.setBounds(280, 40, 200, 20); jpTerugbrengen.add(txtUitleningTitel2);
-	    jlUitleningType3 = new JLabel("Type item: "); jlUitleningType3.setBounds(10, 70, 100, 20); jpTerugbrengen.add(jlUitleningType3);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 70, 50, 20); jpTerugbrengen.add(cbType);
-	    jlUitleningTitel3 = new JLabel("Titel item: "); jlUitleningTitel3.setBounds(170, 70, 100, 20); jpTerugbrengen.add(jlUitleningTitel3);
-	    txtUitleningTitel3 = new JTextField(); txtUitleningTitel3.setBounds(280, 70, 200, 20); jpTerugbrengen.add(txtUitleningTitel3);
-	    jlUitleningType4 = new JLabel("Type item: "); jlUitleningType4.setBounds(10, 100, 100, 20); jpTerugbrengen.add(jlUitleningType4);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 100, 50, 20); jpTerugbrengen.add(cbType);
-	    jlUitleningTitel4 = new JLabel("Titel item: "); jlUitleningTitel4.setBounds(170, 100, 100, 20); jpTerugbrengen.add(jlUitleningTitel4);
-	    txtUitleningTitel4 = new JTextField(); txtUitleningTitel4.setBounds(280, 100, 200, 20); jpTerugbrengen.add(txtUitleningTitel4);
-	    jlUitleningType5 = new JLabel("Type item: "); jlUitleningType5.setBounds(10, 130, 100, 20); jpTerugbrengen.add(jlUitleningType5);
-	    cbType = new JComboBox(type); cbType.setBounds(110, 130, 50, 20); jpTerugbrengen.add(cbType);
-	    jlUitleningTitel5 = new JLabel("Titel item: "); jlUitleningTitel5.setBounds(170, 130, 100, 20); jpTerugbrengen.add(jlUitleningTitel5);
-	    txtUitleningTitel5 = new JTextField(); txtUitleningTitel5.setBounds(280, 130, 200, 20); jpTerugbrengen.add(txtUitleningTitel5);
-	    jlUitleningPrijs = new JLabel("Prijs uitleningen: "); jlUitleningPrijs.setBounds(10, 160, 100, 20); jpTerugbrengen.add(jlUitleningPrijs);
-	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 160, 50, 20); jpTerugbrengen.add(txtUitleningPrijs);
-	    jlTerugbrengenBoete = new JLabel("Boete: "); jlTerugbrengenBoete.setBounds(170, 160, 100, 20); jpTerugbrengen.add(jlTerugbrengenBoete);
-	    txtTerugbrengenBoete = new JTextField(); txtTerugbrengenBoete.setBounds(280, 160, 50, 20); jpTerugbrengen.add(txtTerugbrengenBoete);
-	    jlUitleningBetaald = new JLabel("Betaald: "); jlUitleningBetaald.setBounds(340, 160, 100, 20); jpTerugbrengen.add(jlUitleningBetaald);
-	    cbBetaald = new JCheckBox(); cbBetaald.setBounds(450, 160, 20, 20); jpTerugbrengen.add(cbBetaald);
-	    btnTerugbrengenAdd = new JButton("Voeg terugbrenging toe"); btnTerugbrengenAdd.setBounds(60, 190, 200, 20);
-	    // Nog ActionListener toevoegen
-	    jpTerugbrengen.add(btnTerugbrengenAdd);
+	    jpUitlening.add(btnUitleningAdd);   
+	    
+	    // Item-paneel
 	    jlItemTitel = new JLabel("Titel item:"); jlItemTitel.setBounds(10, 10, 100, 20); jpItem.add(jlItemTitel);
 	    txtItemTitel = new JTextField(); txtItemTitel.setBounds(110, 10, 200, 20); jpItem.add(txtItemTitel);
 	    jlItemType = new JLabel("Type item: "); jlItemType.setBounds(10, 40, 100, 20); jpItem.add(jlItemType);
@@ -210,10 +147,11 @@ public class WinkelPanel extends JFrame {
 	    	}
 	    });
 	    jpItem.add(btnTypeAdd);
+	    
+	    // Card toevoegen aan de main panel
 	    cardPanel.add(jpKlant, "1");
 	    cardPanel.add(jpUitlening, "2");
-	    cardPanel.add(jpTerugbrengen, "3");
-	    cardPanel.add(jpItem,  "4");
+	    cardPanel.add(jpItem,  "3");
 	    btnKlant = new JButton("Nieuwe Klant");
 	    btnKlant.addActionListener(new ActionListener() {
 	
@@ -221,25 +159,18 @@ public class WinkelPanel extends JFrame {
 	            cardLayout.show(cardPanel, "1");
 	        }
 	    });
-	    btnUitlening = new JButton("Nieuwe uitlening");
+	    btnUitlening = new JButton("Uitlening");
 	    btnUitlening.addActionListener(new ActionListener() {
 	
 	        public void actionPerformed(ActionEvent e) {
 	            cardLayout.show(cardPanel, "2");
 	        }
 	    });
-	    btnTerugbrengen = new JButton("Terugbrengen uitlening");
-	    btnTerugbrengen.addActionListener(new ActionListener() {
-	
-	        public void actionPerformed(ActionEvent e) {
-	            cardLayout.show(cardPanel, "3");
-	        }
-	    });
 	    btnItem = new JButton("Nieuw item");
 	    btnItem.addActionListener(new ActionListener() {
 	
 	        public void actionPerformed(ActionEvent e) {
-	            cardLayout.show(cardPanel, "4");
+	            cardLayout.show(cardPanel, "3");
 	        }
 	    });
 	    btnExit = new JButton("Exit");
@@ -250,7 +181,6 @@ public class WinkelPanel extends JFrame {
 	    });
 	    buttonPanel.add(btnKlant);
 	    buttonPanel.add(btnUitlening);
-	    buttonPanel.add(btnTerugbrengen);
 	    buttonPanel.add(btnItem);
 	    exitPanel.add(btnExit);
 	    add(cardPanel, BorderLayout.CENTER);
@@ -354,44 +284,12 @@ public class WinkelPanel extends JFrame {
 		this.txtUitleningVoornaam = txtUitleningVoornaam;
 	}
 
-	public String getTxtUitleningTitel1() {
-		return txtUitleningTitel1.getText();
+	public String getTxtUitleningTitel() {
+		return txtUitleningTitel.getText();
 	}
 
-	public void setTxtUitleningTitel1(JTextField txtUitleningTitel1) {
-		this.txtUitleningTitel1 = txtUitleningTitel1;
-	}
-
-	public String getTxtUitleningTitel2() {
-		return txtUitleningTitel2.getText();
-	}
-
-	public void setTxtUitleningTitel2(JTextField txtUitleningTitel2) {
-		this.txtUitleningTitel2 = txtUitleningTitel2;
-	}
-
-	public String getTxtUitleningTitel3() {
-		return txtUitleningTitel3.getText();
-	}
-
-	public void setTxtUitleningTitel3(JTextField txtUitleningTitel3) {
-		this.txtUitleningTitel3 = txtUitleningTitel3;
-	}
-
-	public String getTxtUitleningTitel4() {
-		return txtUitleningTitel4.getText();
-	}
-
-	public void setTxtUitleningTitel4(JTextField txtUitleningTitel4) {
-		this.txtUitleningTitel4 = txtUitleningTitel4;
-	}
-
-	public String getTxtUitleningTitel5() {
-		return txtUitleningTitel5.getText();
-	}
-
-	public void setTxtUitleningTitel5(JTextField txtUitleningTitel5) {
-		this.txtUitleningTitel5 = txtUitleningTitel5;
+	public void setTxtUitleningTitel(JTextField txtUitleningTitel) {
+		this.txtUitleningTitel = txtUitleningTitel;
 	}
 
 	public Double getTxtUitleningPrijs() {
@@ -435,7 +333,7 @@ public class WinkelPanel extends JFrame {
 	}
 
 	public int getCbMaand() {
-		return Integer.parseInt((String) cbMaand.getSelectedItem());
+		return cbMaand.getSelectedIndex() + 1;
 	}
 
 	public void setCbMaand(JComboBox cbMaand) {

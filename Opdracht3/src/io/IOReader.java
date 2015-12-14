@@ -1,6 +1,7 @@
 package io;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,36 +30,46 @@ public class IOReader {
 		movies = new HashMap<String, String>();
         String regel;
         @SuppressWarnings("resource")
-		BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
-        while ((regel = readerMovies.readLine()) != null)
-        {
-            String[] splits = regel.split("=");
-            String id = splits[0];
-            String titel = splits[1];
-            movies.put(id, titel);
-        }
+        File fMovies = new File("movies.txt");
+		if(fMovies.exists() && !fMovies.isDirectory()) { 
+			BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
+	        while ((regel = readerMovies.readLine()) != null)
+	        {
+	            String[] splits = regel.split("=");
+	            String id = splits[0];
+	            String titel = splits[1];
+	            movies.put(id, titel);
+	        }
+		}
         games = new HashMap<String, String>();
         @SuppressWarnings("resource")
-		BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
-        while ((regel = readerGames.readLine()) != null)
-        {
-            String[] splits = regel.split("=");
-            String id = splits[0];
-            String titel = splits[1];
-            games.put(id, titel);
-        }
+        File fGames = new File("games.txt");
+		if(fGames.exists() && !fGames.isDirectory()) {
+			BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
+	        while ((regel = readerGames.readLine()) != null)
+	        {
+	            String[] splits = regel.split("=");
+	            String id = splits[0];
+	            String titel = splits[1];
+	            games.put(id, titel);
+	        }
+		}
         cds = new HashMap<String, String>();
         @SuppressWarnings("resource")
-		BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
-        while ((regel = readerCds.readLine()) != null)
-        {
-            String[] splits = regel.split("=");
-            String id = splits[0];
-            String titel = splits[1];
-            cds.put(id, titel);
-        }
+        File fCds = new File("cds.txt");
+		if(fCds.exists() && !fCds.isDirectory()) {
+			BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
+	        while ((regel = readerCds.readLine()) != null)
+	        {
+	            String[] splits = regel.split("=");
+	            String id = splits[0];
+	            String titel = splits[1];
+	            cds.put(id, titel);
+	        }
+		}
 		return true;
 	}
+	
 	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
 	public Boolean refreshReservaties() throws IOException {
 		reservaties = new HashMap<String, String>();
@@ -88,29 +99,36 @@ public class IOReader {
 		klanten = new HashMap<Integer, String>();
 		String regel;
 	    @SuppressWarnings("resource")
-		BufferedReader readerKlanten = new BufferedReader(new FileReader("klant.txt"));
-	    while ((regel = readerKlanten.readLine()) != null)
-	    {
-	        String[] splits = regel.split("=");
-	        Integer id = Integer.parseInt(splits[0]);
-	        String klant = splits[1];
-	        klanten.put(id, klant);
+	    File fKlanten = new File("klant.txt");
+	    if(fKlanten.exists() && !fKlanten.isDirectory()) { 
+			BufferedReader readerKlanten = new BufferedReader(new FileReader("klant.txt"));
+		    while ((regel = readerKlanten.readLine()) != null)
+		    {
+		        String[] splits = regel.split("=");
+		        Integer id = Integer.parseInt(splits[0]);
+		        String klant = splits[1];
+		        klanten.put(id, klant);
+		    }
 	    }
 		return true;
 	}
 	
 	@SuppressWarnings("resource")
 	public Boolean hasItems(String cat) {
-		BufferedReader input = null;
-		try {
-            String file = cat + ".txt";
-            input = new BufferedReader(new FileReader(file));
-    		if (input.readLine() != null) {
-    		    return true;
-    		}
-        } catch ( IOException e ) {
-            e.printStackTrace();
-        }
+		File f = new File(cat + ".txt");
+		if(f.exists() && !f.isDirectory()) { 
+			BufferedReader input = null;
+			try {
+	            String file = cat + ".txt";
+	            input = new BufferedReader(new FileReader(file));
+	    		if (input.readLine() != null) {
+	    		    return true;
+	    		}
+	        } catch ( IOException e ) {
+	            e.printStackTrace();
+	        }
+			return false;
+		}
 		return false;
 	}
 	
@@ -165,7 +183,9 @@ public class IOReader {
 		return aantal;
 	}
 	
-	//public static void main(String [] args) throws IOException {
-	//}
+	public static void main(String [] args) throws IOException {
+		IOReader reader = new IOReader();
+		reader.refreshItems();
+	}
 
 }
