@@ -4,15 +4,25 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import domain.Adres;
+import domain.Cd;
+import domain.Datum;
+import domain.Film;
+import domain.Item;
+import domain.Klant;
+import domain.Reservatie;
+import domain.Spel;
 import io.IOWriter;
 
 public class KlantPanel extends JFrame {
@@ -20,7 +30,7 @@ public class KlantPanel extends JFrame {
 	
 
 	private static final long serialVersionUID = 1L;
-    private JPanel jpKlantinfo, jpArtikels, jpfooter;
+    private JPanel jpKlantinfo, jpArtikels, jpBetalingsinfo;
     private JLabel jlKlantlabel, jlKlanttext, jlItemlabel, jlItemtext, jlaantaldagenlabel, jlaantaldagentext;
     private CardLayout cardLayout = new CardLayout();
     private Character[] type = { 'M', 'G', 'C' };
@@ -34,6 +44,7 @@ public class KlantPanel extends JFrame {
     public KlantPanel() {
 	    setTitle("Uw bestelling");
 	    setSize(700, 300); // grootte scherm
+	    
 	    btnExit = new JButton("Exit");
 	    btnExit.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -47,7 +58,15 @@ public class KlantPanel extends JFrame {
 		this.jlKlantlabel = jlKlantlabel;
 	}
 	
-	
+	/* Informatie:
+	 * Klantenpaneel met:
+	 * [Panel jpKlantinfo]
+	 * 	Klant : Voornaam Achternaam
+	 * [Panel jpArtikels]
+	 * 	Tabel met [Titel][Type][Aantaldagen]
+	 * [Panel jpBetalingsinfo]
+	 * 	Informatie over openstaand saldo
+	 */
 	
 
 }
