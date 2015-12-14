@@ -79,7 +79,7 @@ public class IOWriter {
 	        }
 	        output.write(write);
 	        
-	        reader.refreshItems();
+	        reader.refreshKlanten();
 	        
 	    } catch ( IOException e ) {
 	    	
