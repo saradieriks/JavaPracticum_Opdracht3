@@ -1,6 +1,6 @@
 package domain;
 
-public class Spel extends Item{
+public class Spel extends Item implements IItem{
 
 	public Spel(String titel, char type, int id) {
 		super(titel, type, id);

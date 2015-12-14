@@ -1,6 +1,6 @@
 package domain;
 
-public class Film extends Item{
+public class Film extends Item implements IItem{
 
 	public Film(String titel, char type, int id) {
 		super(titel, type, id);
