@@ -38,7 +38,7 @@ public class KlantTest {
 		assertEquals("World", nieuweKlant.getNaam());
 		assertEquals("Hello", nieuweKlant.getVoornaam());
 		assertEquals(new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België"), nieuweKlant.getAdres());
-		//assertEquals("hello.world@world.com", nieuweKlant.getEmail());
+		assertEquals("hello.world@world.com", nieuweKlant.getEmail());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class KlantTest {
 		assertEquals(1, nieuweKlant.getKlantID());
 		assertEquals("World", nieuweKlant.getNaam());
 		assertEquals("Hello", nieuweKlant.getVoornaam());
-		//assertEquals(new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België"), nieuweKlant.getAdres());
+		assertEquals(new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België"), nieuweKlant.getAdres());
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class KlantTest {
 		
 		assertEquals("World", nieuweKlant.getNaam());
 		assertEquals("Hello", nieuweKlant.getVoornaam());
-		//assertEquals(new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België"), nieuweKlant.getAdres());
+		assertEquals(new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België"), nieuweKlant.getAdres());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)

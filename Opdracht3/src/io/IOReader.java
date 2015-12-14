@@ -69,6 +69,7 @@ public class IOReader {
 		}
 		return true;
 	}
+	
 	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
 	public Boolean refreshReservaties() throws IOException {
 		reservaties = new HashMap<String, String>();
@@ -98,13 +99,16 @@ public class IOReader {
 		klanten = new HashMap<Integer, String>();
 		String regel;
 	    @SuppressWarnings("resource")
-		BufferedReader readerKlanten = new BufferedReader(new FileReader("klant.txt"));
-	    while ((regel = readerKlanten.readLine()) != null)
-	    {
-	        String[] splits = regel.split("=");
-	        Integer id = Integer.parseInt(splits[0]);
-	        String klant = splits[1];
-	        klanten.put(id, klant);
+	    File fKlanten = new File("klant.txt");
+	    if(fKlanten.exists() && !fKlanten.isDirectory()) { 
+			BufferedReader readerKlanten = new BufferedReader(new FileReader("klant.txt"));
+		    while ((regel = readerKlanten.readLine()) != null)
+		    {
+		        String[] splits = regel.split("=");
+		        Integer id = Integer.parseInt(splits[0]);
+		        String klant = splits[1];
+		        klanten.put(id, klant);
+		    }
 	    }
 		return true;
 	}

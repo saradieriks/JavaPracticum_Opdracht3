@@ -435,7 +435,7 @@ public class WinkelPanel extends JFrame {
 	}
 
 	public int getCbMaand() {
-		return Integer.parseInt((String) cbMaand.getSelectedItem());
+		return cbMaand.getSelectedIndex() + 1;
 	}
 
 	public void setCbMaand(JComboBox cbMaand) {
