@@ -145,11 +145,9 @@ public class IOWriter {
 	}
 	
 	/*public static void main(String [] args) throws IOException {
-		Datum datum = new Datum(21,9,2015);
-		Item item = new Item("Eerste product", 'A', 1);
-		Reservatie reservatie = new Reservatie(20.5, datum, item, 2, 30.5, false, 1);
+		Item item = new Item("Eerste product", 'G', 5);
 		IOWriter writer = new IOWriter();
-		writer.writeReservatie(reservatie);
+		writer.writeItem(item);
 	}*/
 	
 }
