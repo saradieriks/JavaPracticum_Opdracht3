@@ -111,18 +111,7 @@ public class WinkelPanel extends JFrame {
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
 	    btnUitleningAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	  		  	Reservatie nieuwe = new Reservatie(getTxtUitleningPrijs(), new Datum(getCbDag(), getCbMaand(), getCbJaar()), 
-	  		  			Item.vindItem(getTxtUitleningTitel(), getCbType()), getTxtUitleningDagen(), 0D, false);
-	    		try {
-	    			if (IOWriter.writeReservatie(nieuwe) == true) {
-						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-					}
-					else {
-						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-					}
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+	  		  	
 	    	}
 	    });
 	    jpUitlening.add(btnUitleningAdd);   
