@@ -1,5 +1,9 @@
 package domain;
 
+import java.util.Map;
+
+import io.IOReader;
+
 public class Reservatie {
 
 	private Double prijs;
@@ -98,8 +102,29 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	// Deze methode moet nog verder uitgewerkt worden
-	public Boolean isAvailable (Item item) {
-		return true;
+	public static Boolean isAvailable (Item item) {
+		Boolean teruggeven = false;
+		if (item.getType() == 'M') {
+			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
+				if (item.getTitel() == entry.getValue()) {
+					teruggeven = true;
+				}
+			}
+		}
+		else if (item.getType() == 'G') {
+			for (Map.Entry<String, String> entry: IOReader.getGames().entrySet()) {
+				if (item.getTitel() == entry.getValue()) {
+					teruggeven = true;
+				}
+			}
+		}
+		else {
+			for (Map.Entry<String, String> entry: IOReader.getCDs().entrySet()) {
+				if (item.getTitel() == entry.getValue()) {
+					teruggeven = true;
+				}
+			}
+		}
+		return teruggeven;
 	}
 }

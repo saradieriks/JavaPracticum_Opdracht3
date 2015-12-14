@@ -1,6 +1,9 @@
 package domain;
 
+import java.util.Map;
+
 import controller.WinkelController;
+import io.IOReader;
 
 public class Klant implements Observer {
 
@@ -72,6 +75,11 @@ public class Klant implements Observer {
 		this.adres = adres;
 	}
 	
+	public Klant (String naam, String voornaam) {
+		this.naam = naam;
+		this.voornaam = voornaam;
+	}
+	
 	public String toString() {
 		return voornaam + " " + naam  + "\n" + adres.toString() + "\n" + 
 			   email;
@@ -100,6 +108,19 @@ public class Klant implements Observer {
 			mailClient.stuurMailnaarKlant(this,item);
 					}
 		
+	}
+	
+	// Klant id zoeken op basis van naam en voornaam
+	public static int vindKlantId(String naam, String voornaam) {
+		Klant teVinden = new Klant(naam, voornaam);
+		int idGevonden = 0;
+		for (Map.Entry<Integer, String> entry: IOReader.getKlanten().entrySet()) {
+			if(teVinden.getNaam().toLowerCase().contains(entry.getValue().toLowerCase()) && 
+					teVinden.getVoornaam().toLowerCase().contains(entry.getValue().toLowerCase())) {
+				idGevonden = entry.getKey();
+			}
+		}
+		return idGevonden;
 	}
 	
 }
