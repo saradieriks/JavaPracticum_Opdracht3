@@ -1,6 +1,7 @@
 package io;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -101,16 +102,20 @@ public class IOReader {
 	
 	@SuppressWarnings("resource")
 	public Boolean hasItems(String cat) {
-		BufferedReader input = null;
-		try {
-            String file = cat + ".txt";
-            input = new BufferedReader(new FileReader(file));
-    		if (input.readLine() != null) {
-    		    return true;
-    		}
-        } catch ( IOException e ) {
-            e.printStackTrace();
-        }
+		File f = new File(cat + ".txt");
+		if(f.exists() && !f.isDirectory()) { 
+			BufferedReader input = null;
+			try {
+	            String file = cat + ".txt";
+	            input = new BufferedReader(new FileReader(file));
+	    		if (input.readLine() != null) {
+	    		    return true;
+	    		}
+	        } catch ( IOException e ) {
+	            e.printStackTrace();
+	        }
+			return false;
+		}
 		return false;
 	}
 	
