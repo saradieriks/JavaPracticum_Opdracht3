@@ -31,7 +31,7 @@ public class IOReader {
         String regel;
         @SuppressWarnings("resource")
         File fMovies = new File("movies.txt");
-		if(f.exists() && !f.isDirectory()) { 
+		if(fMovies.exists() && !fMovies.isDirectory()) { 
 			BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
 	        while ((regel = readerMovies.readLine()) != null)
 	        {
@@ -43,8 +43,8 @@ public class IOReader {
 		}
         games = new HashMap<String, String>();
         @SuppressWarnings("resource")
-        File fMovies = new File("games.txt");
-		if(f.exists() && !f.isDirectory()) {
+        File fGames = new File("games.txt");
+		if(fGames.exists() && !fGames.isDirectory()) {
 			BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
 	        while ((regel = readerGames.readLine()) != null)
 	        {
@@ -56,8 +56,8 @@ public class IOReader {
 		}
         cds = new HashMap<String, String>();
         @SuppressWarnings("resource")
-        File fMovies = new File("cds.txt");
-		if(f.exists() && !f.isDirectory()) {
+        File fCds = new File("cds.txt");
+		if(fCds.exists() && !fCds.isDirectory()) {
 			BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
 	        while ((regel = readerCds.readLine()) != null)
 	        {
@@ -179,7 +179,9 @@ public class IOReader {
 		return aantal;
 	}
 	
-	//public static void main(String [] args) throws IOException {
-	//}
+	public static void main(String [] args) throws IOException {
+		IOReader reader = new IOReader();
+		reader.refreshItems();
+	}
 
 }
