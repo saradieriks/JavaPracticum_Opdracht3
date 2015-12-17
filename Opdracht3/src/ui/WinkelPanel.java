@@ -44,7 +44,7 @@ public class WinkelPanel extends JFrame {
     
     public WinkelPanel() {
 	    setTitle("Winkel");
-	    setSize(800, 700);
+	    setSize(800, 720);
 	    cardPanel = new JPanel();
 	    buttonPanel = new JPanel();
 	    exitPanel = new JPanel();
