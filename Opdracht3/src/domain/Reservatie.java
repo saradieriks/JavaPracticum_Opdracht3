@@ -106,7 +106,8 @@ public class Reservatie {
 		Boolean teruggeven = false;
 		if (item.getType() == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
-				if (item.getTitel() == entry.getValue()) {
+				String film = entry.getValue().replaceAll("+", " ");
+				if (item.getTitel() == film) {
 					teruggeven = true;
 				}
 			}
