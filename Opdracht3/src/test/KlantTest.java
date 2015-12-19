@@ -18,7 +18,7 @@ public class KlantTest {
 	public void SetUp()throws Exception {
 		adres = new Adres("Leuvensebaan", "351", "b", "3000", "Leuven", "België");
 		adresGelijk = new Adres("Leuvensebaan", "28", "3000", "Leuven", "België");
-		adresNietGelijk = new Adres("Brusselsebaan", "128", "100", "Brussel", "Frankrijk");
+		adresNietGelijk = new Adres("Brusselsebaan", "128", "c", "100", "Brussel", "Frankrijk");
 		klant = new Klant(1, "World", "Hello", adres, "hello.world@world.com");
 		klantGelijk = new Klant(1, "World", "Hello", adres, "hello.world@world.com");
 		klantNietGelijk = new Klant(2, "Sun", "By", adresNietGelijk, "by.sun@sun.com");
@@ -138,13 +138,46 @@ public class KlantTest {
 	
 	@Test
 	public void test_Equals_True_Als_Klanten_Gelijk_Zijn() {
-		//assertTrue(klant.getKlantID
+		assertTrue(Integer.valueOf(klant.getKlantID()).equals(Integer.valueOf(klantGelijk.getKlantID())));
 		assertTrue(klant.getNaam().equals(klantGelijk.getNaam()));
+		assertTrue(klant.getVoornaam().equals(klantGelijk.getVoornaam()));
+		assertTrue(klant.getAdres().getStraat().equals(klantGelijk.getAdres().getStraat()));
+		assertTrue(klant.getAdres().getNummer().equals(klantGelijk.getAdres().getNummer()));
+		assertTrue(klant.getAdres().getBox().equals(klantGelijk.getAdres().getBox()));
+		assertTrue(klant.getAdres().getPostcode().equals(klantGelijk.getAdres().getPostcode()));
+		assertTrue(klant.getAdres().getGemeente().equals(klantGelijk.getAdres().getGemeente()));
+		assertTrue(klant.getAdres().getLand().equals(klantGelijk.getAdres().getLand()));
+		assertTrue(Integer.valueOf(klantGelijk.getKlantID()).equals(Integer.valueOf(klant.getKlantID())));
+		assertTrue(klantGelijk.getNaam().equals(klant.getNaam()));
+		assertTrue(klantGelijk.getVoornaam().equals(klant.getVoornaam()));
+		assertTrue(klantGelijk.getAdres().getStraat().equals(klant.getAdres().getStraat()));
+		assertTrue(klantGelijk.getAdres().getNummer().equals(klant.getAdres().getNummer()));
+		assertTrue(klantGelijk.getAdres().getBox().equals(klant.getAdres().getBox()));
+		assertTrue(klantGelijk.getAdres().getPostcode().equals(klant.getAdres().getPostcode()));
+		assertTrue(klantGelijk.getAdres().getGemeente().equals(klant.getAdres().getGemeente()));
+		assertTrue(klantGelijk.getAdres().getLand().equals(klant.getAdres().getLand()));
 	}
 	
 	@Test
 	public void test_Equals_False_Als_Klanten_Niet_Gelijk_Zijn() {
-
+		assertFalse(Integer.valueOf(klant.getKlantID()).equals(Integer.valueOf(klantNietGelijk.getKlantID())));
+		assertFalse(klant.getNaam().equals(klantNietGelijk.getNaam()));
+		assertFalse(klant.getVoornaam().equals(klantNietGelijk.getVoornaam()));
+		assertFalse(klant.getAdres().getStraat().equals(klantNietGelijk.getAdres().getStraat()));
+		assertFalse(klant.getAdres().getNummer().equals(klantNietGelijk.getAdres().getNummer()));
+		assertFalse(klant.getAdres().getBox().equals(klantNietGelijk.getAdres().getBox()));
+		assertFalse(klant.getAdres().getPostcode().equals(klantNietGelijk.getAdres().getPostcode()));
+		assertFalse(klant.getAdres().getGemeente().equals(klantNietGelijk.getAdres().getGemeente()));
+		assertFalse(klant.getAdres().getLand().equals(klantNietGelijk.getAdres().getLand()));
+		assertFalse(Integer.valueOf(klantNietGelijk.getKlantID()).equals(Integer.valueOf(klant.getKlantID())));
+		assertFalse(klantNietGelijk.getNaam().equals(klant.getNaam()));
+		assertFalse(klantNietGelijk.getVoornaam().equals(klant.getVoornaam()));
+		assertFalse(klantNietGelijk.getAdres().getStraat().equals(klant.getAdres().getStraat()));
+		assertFalse(klantNietGelijk.getAdres().getNummer().equals(klant.getAdres().getNummer()));
+		assertFalse(klantNietGelijk.getAdres().getBox().equals(klant.getAdres().getBox()));
+		assertFalse(klantNietGelijk.getAdres().getPostcode().equals(klant.getAdres().getPostcode()));
+		assertFalse(klantNietGelijk.getAdres().getGemeente().equals(klant.getAdres().getGemeente()));
+		assertFalse(klantNietGelijk.getAdres().getLand().equals(klant.getAdres().getLand()));
 	}
 	
 
