@@ -102,26 +102,28 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
-	public static Boolean isAvailable (Item item) {
+	public static Boolean isAvailable (String value, char type) {
 		Boolean teruggeven = false;
-		if (item.getType() == 'M') {
+		if (type == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
 				String film = entry.getValue().replaceAll("+", " ");
-				if (item.getTitel() == film) {
+				if (value == film) {
 					teruggeven = true;
 				}
 			}
 		}
-		else if (item.getType() == 'G') {
+		else if (type == 'G') {
 			for (Map.Entry<String, String> entry: IOReader.getGames().entrySet()) {
-				if (item.getTitel() == entry.getValue()) {
+				String film = entry.getValue().replaceAll("+", " ");
+				if (value == film) {
 					teruggeven = true;
 				}
 			}
 		}
 		else {
 			for (Map.Entry<String, String> entry: IOReader.getCDs().entrySet()) {
-				if (item.getTitel() == entry.getValue()) {
+				String film = entry.getValue().replaceAll("+", " ");
+				if (value == film) {
 					teruggeven = true;
 				}
 			}
