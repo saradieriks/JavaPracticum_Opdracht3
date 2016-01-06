@@ -17,7 +17,7 @@ public class IOReader {
 	private static HashMap<String,String> movies;
 	private static HashMap<String,String> games;
 	private static HashMap<String,String> cds;
-	private HashMap<String,String> reservaties;
+	private static HashMap<String,String> reservaties;
 	private static HashMap<Integer,String> klanten;
 	
 	// FILE VERSIE
@@ -156,6 +156,7 @@ public class IOReader {
 	}
 	
 	public static HashMap<String,String> getMovies() {
+		movies = new HashMap<String,String>();
 		return movies;
 	}
 	
