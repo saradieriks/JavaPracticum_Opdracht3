@@ -41,6 +41,8 @@ public class WinkelPanel extends JFrame {
     private JComboBox cbType, cbDag, cbMaand, cbJaar;
     private JCheckBox cbBetaald;
     private JTable tblUitleningen;
+    private JButton btnLijstVanAlle;
+    private JTextField ZoekText;
     
     public WinkelPanel() {
 	    setTitle("Winkel");
@@ -184,11 +186,31 @@ public class WinkelPanel extends JFrame {
 	    
 	    // Inventaris-paneel
 	    
+	    btnLijstVanAlle = new JButton("Lijst van alle items geven");
+	    btnLijstVanAlle.setBounds(26, 38, 177, 25);
+	    jpInventaris.add(btnLijstVanAlle);
+	    
+	    ZoekText = new JTextField();
+	    ZoekText.setBounds(26, 113, 177, 22);
+	    jpInventaris.add(ZoekText);
+	    ZoekText.setColumns(10);
+	    
+	    JButton btnZoekItems = new JButton("Zoek items");
+	    btnZoekItems.setBounds(24, 139, 97, 25);
+	    jpInventaris.add(btnZoekItems);
+	    
+	    JLabel lblZoekterm = new JLabel("Zoekterm:");
+	    lblZoekterm.setBounds(26, 95, 116, 16);
+	    jpInventaris.add(lblZoekterm);
+	    
+	    
 	    // Card toevoegen aan de main panel
 	    cardPanel.add(jpKlant, "1");
 	    cardPanel.add(jpUitlening, "2");
 	    cardPanel.add(jpItem,  "3");
 	    cardPanel.add(jpInventaris, "4");
+	    
+
 	    btnKlant = new JButton("Nieuwe Klant");
 	    btnKlant.addActionListener(new ActionListener() {
 	
@@ -228,9 +250,9 @@ public class WinkelPanel extends JFrame {
 	    buttonPanel.add(btnItem);
 	    buttonPanel.add(btnInventaris);
 	    exitPanel.add(btnExit);
-	    add(cardPanel, BorderLayout.CENTER);
-	    add(buttonPanel, BorderLayout.NORTH);
-	    add(exitPanel, BorderLayout.SOUTH);
+	    getContentPane().add(cardPanel, BorderLayout.CENTER);
+	    getContentPane().add(buttonPanel, BorderLayout.NORTH);
+	    getContentPane().add(exitPanel, BorderLayout.SOUTH);
     }
     
     public String getTxtItemTitel() {
