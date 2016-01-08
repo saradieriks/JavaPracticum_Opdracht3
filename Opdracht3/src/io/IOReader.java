@@ -26,7 +26,7 @@ public class IOReader {
 		
 	}
 	
-	public Boolean refreshItems() throws IOException {
+	public static Boolean refreshItems() throws IOException {
 		movies = new HashMap<String, String>();
         String regel;
         @SuppressWarnings("resource")
@@ -156,23 +156,53 @@ public class IOReader {
 	}
 	
 	public static HashMap<String,String> getMovies() {
-		movies = new HashMap<String,String>();
+		//movies = new HashMap<String,String>();
+		try {
+			refreshItems();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return movies;
 	}
 	
 	public static HashMap<String,String> getGames() {
+		try {
+			refreshItems();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return games;
 	}
 	
 	public static HashMap<String,String> getCDs() {
+		try {
+			refreshItems();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return cds;
 	}
 	
 	public HashMap<String,String> getReservaties() {
+		try {
+			refreshItems();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return reservaties;
 	}
 	
 	public static HashMap<Integer,String> getKlanten() {
+		try {
+			refreshItems();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return klanten;
 	}
 
