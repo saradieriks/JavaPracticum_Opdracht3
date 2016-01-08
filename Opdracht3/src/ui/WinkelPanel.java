@@ -248,7 +248,7 @@ public class WinkelPanel extends JFrame {
 					alleItems.append("MOVIES.......\n");
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
-						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
 							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						    alleItems.append("\n");
@@ -258,7 +258,7 @@ public class WinkelPanel extends JFrame {
 					alleItems.append("GAMES........\n");
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
-						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
 							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						    alleItems.append("\n");
@@ -267,7 +267,7 @@ public class WinkelPanel extends JFrame {
 					alleItems.append("CDs..........\n");
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
-						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
 							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						    alleItems.append("\n");
