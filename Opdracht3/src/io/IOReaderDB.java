@@ -154,7 +154,7 @@ public class IOReaderDB {
 		return klanten;
 	}
 	
-	public static void main(String [] args) throws SQLException {
+	//public static void main(String [] args) throws SQLException {
 		/*IOReaderDB reader = new IOReaderDB();
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
@@ -183,6 +183,6 @@ public class IOReaderDB {
         
         con.close();
         */
-	}
+	//}
 	
 }

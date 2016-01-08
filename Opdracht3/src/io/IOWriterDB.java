@@ -162,7 +162,7 @@ public class IOWriterDB {
 		return true;
 	}
 	
-	public static void main(String [] args) throws SQLException {
+	//public static void main(String [] args) throws SQLException {
 		//IOWriterDB writer = new IOWriterDB();
 		/*
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
@@ -210,7 +210,7 @@ public class IOWriterDB {
             System.out.println(test.getKey() +" :: "+ test.getValue());
         }
         */
-	}
+	//}
 	
 	
 }
