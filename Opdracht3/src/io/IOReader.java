@@ -71,7 +71,7 @@ public class IOReader {
 	}
 	
 	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
-	public Boolean refreshReservaties() throws IOException {
+	public static Boolean refreshReservaties() throws IOException {
 		reservaties = new HashMap<String, String>();
 		String regel;
         @SuppressWarnings("resource")
@@ -186,7 +186,7 @@ public class IOReader {
 		return cds;
 	}
 	
-	public HashMap<String,String> getReservaties() {
+	public static HashMap<String,String> getReservaties() {
 		try {
 			refreshReservaties();
 		} catch (IOException e) {

@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -138,5 +140,21 @@ public class Reservatie {
 			}
 		}
 		return teruggeven;
+	}
+	
+	public static List<Reservatie> haalReservatiesOp (String naam, String voornaam) {
+		List<Reservatie> object = new ArrayList<Reservatie>();
+		int id = Klant.vindKlantId(naam, voornaam);
+		for (Map.Entry<String, String> entry: IOReader.getReservaties().entrySet()) {
+			int begin = 6;
+			int tijdelijk = entry.getValue().indexOf(";");
+			int einde = tijdelijk - 6;
+			int gevonden = Integer.parseInt(entry.getValue().substring(begin, einde));
+			if (gevonden == id) {
+				Reservatie res = new Reservatie();
+				System.out.println("Gevonden");
+			}
+		}
+		return object;
 	}
 }
