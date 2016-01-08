@@ -26,7 +26,7 @@ public class IOReaderDB {
 	public IOReaderDB() throws SQLException {
 	}
 	
-	public Boolean refreshItems() throws SQLException {
+	public static Boolean refreshItems() throws SQLException {
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
         movies = new HashMap<String, String>();
@@ -101,6 +101,57 @@ public class IOReaderDB {
         }
         con.close();
         return true;
+	}
+	
+	public static HashMap<String,String> getMovies() {
+		//movies = new HashMap<String,String>();
+		try {
+			refreshItems();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return movies;
+	}
+	
+	public static HashMap<String,String> getGames() {
+		try {
+			refreshItems();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return games;
+	}
+	
+	public static HashMap<String,String> getCDs() {
+		try {
+			refreshItems();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cds;
+	}
+	
+	public HashMap<String,String> getReservaties() {
+		try {
+			refreshItems();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return reservaties;
+	}
+	
+	public static HashMap<Integer,String> getKlanten() {
+		try {
+			refreshItems();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return klanten;
 	}
 	
 	public static void main(String [] args) throws SQLException {
