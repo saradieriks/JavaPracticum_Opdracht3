@@ -15,8 +15,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import domain.Adres;
 import domain.Cd;
@@ -46,6 +51,7 @@ public class WinkelPanel extends JFrame {
     private JTable tblUitleningen;
     private JButton btnLijstVanAlle;
     private JTextField ZoekText;
+    private String[] kolomNamen = {"Type", "Titel", "Dagen"};
     
     public WinkelPanel() {
 	    setTitle("Winkel");
@@ -158,7 +164,10 @@ public class WinkelPanel extends JFrame {
 	    });
 	    jpUitlening.add(btnUitleningVoegToe);
 	    btnUitleningVerwijder = new JButton("Verwijder item"); btnUitleningVerwijder.setBounds(220, 100, 200, 20); jpUitlening.add(btnUitleningVerwijder);
-	    tblUitleningen = new JTable(); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
+	    DefaultTableModel model = new DefaultTableModel(kolomNamen, 0);
+	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
+	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
+	    model.addRow(rowData);
 	    jlUitleningPrijs = new JLabel("Prijs:"); jlUitleningPrijs.setBounds(10, 540, 100, 20); jpUitlening.add(jlUitleningPrijs);
 	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 540, 200, 20); jpUitlening.add(txtUitleningPrijs);
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
