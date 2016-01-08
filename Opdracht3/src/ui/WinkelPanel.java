@@ -29,13 +29,13 @@ import io.IOWriter;
 public class WinkelPanel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-    private JPanel cardPanel, jpKlant, jpUitlening, jpItem, buttonPanel, exitPanel;
+    private JPanel cardPanel, jpKlant, jpUitlening, jpItem, buttonPanel, exitPanel, jpInventaris;
     private JLabel jlKlantVoornaam, jlKlantNaam, jlKlantStraat, jlKlantNummer, jlKlantBox, jlKlantPostcode, jlKlantGemeente, jlKlantLand, jlKlantEmail,
-    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType, jlUitleningDagen;
+    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType, jlUitleningDagen, jlTest;
     private JTextField txtItemTitel, txtKlantVoornaam, txtKlantNaam, txtKlantStraat, txtKlantNummer, txtKlantBox, txtKlantPostcode, txtKlantGemeente,
     	txtKlantLand, txtKlantEmail,txtUitleningNaam, txtUitleningVoornaam, txtUitleningTitel, txtUitleningPrijs, txtUitleningDagen, txtTerugbrengenBoete;
     private JButton btnKlant, btnUitlening, btnTerugbrengen, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, 
-    	btnUitleningVoegToe, btnUitleningVerwijder;
+    	btnUitleningVoegToe, btnUitleningVerwijder, btnInventaris;
     private CardLayout cardLayout = new CardLayout();
     private Character[] type = { 'M', 'G', 'C' };
     private JComboBox cbType, cbDag, cbMaand, cbJaar;
@@ -55,6 +55,8 @@ public class WinkelPanel extends JFrame {
 	    jpUitlening.setLayout(null);;
 	    jpItem = new JPanel();
 	    jpItem.setLayout(null);
+	    jpInventaris = new JPanel();
+	    jpInventaris.setLayout(null);
 	    
 	    // Klant-paneel
 	    jlKlantVoornaam = new JLabel("Voornaam: "); jlKlantVoornaam.setBounds(10, 10, 100, 20); jpKlant.add(jlKlantVoornaam); 
@@ -180,10 +182,13 @@ public class WinkelPanel extends JFrame {
 	    });
 	    jpItem.add(btnTypeAdd);
 	    
+	    // Inventaris-paneel
+	    
 	    // Card toevoegen aan de main panel
 	    cardPanel.add(jpKlant, "1");
 	    cardPanel.add(jpUitlening, "2");
 	    cardPanel.add(jpItem,  "3");
+	    cardPanel.add(jpInventaris, "4");
 	    btnKlant = new JButton("Nieuwe Klant");
 	    btnKlant.addActionListener(new ActionListener() {
 	
@@ -205,6 +210,13 @@ public class WinkelPanel extends JFrame {
 	            cardLayout.show(cardPanel, "3");
 	        }
 	    });
+	    btnInventaris = new JButton("Inventaris");
+	    btnInventaris.addActionListener(new ActionListener() {
+	
+	        public void actionPerformed(ActionEvent e) {
+	            cardLayout.show(cardPanel, "4");
+	        }
+	    });
 	    btnExit = new JButton("Exit");
 	    btnExit.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -214,6 +226,7 @@ public class WinkelPanel extends JFrame {
 	    buttonPanel.add(btnKlant);
 	    buttonPanel.add(btnUitlening);
 	    buttonPanel.add(btnItem);
+	    buttonPanel.add(btnInventaris);
 	    exitPanel.add(btnExit);
 	    add(cardPanel, BorderLayout.CENTER);
 	    add(buttonPanel, BorderLayout.NORTH);
