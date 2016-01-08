@@ -11,6 +11,13 @@ public class Item implements IItem{
 	private char type;
 	private int id;
 	
+	private StatusUitleenbaar uitleenbaar;
+	private StatusUitgeleend uitgeleend;
+	private StatusBeschadigd beschadigd;
+	private StatusVerwijderd verwijderd;
+	
+	private Status status = uitleenbaar;
+	
 	public String getTitel() {
 		return titel;
 	}
@@ -29,16 +36,40 @@ public class Item implements IItem{
 	public void setID(int id) {
 		this.id = id;
 	}
+	
+	public StatusUitleenbaar getUitleenbaar(){
+		return this.uitleenbaar;
+	}
+	
+	public StatusUitgeleend getUitgeleend(){
+		return this.uitgeleend;
+	}
+	
+	public StatusBeschadigd getBeschadigd(){
+		return this.beschadigd;
+	}
+	
+	public StatusVerwijderd getVerwijderd(){
+		return this.verwijderd;
+	}
 		
 	public Item (String titel, char type, int id) {
 		this.titel = titel;
 		this.type = type;
 		this.id = id;
+		uitleenbaar = new StatusUitleenbaar(this);
+		uitgeleend = new StatusUitgeleend(this);
+		beschadigd = new StatusBeschadigd(this);
+		verwijderd = new StatusVerwijderd(this);
 	}
 	
 	public Item (String titel, char type) {
 		this.titel = titel;
 		this.type = type;
+		uitleenbaar = new StatusUitleenbaar(this);
+		uitgeleend = new StatusUitgeleend(this);
+		beschadigd = new StatusBeschadigd(this);
+		verwijderd = new StatusVerwijderd(this);
 	}
 	
 	public String toString() {
