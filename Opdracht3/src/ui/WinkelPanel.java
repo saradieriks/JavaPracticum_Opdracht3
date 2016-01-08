@@ -213,19 +213,19 @@ public class WinkelPanel extends JFrame {
 				try {
 					IOReader.refreshItems();
 					StringBuilder alleItems = new StringBuilder();
-					alleItems.append("MOVIES\n");
+					alleItems.append("MOVIES.......\n");
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
 					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
 					    alleItems.append("\n");
 					}
-					alleItems.append("GAMES\n");
+					alleItems.append("GAMES........\n");
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
 					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
 					    alleItems.append("\n");
 					}
-					alleItems.append("CDs\n");
+					alleItems.append("CDs..........\n");
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
 					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
@@ -237,6 +237,51 @@ public class WinkelPanel extends JFrame {
 				}	
 			}
 	    });
+	    
+	    btnZoekItems.addActionListener(new ActionListener () {
+
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					IOReader.refreshItems();
+					StringBuilder alleItems = new StringBuilder();
+					alleItems.append("MOVIES.......\n");
+					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
+					{
+						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						{
+							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+						    alleItems.append("\n");
+						}
+					    
+					}
+					alleItems.append("GAMES........\n");
+					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
+					{
+						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						{
+							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+						    alleItems.append("\n");
+						}
+					}
+					alleItems.append("CDs..........\n");
+					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
+					{
+						if (entry.getValue().replaceAll(Pattern.quote("+")," ").contains(ZoekText.getText()))
+						{
+							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+						    alleItems.append("\n");
+						}
+					}
+					System.out.println(alleItems.toString());	
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}	
+			}
+	    });
+	    
+	    
+
 	    
 	    		
 	    
