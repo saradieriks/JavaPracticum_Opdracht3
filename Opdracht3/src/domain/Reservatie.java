@@ -101,6 +101,10 @@ public class Reservatie {
 		this.item = item;
 		this.aantalDagen = aantalDagen;
 		this.klantID = klantID;
+		this.prijs = 0D;
+		this.boete = 0D;
+		this.betaald = false;
+		this.startDatum = new Datum();
 	}
 	
 	public String toString() {
