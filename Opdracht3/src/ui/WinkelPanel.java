@@ -127,12 +127,15 @@ public class WinkelPanel extends JFrame {
 	    txtUitleningTitel = new JTextField(); txtUitleningTitel.setBounds(280, 70, 200, 20); jpUitlening.add(txtUitleningTitel);
 	    jlUitleningDagen = new JLabel("Aantal dagen:"); jlUitleningDagen.setBounds(490, 70, 100, 20); jpUitlening.add(jlUitleningDagen);
 	    txtUitleningDagen = new JTextField(); txtUitleningDagen.setBounds(600, 70, 100, 20); jpUitlening.add(txtUitleningDagen);
+	    DefaultTableModel model = new DefaultTableModel(kolomNamen, 0);
+	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
+	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
+	    model.addRow(rowData);
 	    btnUitleningVoegToe = new JButton("Voeg item toe"); btnUitleningVoegToe.setBounds(10, 100, 200, 20);
 	    btnUitleningVoegToe.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		if (Reservatie.isAvailable(getTxtUitleningTitel(), getCbType())) {
 	    			JOptionPane.showMessageDialog(null, "Item beschikbaar", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-	    			System.out.println("ItemID: " + Item.vindItem(getTxtUitleningTitel(), getCbType()));
 	    			Reservatie nieuwe = new Reservatie(Item.vindItem(getTxtUitleningTitel(), getCbType()), getTxtUitleningDagen(), 
 	    					Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()));
 	    			if (Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()) == -1) {
@@ -141,9 +144,9 @@ public class WinkelPanel extends JFrame {
 	    			else {
 	    				JOptionPane.showMessageDialog(null, "Klant gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 	    			}
-	    			System.out.println("Reservatie is:" + nieuwe.toString());
 	    			try {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
+							model.addRow(new Object[]{getCbType(), getTxtUitleningTitel(), getTxtUitleningDagen()});
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
 						else {
@@ -164,10 +167,6 @@ public class WinkelPanel extends JFrame {
 	    });
 	    jpUitlening.add(btnUitleningVoegToe);
 	    btnUitleningVerwijder = new JButton("Verwijder item"); btnUitleningVerwijder.setBounds(220, 100, 200, 20); jpUitlening.add(btnUitleningVerwijder);
-	    DefaultTableModel model = new DefaultTableModel(kolomNamen, 0);
-	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
-	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
-	    model.addRow(rowData);
 	    jlUitleningPrijs = new JLabel("Prijs:"); jlUitleningPrijs.setBounds(10, 540, 100, 20); jpUitlening.add(jlUitleningPrijs);
 	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 540, 200, 20); jpUitlening.add(txtUitleningPrijs);
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
