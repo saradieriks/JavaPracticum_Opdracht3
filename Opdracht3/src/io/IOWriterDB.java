@@ -6,12 +6,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import domain.*;
 
 public class IOWriterDB {
 	
-	static String db = "jdbc:derby:db;create=true";
+	static String db = "jdbc:derby:codejava/webdb1;create=true";
 	static Connection con = null;
 	static Statement st = null;
 	static ResultSet rs = null;
@@ -71,7 +74,7 @@ public class IOWriterDB {
 			        sql = "CREATE TABLE RESERVATIES ("
 			        		+ "id INTEGER not NULL GENERATED ALWAYS AS IDENTITY, "
 			        		+ "klantID INTEGER, "
-			        		+ "itemID INTEGER, "
+			        		+ "itemID VARCHAR(10), "
 			        		+ "aantaldagen INTEGER, "
 			        		+ "prijs DOUBLE, "
 			        		+ "startdatum VARCHAR(255), "
@@ -84,6 +87,7 @@ public class IOWriterDB {
 	}
 	
 	public static boolean writeItem(Item item) throws SQLException {
+		IOWriterDB writer = new IOWriterDB();
 		char type = item.getType();
 		String titel = item.getTitel();
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
@@ -93,27 +97,27 @@ public class IOWriterDB {
 			case 'M':
 				sql = "INSERT INTO FILMS " +
 	        			"(titel, type)" +
-	        			"VALUES("+titel+", "+type+")";
+	        			"VALUES('"+titel+"', '"+type+"')";
 				break;
 			case 'G':
 				sql = "INSERT INTO SPELLEN " +
 	        			"(titel, type)" +
-	        			"VALUES("+titel+", "+type+")";
+	        			"VALUES('"+titel+"', '"+type+"')";
 				break;
 			case 'C':
 				sql = "INSERT INTO CDS " +
 	        			"(titel, type)" +
-	        			"VALUES("+titel+", "+type+")";
+	        			"VALUES('"+titel+"', '"+type+"')";
 				break;
 		}
 		st.executeUpdate(sql);
-		IOReaderDB reader = new IOReaderDB();
-		reader.refreshItems();
+		IOReaderDB.refreshItems();
 		con.close();
 		return true;
 	}
 	
 	public static boolean writeKlant(Klant klant) throws SQLException {
+		IOWriterDB writer = new IOWriterDB();
 		String naam = klant.getNaam();
 		String voornaam = klant.getVoornaam();
 		String adres = klant.getAdres().getStraat() + ";"
@@ -128,15 +132,15 @@ public class IOWriterDB {
         st = con.createStatement();
         sql = "INSERT INTO KLANTEN " +
     			"(naam, voornaam, adres, email)" +
-    			"VALUES("+naam+", "+voornaam+", "+adres+", "+email+")";
+    			"VALUES('"+naam+"', '"+voornaam+"', '"+adres+"', '"+email+"')";
         st.executeUpdate(sql);
-		IOReaderDB reader = new IOReaderDB();
-		reader.refreshKlanten();
+		IOReaderDB.refreshKlanten();
 		con.close();
 		return true;
 	}
 
 	public static boolean writeReservatie(Reservatie reservatie) throws SQLException {
+		IOWriterDB writer = new IOWriterDB();
 		Double prijs = reservatie.getPrijs();
 		Datum startDatum = reservatie.getStartDatum();
 		Item item = reservatie.getItem();
@@ -151,17 +155,60 @@ public class IOWriterDB {
         st = con.createStatement();
         sql = "INSERT INTO RESERVATIES " +
     			"(klantID, itemID, aantalDagen, prijs, startdatum, boete, betaald)" +
-    			"VALUES("+klantID+", "+item.getID()+", "+aantalDagen+", "+prijs+", "+startDatum+", "+boete+","+bet+")";
+    			"VALUES("+klantID+", '"+item.getType() + item.getID()+"', "+aantalDagen+", "+prijs+", '"+startDatum+"', "+boete+", "+bet+")";
         st.executeUpdate(sql);
-		IOReaderDB reader = new IOReaderDB();
-		reader.refreshReservaties();
+		IOReaderDB.refreshReservaties();
 		con.close();
 		return true;
 	}
 	
-	/*public static void main(String [] args) throws SQLException {
-		IOWriterDB writer = new IOWriterDB();
-	}*/
+	public static void main(String [] args) throws SQLException {
+		//IOWriterDB writer = new IOWriterDB();
+		/*
+		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
+        con = DriverManager.getConnection(db);
+        st = con.createStatement();
+        sql = "DROP TABLE RESERVATIES";
+        st.executeUpdate(sql);
+		con.close();
+		*/
+		
+		//Item item = new Item("Dit is een spel", 'G', 1);
+		//writeItem(item);
+		
+		/*
+		Adres adres = new Adres("Straat", "1", "b", "3000", "Leuven", "België");
+		Klant klant = new Klant("Peter", "Peters", adres, "jan@peters.be");
+		writeKlant(klant);
+		*/
+		/*
+		Datum datum = new Datum(8,1,2016);
+		Reservatie reservatie = new Reservatie(20.7, datum, item, 7, 30.2, false, 3);
+		writeReservatie(reservatie);
+		*/
+		/*
+		Iterator<Entry<String, String>> iteratorReservaties = IOReaderDB.getReservaties().entrySet().iterator() ;
+        while(iteratorReservaties.hasNext()){
+            Entry<String, String> test = iteratorReservaties.next();
+            System.out.println(test.getKey() +" :: "+ test.getValue());
+        }
+		Iterator<Entry<Integer, String>> iteratorKlanten = IOReaderDB.getKlanten().entrySet().iterator() ;
+        while(iteratorKlanten.hasNext()){
+            Entry<Integer, String> test = iteratorKlanten.next();
+            System.out.println(test.getKey() +" :: "+ test.getValue());
+        }
+		Iterator<HashMap.Entry<String, String>> iteratorMovies = IOReaderDB.getMovies().entrySet().iterator() ;
+        while(iteratorMovies.hasNext()){
+            HashMap.Entry<String, String> test = iteratorMovies.next();
+            System.out.println(test.getKey() +" :: "+ test.getValue());
+        }
+        Iterator<HashMap.Entry<String, String>> iteratorGames = IOReaderDB.getGames().entrySet().iterator() ;
+        while(iteratorGames.hasNext()){
+            HashMap.Entry<String, String> test = iteratorGames.next();
+            System.out.println(test.getKey() +" :: "+ test.getValue());
+        }
+        */
+	}
 	
 	
 }

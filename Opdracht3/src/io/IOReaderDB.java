@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class IOReaderDB {
 	
-	static String db = "jdbc:derby:db;create=true";
+	static String db = "jdbc:derby:codejava/webdb1;create=true";
 	static Connection con = null;
 	static Statement st = null;
 	static ResultSet rs = null;
@@ -45,7 +45,7 @@ public class IOReaderDB {
         while(rs.next()) {
         	String id = rs.getString("type") + rs.getInt("id");
         	String titel = rs.getString("titel");
-        	movies.put(id, titel);
+        	games.put(id, titel);
         }
         cds = new HashMap<String, String>();
         st = con.createStatement();
@@ -54,13 +54,13 @@ public class IOReaderDB {
         while(rs.next()) {
         	String id = rs.getString("type") + rs.getInt("id");
         	String titel = rs.getString("titel");
-        	movies.put(id, titel);
+        	cds.put(id, titel);
         }
         con.close();
 		return true;
 	}
 	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
-	public Boolean refreshReservaties() throws SQLException {
+	public static Boolean refreshReservaties() throws SQLException {
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
         reservaties = new HashMap<String, String>();
@@ -70,7 +70,7 @@ public class IOReaderDB {
         while(rs.next()) {
         	int id = rs.getInt("id");
         	int klantID = rs.getInt("klantID");
-        	int itemID = rs.getInt("itemID");
+        	String itemID = rs.getString("itemID");
         	int aantalDagen = rs.getInt("aantaldagen");
         	double prijs = rs.getDouble("prijs");
         	String startDatum = rs.getString("startdatum");
@@ -84,10 +84,10 @@ public class IOReaderDB {
         return true;
 	}
 	//0=Bart;Jaspers;Steegje;1;1;3000;Leuven;belgie;bartje@gmail.com
-	public Boolean refreshKlanten() throws SQLException {
+	public static Boolean refreshKlanten() throws SQLException {
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
-        reservaties = new HashMap<String, String>();
+        klanten = new HashMap<Integer, String>();
 		st = con.createStatement();
         sql = "SELECT * FROM KLANTEN";       
         rs = st.executeQuery(sql);   
@@ -134,7 +134,7 @@ public class IOReaderDB {
 		return cds;
 	}
 	
-	public HashMap<String,String> getReservaties() {
+	public static HashMap<String,String> getReservaties() {
 		try {
 			refreshReservaties();
 		} catch (SQLException e) {
