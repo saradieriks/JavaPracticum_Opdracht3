@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import io.IOReader;
 
@@ -104,26 +105,29 @@ public class Reservatie {
 	
 	public static Boolean isAvailable (String value, char type) {
 		Boolean teruggeven = false;
+		//System.out.println(value + ' ' + type);
 		if (type == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
-				String film = entry.getValue().replaceAll("+", " ");
-				if (value == film) {
+				String film = entry.getValue().replaceAll(Pattern.quote("+")," ");
+				//System.out.println(film);
+				if (value.equals(film)) {
 					teruggeven = true;
+					//System.out.println(teruggeven);
 				}
 			}
 		}
 		else if (type == 'G') {
 			for (Map.Entry<String, String> entry: IOReader.getGames().entrySet()) {
-				String film = entry.getValue().replaceAll("+", " ");
-				if (value == film) {
+				String film = entry.getValue().replaceAll(Pattern.quote("+"), " ");
+				if (value.equals(film)) {
 					teruggeven = true;
 				}
 			}
 		}
 		else {
 			for (Map.Entry<String, String> entry: IOReader.getCDs().entrySet()) {
-				String film = entry.getValue().replaceAll("+", " ");
-				if (value == film) {
+				String film = entry.getValue().replaceAll(Pattern.quote("+"), " ");
+				if (value.equals(film)) {
 					teruggeven = true;
 				}
 			}
