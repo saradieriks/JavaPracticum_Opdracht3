@@ -136,7 +136,7 @@ public class IOReaderDB {
 	
 	public HashMap<String,String> getReservaties() {
 		try {
-			refreshItems();
+			refreshReservaties();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,7 +146,7 @@ public class IOReaderDB {
 	
 	public static HashMap<Integer,String> getKlanten() {
 		try {
-			refreshItems();
+			refreshKlanten();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
