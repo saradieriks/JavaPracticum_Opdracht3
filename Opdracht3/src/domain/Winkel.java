@@ -14,26 +14,10 @@ import java.util.Map;
 
 public class Winkel {
 	
-	//prijs van een item zonder te weten welk type - dit gaat er nog vanuit dat 
-	//casten nodig is hiervoor
+
 	public double getPrijs(Item item, int aantalDagen)
 	{
-		if (item.getClass().getName() == "Cd")
-		{
-			return ((Cd) item).getPrijs(aantalDagen);
-		}
-		
-		if (item.getClass().getName() == "Film")
-		{
-			return ((Film) item).getPrijs(aantalDagen);
-		}
-		
-		if (item.getClass().getName() == "Spel")
-		{
-			return ((Spel) item).getPrijs(aantalDagen);
-		}
-		return 0;
-
+		return item.getPrijs(aantalDagen);
 	}
 	
 	public Cd getCd(String titel, int id)
