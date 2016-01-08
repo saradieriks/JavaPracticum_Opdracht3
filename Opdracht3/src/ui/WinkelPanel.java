@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -24,6 +26,7 @@ import domain.Item;
 import domain.Klant;
 import domain.Reservatie;
 import domain.Spel;
+import io.IOReader;
 import io.IOWriter;
 
 public class WinkelPanel extends JFrame {
@@ -202,6 +205,40 @@ public class WinkelPanel extends JFrame {
 	    JLabel lblZoekterm = new JLabel("Zoekterm:");
 	    lblZoekterm.setBounds(26, 95, 116, 16);
 	    jpInventaris.add(lblZoekterm);
+	    
+	    btnLijstVanAlle.addActionListener(new ActionListener () {
+
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					IOReader.refreshItems();
+					StringBuilder alleItems = new StringBuilder();
+					alleItems.append("MOVIES\n");
+					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
+					{
+					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					    alleItems.append("\n");
+					}
+					alleItems.append("GAMES\n");
+					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
+					{
+					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					    alleItems.append("\n");
+					}
+					alleItems.append("CDs\n");
+					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
+					{
+					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					    alleItems.append("\n");
+					}
+					System.out.println(alleItems.toString());	
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}	
+			}
+	    });
+	    
+	    		
 	    
 	    
 	    // Card toevoegen aan de main panel
