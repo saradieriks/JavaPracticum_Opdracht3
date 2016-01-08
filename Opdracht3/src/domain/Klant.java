@@ -46,6 +46,13 @@ public class Klant implements Observer {
 		this.email = email;
 	}
 	
+	public Boolean getIsObserver() {
+		return isObserver;
+	}
+	public void setIsObserver(Boolean isObserver) {
+		this.isObserver = isObserver;
+	}
+	
 	public Klant (int klantID, String naam, String voornaam, Adres adres,
 				  String email) {
 		this.klantID = klantID;
