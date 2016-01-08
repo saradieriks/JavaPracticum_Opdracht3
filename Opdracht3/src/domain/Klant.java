@@ -98,16 +98,13 @@ public class Klant implements Observer {
 		{
 			winkelController.removeObserver(this);
 		}
-		
 	}
 	
 	public void update(Subject o, Item item) {
-		
 		if (this.isObserver == true && o == winkelController ) {
 			Mail mailClient = new Mail();
 			mailClient.stuurMailnaarKlant(this,item);
 					}
-		
 	}
 	
 	// Klant id zoeken op basis van naam en voornaam

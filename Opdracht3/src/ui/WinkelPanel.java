@@ -108,6 +108,7 @@ public class WinkelPanel extends JFrame {
 	    btnUitleningVoegToe = new JButton("Voeg item toe"); btnUitleningVoegToe.setBounds(10, 100, 200, 20);
 	    btnUitleningVoegToe.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+	    		//System.out.println(getTxtUitleningTitel() + " " + getCbType());
 	    		if (Reservatie.isAvailable(getTxtUitleningTitel(), getCbType())) {
 	    			JOptionPane.showMessageDialog(null, "Item beschikbaar", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 	    			Reservatie nieuwe = new Reservatie(Item.vindItem(getTxtUitleningTitel(), getCbType()), getTxtUitleningDagen(), 
