@@ -15,8 +15,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import domain.Adres;
 import domain.Cd;
@@ -46,6 +51,7 @@ public class WinkelPanel extends JFrame {
     private JTable tblUitleningen;
     private JButton btnLijstVanAlle;
     private JTextField ZoekText;
+    private String[] kolomNamen = {"Type", "Titel", "Dagen"};
     
     public WinkelPanel() {
 	    setTitle("Winkel");
@@ -121,15 +127,18 @@ public class WinkelPanel extends JFrame {
 	    txtUitleningTitel = new JTextField(); txtUitleningTitel.setBounds(280, 70, 200, 20); jpUitlening.add(txtUitleningTitel);
 	    jlUitleningDagen = new JLabel("Aantal dagen:"); jlUitleningDagen.setBounds(490, 70, 100, 20); jpUitlening.add(jlUitleningDagen);
 	    txtUitleningDagen = new JTextField(); txtUitleningDagen.setBounds(600, 70, 100, 20); jpUitlening.add(txtUitleningDagen);
+	    DefaultTableModel model = new DefaultTableModel(kolomNamen, 0);
+	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
+	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
+	    model.addRow(rowData);
 	    btnUitleningVoegToe = new JButton("Voeg item toe"); btnUitleningVoegToe.setBounds(10, 100, 200, 20);
 	    btnUitleningVoegToe.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		//System.out.println(getTxtUitleningTitel() + " " + getCbType());
 	    		if (Reservatie.isAvailable(getTxtUitleningTitel(), getCbType())) {
 	    			JOptionPane.showMessageDialog(null, "Item beschikbaar", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 	    			Reservatie nieuwe = new Reservatie(Item.vindItem(getTxtUitleningTitel(), getCbType()), getTxtUitleningDagen(), 
 	    					Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()));
-	    			if (Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()) == 0) {
+	    			if (Klant.vindKlantId(getTxtUitleningNaam(), getTxtUitleningVoornaam()) == -1) {
 	    				JOptionPane.showMessageDialog(null, "Klant niet gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 	    			}
 	    			else {
@@ -137,6 +146,7 @@ public class WinkelPanel extends JFrame {
 	    			}
 	    			try {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
+							model.addRow(new Object[]{getCbType(), getTxtUitleningTitel(), getTxtUitleningDagen()});
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
 						else {
@@ -157,7 +167,6 @@ public class WinkelPanel extends JFrame {
 	    });
 	    jpUitlening.add(btnUitleningVoegToe);
 	    btnUitleningVerwijder = new JButton("Verwijder item"); btnUitleningVerwijder.setBounds(220, 100, 200, 20); jpUitlening.add(btnUitleningVerwijder);
-	    tblUitleningen = new JTable(); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
 	    jlUitleningPrijs = new JLabel("Prijs:"); jlUitleningPrijs.setBounds(10, 540, 100, 20); jpUitlening.add(jlUitleningPrijs);
 	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 540, 200, 20); jpUitlening.add(txtUitleningPrijs);
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
