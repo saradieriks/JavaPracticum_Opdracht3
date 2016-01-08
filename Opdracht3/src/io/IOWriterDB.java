@@ -14,7 +14,7 @@ import domain.*;
 
 public class IOWriterDB {
 	
-	static String db = "jdbc:derby:codejava/webdb1;create=true";
+	static String db = "jdbc:derby:db;create=true";
 	static Connection con = null;
 	static Statement st = null;
 	static ResultSet rs = null;
@@ -162,7 +162,7 @@ public class IOWriterDB {
 		return true;
 	}
 	
-	public static void main(String [] args) throws SQLException {
+	//public static void main(String [] args) throws SQLException {
 		//IOWriterDB writer = new IOWriterDB();
 		/*
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
@@ -173,7 +173,7 @@ public class IOWriterDB {
 		con.close();
 		*/
 		
-		//Item item = new Item("Dit is een spel", 'G', 1);
+		//Item item = new Item("Dit is nog een ander spel", 'G');
 		//writeItem(item);
 		
 		/*
@@ -202,13 +202,15 @@ public class IOWriterDB {
             HashMap.Entry<String, String> test = iteratorMovies.next();
             System.out.println(test.getKey() +" :: "+ test.getValue());
         }
+        */
+		/*
         Iterator<HashMap.Entry<String, String>> iteratorGames = IOReaderDB.getGames().entrySet().iterator() ;
         while(iteratorGames.hasNext()){
             HashMap.Entry<String, String> test = iteratorGames.next();
             System.out.println(test.getKey() +" :: "+ test.getValue());
         }
         */
-	}
+	//}
 	
 	
 }

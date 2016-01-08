@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class IOReaderDB {
 	
-	static String db = "jdbc:derby:codejava/webdb1;create=true";
+	static String db = "jdbc:derby:db;create=true";
 	static Connection con = null;
 	static Statement st = null;
 	static ResultSet rs = null;
@@ -154,7 +154,7 @@ public class IOReaderDB {
 		return klanten;
 	}
 	
-	public static void main(String [] args) throws SQLException {
+	//public static void main(String [] args) throws SQLException {
 		/*IOReaderDB reader = new IOReaderDB();
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
@@ -183,6 +183,6 @@ public class IOReaderDB {
         
         con.close();
         */
-	}
+	//}
 	
 }

@@ -95,7 +95,7 @@ public class IOReader {
 	}
 	
 	//0=Bart;Jaspers;Steegje;1;1;3000;Leuven;belgie;bartje@gmail.com
-	public Boolean refreshKlanten() throws IOException {
+	public static Boolean refreshKlanten() throws IOException {
 		klanten = new HashMap<Integer, String>();
 		String regel;
 	    @SuppressWarnings("resource")
