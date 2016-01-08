@@ -98,14 +98,6 @@ public class IOWriter {
 	public static boolean writeReservatie(Reservatie reservatie) throws IOException {
 		IOReader reader = new IOReader();
 		
-		Double prijs = reservatie.getPrijs();
-		Datum startDatum = reservatie.getStartDatum();
-		Item item = reservatie.getItem();
-		int aantalDagen = reservatie.getAatalDagen();
-		Double boete = reservatie.getBoete();
-		Boolean betaald = reservatie.getBetaald();
-		int klantID = reservatie.klantID();
-		
 		BufferedWriter output = null;
 		
 	    try {
@@ -113,23 +105,26 @@ public class IOWriter {
 	    	File file = new File("reservaties.txt");
 	        output = new BufferedWriter(new FileWriter(file, true));
 	        long aantalItems = reader.getAantalItems("reservaties");
-			
+
 			String write = 
 					aantalItems +
-					"=Klant:" + klantID + 
-					";Item:" + item.getID() +
-					";Prijs:" + prijs.toString() +
-					";StartDatum:" + startDatum.toString() + 
-					";AantalDagen:" + Integer.toString(aantalDagen) +
-					";Boete:" + boete.toString() +
-					";betaald:" + betaald.toString()
+					"=Klant:" + Integer.toString(reservatie.klantID()) + 
+					";Item:" + Integer.toString(reservatie.getItem().getID()) +
+					";Prijs:" + Double.toString(reservatie.getPrijs()) +
+					";StartDatum:" + reservatie.getStartDatum().toString() + 
+					";AantalDagen:" + Integer.toString(reservatie.getAatalDagen()) +
+					";Boete:" + Double.toString(reservatie.getBoete()) +
+					";betaald:" + reservatie.getBetaald().toString() 
 					;
+			
+			System.out.println(write);
+			
 	        if (reader.hasItems("reservaties")) {
 	        	write = "\r\n" + write;
 	        }
 	        output.write(write);
 	        
-	        reader.refreshItems();
+	        reader.refreshReservaties();
 	        
 	    } catch ( IOException e ) {
 	    	

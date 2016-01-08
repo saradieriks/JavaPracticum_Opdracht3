@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import io.IOReader;
 
@@ -72,18 +73,24 @@ public class Item implements IItem{
 		verwijderd = new StatusVerwijderd(this);
 	}
 	
+	public Item () {
+		
+	}
+	
 	public String toString() {
 		return "Titel: " + titel + "\nType: " + type + "\nID: " + id;
 	}
 	
 	public static Item vindItem(String titel, char type) {
-		Item teVinden = new Item(titel, type);
+		Item teVinden = new Item();
+		String vervang = titel.replaceAll(Pattern.quote(" "), "+");
 		if (type == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
-				if (titel == entry.getValue()) {
+				if (vervang.equals(entry.getValue())) {
 					teVinden.setTitel(titel);
 					teVinden.setType(type);
-					teVinden.setID(Integer.parseInt(entry.getKey()));
+					teVinden.setID(Integer.parseInt(entry.getKey().replaceAll("M", "")));
+					System.out.println("Item: " + teVinden.toString());
 					return teVinden;
 				}
 			}
@@ -93,7 +100,7 @@ public class Item implements IItem{
 				if (titel == entry.getValue()) {
 					teVinden.setTitel(titel);
 					teVinden.setType(type);
-					teVinden.setID(Integer.parseInt(entry.getKey()));
+					teVinden.setID(Integer.parseInt(entry.getKey().replaceAll("G", "")));
 					return teVinden;
 				}
 			}
@@ -103,7 +110,7 @@ public class Item implements IItem{
 				if (titel == entry.getValue()) {
 					teVinden.setTitel(titel);
 					teVinden.setType(type);
-					teVinden.setID(Integer.parseInt(entry.getKey()));
+					teVinden.setID(Integer.parseInt(entry.getKey().replaceAll("C", "")));
 					return teVinden;
 				}
 			}

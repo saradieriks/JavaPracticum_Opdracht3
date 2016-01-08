@@ -103,16 +103,17 @@ public class Reservatie {
 		this.klantID = klantID;
 	}
 	
+	public String toString() {
+		return prijs + " " + startDatum + " " + item + " " + aantalDagen + " " + boete + " " + betaald + " " + klantID;
+	}
+	
 	public static Boolean isAvailable (String value, char type) {
 		Boolean teruggeven = false;
-		//System.out.println(value + ' ' + type);
 		if (type == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
 				String film = entry.getValue().replaceAll(Pattern.quote("+")," ");
-				//System.out.println(film);
 				if (value.equals(film)) {
 					teruggeven = true;
-					//System.out.println(teruggeven);
 				}
 			}
 		}

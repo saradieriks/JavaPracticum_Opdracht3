@@ -110,7 +110,7 @@ public class Klant implements Observer {
 	// Klant id zoeken op basis van naam en voornaam
 	public static int vindKlantId(String naam, String voornaam) {
 		Klant teVinden = new Klant(naam, voornaam);
-		int idGevonden = 0;
+		int idGevonden = -1;
 		for (Map.Entry<Integer, String> entry: IOReader.getKlanten().entrySet()) {
 			if(entry.getValue().toLowerCase().contains(teVinden.getNaam().toLowerCase()) && 
 					entry.getValue().toLowerCase().contains(teVinden.getVoornaam().toLowerCase())) {
