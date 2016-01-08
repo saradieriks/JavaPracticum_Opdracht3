@@ -112,8 +112,8 @@ public class Klant implements Observer {
 		Klant teVinden = new Klant(naam, voornaam);
 		int idGevonden = 0;
 		for (Map.Entry<Integer, String> entry: IOReader.getKlanten().entrySet()) {
-			if(teVinden.getNaam().toLowerCase().contains(entry.getValue().toLowerCase()) && 
-					teVinden.getVoornaam().toLowerCase().contains(entry.getValue().toLowerCase())) {
+			if(entry.getValue().toLowerCase().contains(teVinden.getNaam().toLowerCase()) && 
+					entry.getValue().toLowerCase().contains(teVinden.getVoornaam().toLowerCase())) {
 				idGevonden = entry.getKey();
 			}
 		}

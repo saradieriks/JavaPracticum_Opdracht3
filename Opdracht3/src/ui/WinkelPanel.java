@@ -94,6 +94,15 @@ public class WinkelPanel extends JFrame {
 					else {
 						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 					}
+					txtKlantNaam.setText("");
+					txtKlantVoornaam.setText("");
+					txtKlantStraat.setText("");
+					txtKlantNummer.setText("");
+					txtKlantBox.setText("");
+					txtKlantPostcode.setText("");
+					txtKlantGemeente.setText("");
+					txtKlantLand.setText("");
+					txtKlantEmail.setText("");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -133,6 +142,10 @@ public class WinkelPanel extends JFrame {
 						else {
 							JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
+						txtUitleningVoornaam.setText("");
+						txtUitleningNaam.setText("");
+						txtUitleningTitel.setText("");
+						txtUitleningDagen.setText("");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}   		
@@ -180,6 +193,7 @@ public class WinkelPanel extends JFrame {
 					else {
 						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 					}
+					txtItemTitel.setText("");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
