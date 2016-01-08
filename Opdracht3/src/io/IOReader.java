@@ -188,7 +188,7 @@ public class IOReader {
 	
 	public HashMap<String,String> getReservaties() {
 		try {
-			refreshItems();
+			refreshReservaties();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -198,7 +198,7 @@ public class IOReader {
 	
 	public static HashMap<Integer,String> getKlanten() {
 		try {
-			refreshItems();
+			refreshKlanten();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

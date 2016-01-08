@@ -13,11 +13,19 @@ import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
 
 public class KassaBonFormulier extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	String[] writeOpties = {"txt", "excel", "sql"};
+	
 
 	/**
 	 * Launch the application.
@@ -40,7 +48,7 @@ public class KassaBonFormulier extends JFrame {
 	 */
 	public KassaBonFormulier() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 409);
+		setBounds(100, 100, 450, 534);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,6 +66,16 @@ public class KassaBonFormulier extends JFrame {
 				FormSpecs.RELATED_GAP_COLSPEC,
 				FormSpecs.DEFAULT_COLSPEC,},
 			new RowSpec[] {
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
@@ -120,6 +138,13 @@ public class KassaBonFormulier extends JFrame {
 		
 		JCheckBox chckbxVasteBoodschap = new JCheckBox("Vaste boodschap");
 		contentPane.add(chckbxVasteBoodschap, "4, 28");
+		
+		JButton btnDrukKassabon = new JButton("Druk kassabon");
+		btnDrukKassabon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		contentPane.add(btnDrukKassabon, "4, 36");
 	}
 
 }
