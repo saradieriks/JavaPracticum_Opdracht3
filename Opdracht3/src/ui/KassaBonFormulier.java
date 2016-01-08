@@ -139,18 +139,12 @@ public class KassaBonFormulier extends JFrame {
 		JCheckBox chckbxVasteBoodschap = new JCheckBox("Vaste boodschap");
 		contentPane.add(chckbxVasteBoodschap, "4, 28");
 		
-		JLabel lblKiesManierOm = new JLabel("Kies manier om weg te schrijven:");
-		contentPane.add(lblKiesManierOm, "4, 32");
-		
-		JComboBox cmbWritePossibilities = new JComboBox(writeOpties);
-		contentPane.add(cmbWritePossibilities, "4, 34, fill, default");
-		
 		JButton btnDrukKassabon = new JButton("Druk kassabon");
 		btnDrukKassabon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		contentPane.add(btnDrukKassabon, "4, 38");
+		contentPane.add(btnDrukKassabon, "4, 36");
 	}
 
 }
