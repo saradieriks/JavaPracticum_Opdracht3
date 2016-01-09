@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import domain.Klant;
 
-public class IOReader extends IOReaderGetAantalTemplate {
+public class IOReader extends IOReaderTemplate {
 	
 	private static HashMap<String,String> movies;
 	private static HashMap<String,String> games;

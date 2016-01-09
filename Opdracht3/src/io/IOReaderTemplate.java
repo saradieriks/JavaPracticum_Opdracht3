@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class IOReaderGetAantalTemplate {
+public abstract class IOReaderTemplate {
 	
 	public long getAantal(String path) throws IOException {
 		List<String> regels = Files.newBufferedReader(
