@@ -163,7 +163,6 @@ public class Reservatie {
 				matcher.find();
 				int dagen = Integer.valueOf(matcher.group());
 				Reservatie res = new Reservatie(Item.vindItemUitId(idItem) , dagen, gevondenKlant);
-				System.out.println("Gevonden");
 				object.add(res);
 			}
 		}

@@ -135,38 +135,38 @@ public class Item implements IItem{
 	public static Item vindItemUitId(String id) {
 		Matcher matcher = Pattern.compile("\\d+").matcher(id);
 		matcher.find();
-		int gevondenKlant = Integer.valueOf(matcher.group());
-		String type = String.valueOf(id.charAt(0));
+		int gevonden = Integer.valueOf(matcher.group());
+		char type = Character.valueOf(id.charAt(0));
 		Item teVinden = new Item();
-		if (type == "M") {
+		if (type == 'M') {
 			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
-				if (id.equals(entry.getValue())) {
+				if (id.equals(entry.getKey())) {
 					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
 					teVinden.setTitel(titel);
 					teVinden.setType('M');
-					teVinden.setID(gevondenKlant);
+					teVinden.setID(gevonden);
 					return teVinden;
 				}
 			}
 		}
-		else if (type == "G") {
+		else if (type == 'G') {
 			for (Map.Entry<String, String> entry: IOReader.getGames().entrySet()) {
-				if (id.equals(entry.getValue())) {
+				if (id.equals(entry.getKey())) {
 					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
 					teVinden.setTitel(titel);
 					teVinden.setType('G');
-					teVinden.setID(gevondenKlant);
+					teVinden.setID(gevonden);
 					return teVinden;
 				}
 			}
 		}
 		else {
 			for (Map.Entry<String, String> entry: IOReader.getCDs().entrySet()) {
-				if (id.equals(entry.getValue())) {
+				if (id.equals(entry.getKey())) {
 					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
 					teVinden.setTitel(titel);
 					teVinden.setType('C');
-					teVinden.setID(gevondenKlant);
+					teVinden.setID(gevonden);
 					return teVinden;
 				}
 			}
