@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import domain.Klant;
 
-public class IOReader extends IOReaderGetAantalTemplate {
+public class IOReader extends IOReaderTemplate {
 	
 	private static HashMap<String,String> movies;
 	private static HashMap<String,String> games;
@@ -28,10 +28,11 @@ public class IOReader extends IOReaderGetAantalTemplate {
 	
 	public static Boolean refreshItems() throws IOException {
 		movies = new HashMap<String, String>();
-        String regel;
+        //String regel;
         @SuppressWarnings("resource")
         File fMovies = new File("movies.txt");
-		if(fMovies.exists() && !fMovies.isDirectory()) { 
+        refreshIets(movies,fMovies,"movies.txt");
+		/*if(fMovies.exists() && !fMovies.isDirectory()) { 
 			BufferedReader readerMovies = new BufferedReader(new FileReader("movies.txt"));
 	        while ((regel = readerMovies.readLine()) != null)
 	        {
@@ -40,11 +41,12 @@ public class IOReader extends IOReaderGetAantalTemplate {
 	            String titel = splits[1];
 	            movies.put(id, titel);
 	        }
-		}
+		}*/
         games = new HashMap<String, String>();
         @SuppressWarnings("resource")
         File fGames = new File("games.txt");
-		if(fGames.exists() && !fGames.isDirectory()) {
+        refreshIets(games,fGames,"games.txt");
+		/*if(fGames.exists() && !fGames.isDirectory()) {
 			BufferedReader readerGames = new BufferedReader(new FileReader("games.txt"));
 	        while ((regel = readerGames.readLine()) != null)
 	        {
@@ -53,11 +55,12 @@ public class IOReader extends IOReaderGetAantalTemplate {
 	            String titel = splits[1];
 	            games.put(id, titel);
 	        }
-		}
+		}*/
         cds = new HashMap<String, String>();
         @SuppressWarnings("resource")
         File fCds = new File("cds.txt");
-		if(fCds.exists() && !fCds.isDirectory()) {
+        refreshIets(cds,fCds,"cds.txt");
+		/*if(fCds.exists() && !fCds.isDirectory()) {
 			BufferedReader readerCds = new BufferedReader(new FileReader("cds.txt"));
 	        while ((regel = readerCds.readLine()) != null)
 	        {
@@ -66,7 +69,7 @@ public class IOReader extends IOReaderGetAantalTemplate {
 	            String titel = splits[1];
 	            cds.put(id, titel);
 	        }
-		}
+		}*/
 		return true;
 	}
 	
