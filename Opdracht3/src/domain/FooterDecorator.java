@@ -1,5 +1,6 @@
 package domain;
 
-public abstract class FooterDecorator extends KassaBon{
+public abstract class FooterDecorator extends KassaBonMain{
+	public void getDescription(){}
 	
 }

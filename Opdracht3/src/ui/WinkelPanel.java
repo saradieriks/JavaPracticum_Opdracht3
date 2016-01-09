@@ -48,7 +48,7 @@ public class WinkelPanel extends JFrame {
     private Character[] type = { 'M', 'G', 'C' };
     private JComboBox cbType, cbDag, cbMaand, cbJaar;
     private JCheckBox cbBetaald;
-    private JTable tblUitleningen;
+    public JTable tblUitleningen;
     private JButton btnLijstVanAlle;
     private JTextField ZoekText;
     private String[] kolomNamen = {"Type", "Titel", "Dagen"};
