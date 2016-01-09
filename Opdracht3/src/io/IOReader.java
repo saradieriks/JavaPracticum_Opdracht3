@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import domain.Klant;
 
-public class IOReader {
+public class IOReader extends IOReaderGetAantalTemplate {
 	
 	private static HashMap<String,String> movies;
 	private static HashMap<String,String> games;
@@ -133,11 +133,13 @@ public class IOReader {
 	}
 	
 	public long getAantalItems(String cat) throws IOException {
-		List<String> regels = Files.newBufferedReader(
+		
+		return getAantal(cat + ".txt");
+		/*List<String> regels = Files.newBufferedReader(
 								Paths.get(cat + ".txt")).lines().collect(Collectors.toList()
 							  );
 		long aantal = regels.size();
-		return aantal;
+		return aantal;*/
 	}
 	
 	@SuppressWarnings("resource")
@@ -207,11 +209,13 @@ public class IOReader {
 	}
 
 	public long getAantalKlanten() throws IOException {
-		List<String> regels = Files.newBufferedReader(
+		
+		return getAantal("klant.txt");
+		/*List<String> regels = Files.newBufferedReader(
 				Paths.get("klant.txt")).lines().collect(Collectors.toList()
 			  );
 		long aantal = regels.size();
-		return aantal;
+		return aantal;*/
 	}
 	
 	public static void main(String [] args) throws IOException {
