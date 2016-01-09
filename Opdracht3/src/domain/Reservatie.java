@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import io.IOReader;
@@ -146,12 +147,11 @@ public class Reservatie {
 		List<Reservatie> object = new ArrayList<Reservatie>();
 		int id = Klant.vindKlantId(naam, voornaam);
 		for (Map.Entry<String, String> entry: IOReader.getReservaties().entrySet()) {
-			int begin = 6;
-			int tijdelijk = entry.getValue().indexOf(";");
-			int einde = tijdelijk - 6;
-			int gevonden = Integer.parseInt(entry.getValue().substring(begin, einde));
+			Matcher matcher = Pattern.compile("\\d+").matcher(entry.getValue());
+			matcher.find();
+			int gevonden = Integer.valueOf(matcher.group());
 			if (gevonden == id) {
-				Reservatie res = new Reservatie();
+				//Reservatie res = new Reservatie();
 				System.out.println("Gevonden");
 			}
 		}
