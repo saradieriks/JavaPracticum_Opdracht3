@@ -38,20 +38,20 @@ public class Item implements IItem{
 		this.id = id;
 	}
 	
-	public StatusUitleenbaar getUitleenbaar(){
-		return this.uitleenbaar;
+	public void uitleenbaar(){
+		status.uitlenen();
 	}
 	
-	public StatusUitgeleend getUitgeleend(){
-		return this.uitgeleend;
+	public void terugbrengen(){
+		status.terugbrengen();;
 	}
 	
-	public StatusBeschadigd getBeschadigd(){
-		return this.beschadigd;
+	public void herstellen(){
+		status.herstellen();
 	}
 	
-	public StatusVerwijderd getVerwijderd(){
-		return this.verwijderd;
+	public void verwijderen(){
+		status.verwijderen();
 	}
 		
 	public Item (String titel, char type, int id) {

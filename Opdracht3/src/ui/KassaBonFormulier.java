@@ -18,12 +18,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class KassaBonFormulier extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldBody;
 	String[] writeOpties = {"txt", "excel", "sql"};
 	
 
@@ -106,6 +108,7 @@ public class KassaBonFormulier extends JFrame {
 				FormSpecs.DEFAULT_ROWSPEC,}));
 		
 		JLabel lblKiesHierJe = new JLabel("Kies hier je header instellingen:");
+		lblKiesHierJe.setFont(new Font("Tahoma", Font.BOLD, 11));
 		contentPane.add(lblKiesHierJe, "4, 2");
 		
 		JCheckBox chckbxKassabonnummer = new JCheckBox("Kassabonnummer");
@@ -121,13 +124,15 @@ public class KassaBonFormulier extends JFrame {
 		contentPane.add(chckbxOpeningsurenWinkel, "4, 10");
 		
 		JLabel lblBody = new JLabel("Body:");
+		lblBody.setFont(new Font("Tahoma", Font.BOLD, 11));
 		contentPane.add(lblBody, "4, 14");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "4, 16, 1, 3, fill, default");
-		textField.setColumns(10);
+		textFieldBody = new JTextField();
+		contentPane.add(textFieldBody, "4, 16, 1, 3, fill, default");
+		textFieldBody.setColumns(10);
 		
 		JLabel lblKiesHierJe_1 = new JLabel("Kies hier je footerinstellingen");
+		lblKiesHierJe_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		contentPane.add(lblKiesHierJe_1, "4, 22");
 		
 		JCheckBox chckbxUitleentotaal = new JCheckBox("Uitleentotaal + BTW");
@@ -142,6 +147,8 @@ public class KassaBonFormulier extends JFrame {
 		JButton btnDrukKassabon = new JButton("Druk kassabon");
 		btnDrukKassabon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
 			}
 		});
 		contentPane.add(btnDrukKassabon, "4, 36");
