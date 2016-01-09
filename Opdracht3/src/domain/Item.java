@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import io.IOReader;
@@ -129,6 +130,48 @@ public class Item implements IItem{
 	
 	public String toString() {
 		return "Titel: " + titel + "\nType: " + type + "\nID: " + id;
+	}
+	
+	public static Item vindItemUitId(String id) {
+		Matcher matcher = Pattern.compile("\\d+").matcher(id);
+		matcher.find();
+		int gevondenKlant = Integer.valueOf(matcher.group());
+		String type = String.valueOf(id.charAt(0));
+		Item teVinden = new Item();
+		if (type == "M") {
+			for (Map.Entry<String, String> entry: IOReader.getMovies().entrySet()) {
+				if (id.equals(entry.getValue())) {
+					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
+					teVinden.setTitel(titel);
+					teVinden.setType('M');
+					teVinden.setID(gevondenKlant);
+					return teVinden;
+				}
+			}
+		}
+		else if (type == "G") {
+			for (Map.Entry<String, String> entry: IOReader.getGames().entrySet()) {
+				if (id.equals(entry.getValue())) {
+					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
+					teVinden.setTitel(titel);
+					teVinden.setType('G');
+					teVinden.setID(gevondenKlant);
+					return teVinden;
+				}
+			}
+		}
+		else {
+			for (Map.Entry<String, String> entry: IOReader.getCDs().entrySet()) {
+				if (id.equals(entry.getValue())) {
+					String titel = entry.getValue().replaceAll(Pattern.quote("+"), " ");
+					teVinden.setTitel(titel);
+					teVinden.setType('C');
+					teVinden.setID(gevondenKlant);
+					return teVinden;
+				}
+			}
+		}
+		return null;
 	}
 	
 	public static Item vindItem(String titel, char type) {
