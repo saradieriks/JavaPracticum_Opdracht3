@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -254,22 +256,37 @@ public class WinkelPanel extends JFrame {
 					IOReader.refreshItems();
 					StringBuilder alleItems = new StringBuilder();
 					alleItems.append("MOVIES.......\n");
+					List<String> movies = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
-					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-					    alleItems.append("\n");
+						movies.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 					}
-					alleItems.append("GAMES........\n");
+					java.util.Collections.sort(movies);
+					for (String movie: movies)
+					{
+						alleItems.append(movie + "\n");
+					}
+					alleItems.append("GAMES.......\n");
+					List<String> games = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
-					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-					    alleItems.append("\n");
+						games.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 					}
-					alleItems.append("CDs..........\n");
+					java.util.Collections.sort(games);
+					for (String game: games)
+					{
+						alleItems.append(game + "\n");
+					}
+					alleItems.append("CDs.........\n");
+					List<String> cds = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
-					    alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-					    alleItems.append("\n");
+						cds.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					}
+					java.util.Collections.sort(cds);
+					for (String cd: cds)
+					{
+						alleItems.append(cd + "\n");
 					}
 					System.out.println(alleItems.toString());	
 				} catch (IOException e1) {
@@ -286,32 +303,49 @@ public class WinkelPanel extends JFrame {
 					IOReader.refreshItems();
 					StringBuilder alleItems = new StringBuilder();
 					alleItems.append("MOVIES.......\n");
+					List<String> movies = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
 						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
-							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-						    alleItems.append("\n");
+							movies.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						}
 					    
 					}
-					alleItems.append("GAMES........\n");
+					java.util.Collections.sort(movies);
+					for (String movie: movies)
+					{
+						alleItems.append(movie + "\n");
+					}
+					alleItems.append("GAMES.......\n");
+					List<String> games = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
 						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
-							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-						    alleItems.append("\n");
+							games.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						}
+					    
 					}
-					alleItems.append("CDs..........\n");
+					java.util.Collections.sort(games);
+					for (String game: games)
+					{
+						alleItems.append(game + "\n");
+					}
+					alleItems.append("CDs.........\n");
+					List<String> cds = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
 						if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((ZoekText.getText()).toLowerCase()))
 						{
-							alleItems.append(entry.getValue().replaceAll(Pattern.quote("+")," "));
-						    alleItems.append("\n");
+							cds.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 						}
+					    
+					}
+					java.util.Collections.sort(cds);
+					for (String cd: cds)
+					{
+						alleItems.append(cd + "\n");
 					}
 					System.out.println(alleItems.toString());	
 				} catch (IOException e1) {
