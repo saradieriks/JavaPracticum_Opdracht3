@@ -4,11 +4,13 @@ public class Cd extends Item implements IItem{
 
 	public Cd(String titel, char type, int id) {
 		super(titel, type, id);
+		this.setAankoopPrijs(10);
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Cd(String titel, char type) {
 		super(titel, type);
+		this.setAankoopPrijs(10);
 	}
 
 	/**

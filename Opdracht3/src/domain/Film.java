@@ -4,11 +4,13 @@ public class Film extends Item implements IItem{
 
 	public Film(String titel, char type, int id) {
 		super(titel, type, id);
+		this.setAankoopPrijs(15);
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Film(String titel, char type) {
 		super(titel, type);
+		this.setAankoopPrijs(15);
 	}
 
 	/**

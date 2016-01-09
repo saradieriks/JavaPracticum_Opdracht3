@@ -11,11 +11,13 @@ public class Item implements IItem{
 	private String titel;
 	private char type;
 	private int id;
+	private double aankoopPrijs;
 	
 	private StatusUitleenbaar uitleenbaar;
 	private StatusUitgeleend uitgeleend;
-	private StatusBeschadigd beschadigd;
+	private StatusBeschadigd Statusbeschadigd;
 	private StatusVerwijderd verwijderd;
+	private boolean beschadigd = false;
 	
 	private Status status = uitleenbaar;
 	
@@ -37,6 +39,35 @@ public class Item implements IItem{
 	public void setID(int id) {
 		this.id = id;
 	}
+
+	public double getAankoopPrijs(){
+		return this.aankoopPrijs;
+	}
+	
+	public void setAankoopPrijs(double prijs){
+		this.aankoopPrijs = prijs;
+	}
+	
+	public boolean getBeschadigd()
+	{
+		return this.beschadigd;
+	}
+	
+	public void setBeschadigd(boolean beschadigd){
+		this.beschadigd = beschadigd;
+	}
+	
+	public Status getUitleenbaar(){
+		return this.uitleenbaar;
+	}
+		
+	public Status getVerwijderd(){
+		return this.verwijderd;
+	}
+	
+	public Status getStatusBeschadigd(){
+		return this.Statusbeschadigd;
+	}
 	
 	public void uitleenbaar(){
 		status.uitlenen();
@@ -53,6 +84,14 @@ public class Item implements IItem{
 	public void verwijderen(){
 		status.verwijderen();
 	}
+	
+	public Status getStatus(){
+		return this.status;
+	}
+	
+	public void setStatus(Status status){
+		this.status = status;
+	}
 		
 	public Item (String titel, char type, int id) {
 		this.titel = titel;
@@ -60,7 +99,7 @@ public class Item implements IItem{
 		this.id = id;
 		uitleenbaar = new StatusUitleenbaar(this);
 		uitgeleend = new StatusUitgeleend(this);
-		beschadigd = new StatusBeschadigd(this);
+		Statusbeschadigd = new StatusBeschadigd(this);
 		verwijderd = new StatusVerwijderd(this);
 	}
 	
@@ -69,7 +108,7 @@ public class Item implements IItem{
 		this.type = type;
 		uitleenbaar = new StatusUitleenbaar(this);
 		uitgeleend = new StatusUitgeleend(this);
-		beschadigd = new StatusBeschadigd(this);
+		Statusbeschadigd = new StatusBeschadigd(this);
 		verwijderd = new StatusVerwijderd(this);
 	}
 	
@@ -121,6 +160,10 @@ public class Item implements IItem{
 	@Override
 	public double getPrijs(int aantalDagen) {
 		return 0;
+	}
+	
+	public Status getUigeleend() {
+		return this.uitgeleend;
 	}
 	
 }
