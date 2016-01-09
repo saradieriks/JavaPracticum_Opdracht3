@@ -14,7 +14,7 @@ public class StatusUitgeleend implements Status{
 	public void terugbrengen(){
 		if(!item.getBeschadigd()){
 			item.setStatus(item.getStatusBeschadigd());
-			double prijs = item.getPrijs(aantalDagen) / 3;
+			double prijs = item.getAankoopPrijs() / 3;
 		}
 		else{}{
 			item.setStatus(item.getUitleenbaar());
@@ -22,11 +22,11 @@ public class StatusUitgeleend implements Status{
 	}
 	
 	public void herstellen(){
-		
+		System.out.println("Het product is uigeleend.");
 	}
 	
 	public void verwijderen(){
-		
+		System.out.println("Het product is uigeleend.");
 	}
 
 }

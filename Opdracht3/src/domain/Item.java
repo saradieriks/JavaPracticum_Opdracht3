@@ -12,12 +12,13 @@ public class Item implements IItem{
 	private char type;
 	private int id;
 	private double aankoopPrijs;
+	private boolean beschadigd;
+	private boolean herstelbaar = true;
 	
 	private StatusUitleenbaar uitleenbaar;
 	private StatusUitgeleend uitgeleend;
 	private StatusBeschadigd Statusbeschadigd;
 	private StatusVerwijderd verwijderd;
-	private boolean beschadigd = false;
 	
 	private Status status = uitleenbaar;
 	
@@ -55,6 +56,14 @@ public class Item implements IItem{
 	
 	public void setBeschadigd(boolean beschadigd){
 		this.beschadigd = beschadigd;
+	}
+	
+	public boolean getHerstelbaar(){
+		return this.herstelbaar;
+	}
+	
+	public void setHersteld(boolean herstelbaar){
+		this.herstelbaar = herstelbaar;
 	}
 	
 	public Status getUitleenbaar(){
@@ -97,6 +106,7 @@ public class Item implements IItem{
 		this.titel = titel;
 		this.type = type;
 		this.id = id;
+		this.beschadigd = false;
 		uitleenbaar = new StatusUitleenbaar(this);
 		uitgeleend = new StatusUitgeleend(this);
 		Statusbeschadigd = new StatusBeschadigd(this);
@@ -106,6 +116,7 @@ public class Item implements IItem{
 	public Item (String titel, char type) {
 		this.titel = titel;
 		this.type = type;
+		this.beschadigd = false;
 		uitleenbaar = new StatusUitleenbaar(this);
 		uitgeleend = new StatusUitgeleend(this);
 		Statusbeschadigd = new StatusBeschadigd(this);
