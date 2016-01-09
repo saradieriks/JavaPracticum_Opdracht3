@@ -255,7 +255,7 @@ public class WinkelPanel extends JFrame {
 				try {
 					IOReader.refreshItems();
 					StringBuilder alleItems = new StringBuilder();
-					alleItems.append("MOVIES.......\n");
+					alleItems.append("---MOVIES---\n");
 					List<String> movies = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
@@ -266,7 +266,7 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(movie + "\n");
 					}
-					alleItems.append("GAMES.......\n");
+					alleItems.append("\n---GAMES---\n");
 					List<String> games = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
@@ -277,7 +277,7 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(game + "\n");
 					}
-					alleItems.append("CDs.........\n");
+					alleItems.append("\n---CDs---\n");
 					List<String> cds = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
@@ -288,7 +288,8 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(cd + "\n");
 					}
-					System.out.println(alleItems.toString());	
+					JOptionPane.showMessageDialog(null, alleItems.toString(), "RESULTAAT" , JOptionPane.INFORMATION_MESSAGE);
+						
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}	
@@ -302,7 +303,7 @@ public class WinkelPanel extends JFrame {
 				try {
 					IOReader.refreshItems();
 					StringBuilder alleItems = new StringBuilder();
-					alleItems.append("MOVIES.......\n");
+					alleItems.append("---MOVIES---\n");
 					List<String> movies = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 					{
@@ -317,7 +318,7 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(movie + "\n");
 					}
-					alleItems.append("GAMES.......\n");
+					alleItems.append("\n---GAMES---\n");
 					List<String> games = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
 					{
@@ -332,7 +333,7 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(game + "\n");
 					}
-					alleItems.append("CDs.........\n");
+					alleItems.append("\n---CDs---\n");
 					List<String> cds = new ArrayList<>();
 					for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
 					{
@@ -347,7 +348,7 @@ public class WinkelPanel extends JFrame {
 					{
 						alleItems.append(cd + "\n");
 					}
-					System.out.println(alleItems.toString());	
+					JOptionPane.showMessageDialog(null, alleItems.toString(), "RESULTAAT" , JOptionPane.INFORMATION_MESSAGE);	
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}	
