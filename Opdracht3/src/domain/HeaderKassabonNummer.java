@@ -6,7 +6,7 @@ public class HeaderKassabonNummer extends KassaBonDecorator{
 	public HeaderKassabonNummer(KassaBonMain kassabon){
 		this.kassabon = kassabon;
 	}
-	//test
+	
 	public void getDescription(){
 		System.out.println("kassabonnummer: " + ((KassaBon)this.kassabon).getNummer());
 	}
