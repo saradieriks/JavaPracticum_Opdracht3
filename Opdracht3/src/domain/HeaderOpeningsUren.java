@@ -1,6 +1,6 @@
 package domain;
 
-public class HeaderOpeningsUren extends HeaderDecorator{
+public class HeaderOpeningsUren extends KassaBonDecorator{
 	KassaBonMain kassabon;
 	
 	public HeaderOpeningsUren(KassaBonMain kassabon){

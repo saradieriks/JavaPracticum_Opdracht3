@@ -1,6 +1,6 @@
 package domain;
 
-public class HeaderDatumUitlening extends HeaderDecorator{
+public class HeaderDatumUitlening extends KassaBonDecorator{
 	KassaBonMain kassabon;
 	
 	public HeaderDatumUitlening(KassaBonMain kassabon){

@@ -1,6 +1,6 @@
 package domain;
 
-public class HeaderKassabonNummer extends HeaderDecorator{
+public class HeaderKassabonNummer extends KassaBonDecorator{
 	KassaBonMain kassabon;
 	
 	public HeaderKassabonNummer(KassaBonMain kassabon){
@@ -8,6 +8,6 @@ public class HeaderKassabonNummer extends HeaderDecorator{
 	}
 	
 	public void getDescription(){
-		System.out.println("kassabonnummer: " + this.getNummer());
+		System.out.println("kassabonnummer: " + ((KassaBon)this.kassabon).getNummer());
 	}
 }

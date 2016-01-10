@@ -1,6 +1,6 @@
 package domain;
 
-public class FooterVasteBoodschap extends FooterDecorator{
+public class FooterVasteBoodschap extends KassaBonDecorator{
 	KassaBonMain kassabon;
 	
 	public FooterVasteBoodschap(KassaBonMain kassabon){
