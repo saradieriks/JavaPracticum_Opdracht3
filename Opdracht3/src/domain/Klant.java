@@ -46,8 +46,9 @@ public class Klant implements Observer {
 		this.email = email;
 	}
 	
-	public Boolean getIsObserver() {
-		return isObserver;
+	public Integer getIsObserver() {
+		if (this.isObserver == true){return 1;}
+		else return 0;
 	}
 	public void setIsObserver(Boolean isObserver) {
 		this.isObserver = isObserver;
