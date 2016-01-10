@@ -249,7 +249,7 @@ public class WinkelController extends JFrame implements Subject {
 				List<String> movies = new ArrayList<>();
 				for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
 				{
-					if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((WinkelPanel.ZoekText.getText()).toLowerCase()))
+					if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((WinkelPanel.getZoekText()).toLowerCase()))
 					{
 						movies.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
 					}
