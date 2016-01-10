@@ -1,849 +1,1097 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="ui.WinkelPanel" project="Opdracht3" file="/Opdracht3/src/ui/WinkelPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1017" y="591"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="ui.KlantPanel" project="Opdracht3" file="/Opdracht3/src/ui/KlantPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="81" y="302"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="ui.KassaBonFormulier" project="Opdracht3" 
-    file="/Opdracht3/src/ui/KassaBonFormulier.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1174" y="405"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="main.Main" project="Opdracht3" file="/Opdracht3/src/main/Main.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="53" y="463"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="io.IOWriterDB" project="Opdracht3" file="/Opdracht3/src/io/IOWriterDB.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="85" y="104"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="io.IOWriter" project="Opdracht3" file="/Opdracht3/src/io/IOWriter.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="86" y="154"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="io.IOReaderTemplate" project="Opdracht3" 
-    file="/Opdracht3/src/io/IOReaderTemplate.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="37" width="131" x="180" y="37"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="io.IOReaderDB" project="Opdracht3" file="/Opdracht3/src/io/IOReaderDB.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="78" y="414"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="io.IOReader" project="Opdracht3" file="/Opdracht3/src/io/IOReader.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="238" y="151"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="io.ExcelHandler" project="Opdracht3" file="/Opdracht3/src/io/ExcelHandler.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="37" width="99" x="41" y="37"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="domain.Adres" project="Opdracht3" file="/Opdracht3/src/domain/Adres.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="483" y="581"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="domain.Cd" project="Opdracht3" file="/Opdracht3/src/domain/Cd.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="538" y="452"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="domain.Datum" project="Opdracht3" file="/Opdracht3/src/domain/Datum.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1065" y="466"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="domain.Film" project="Opdracht3" file="/Opdracht3/src/domain/Film.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="619" y="458"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="domain.FooterBoodschap" project="Opdracht3" 
-    file="/Opdracht3/src/domain/FooterBoodschap.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1765" y="457"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="domain.FooterTotaal" project="Opdracht3" 
-    file="/Opdracht3/src/domain/FooterTotaal.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1693" y="350"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="domain.FooterVasteBoodschap" project="Opdracht3" 
-    file="/Opdracht3/src/domain/FooterVasteBoodschap.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1360" y="209"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="domain.HeaderDatumUitlening" project="Opdracht3" 
-    file="/Opdracht3/src/domain/HeaderDatumUitlening.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1625" y="293"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="domain.HeaderKassabonNummer" project="Opdracht3" 
-    file="/Opdracht3/src/domain/HeaderKassabonNummer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1149" y="143"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="domain.HeaderOpeningsUren" project="Opdracht3" 
-    file="/Opdracht3/src/domain/HeaderOpeningsUren.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1510" y="249"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="domain.HeaderTijdstip" project="Opdracht3" 
+  <class id="1" language="java" name="domain.HeaderTijdstip" project="Opdracht3" 
     file="/Opdracht3/src/domain/HeaderTijdstip.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1824" y="515"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="589" y="325"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <interface id="22" language="java" name="domain.IItem" project="Opdracht3" file="/Opdracht3/src/domain/IItem.java" 
+  <class id="2" language="java" name="domain.StatusUitgeleend" project="Opdracht3" 
+    file="/Opdracht3/src/domain/StatusUitgeleend.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="498" y="950"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="domain.HeaderDatumUitlening" project="Opdracht3" 
+    file="/Opdracht3/src/domain/HeaderDatumUitlening.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1100" y="353"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="domain.HeaderOpeningsUren" project="Opdracht3" 
+    file="/Opdracht3/src/domain/HeaderOpeningsUren.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="247" y="321"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="domain.KassaBonDecorator" project="Opdracht3" 
+    file="/Opdracht3/src/domain/KassaBonDecorator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="850" y="76"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="domain.Korting" project="Opdracht3" file="/Opdracht3/src/domain/Korting.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="900" y="666"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="53" width="87" x="498" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <interface id="7" language="java" name="domain.Observer" project="Opdracht3" 
+    file="/Opdracht3/src/domain/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="103" x="1561" y="140"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </interface>  
-  <class id="23" language="java" name="domain.Item" project="Opdracht3" file="/Opdracht3/src/domain/Item.java" 
+  <class id="8" language="java" name="domain.StatusUitleenbaar" project="Opdracht3" 
+    file="/Opdracht3/src/domain/StatusUitleenbaar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="715" y="1021"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="domain.Film" project="Opdracht3" file="/Opdracht3/src/domain/Film.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="37" width="277" x="505" y="374"/>    
-    <display autosize="false" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="998" y="952"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="domain.KassaBon" project="Opdracht3" file="/Opdracht3/src/domain/KassaBon.java" 
+  <interface id="10" language="java" name="domain.IItem" project="Opdracht3" file="/Opdracht3/src/domain/IItem.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="810" y="467"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1073" y="1097"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="domain.Spel" project="Opdracht3" file="/Opdracht3/src/domain/Spel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1178" y="898"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="domain.KassaBonDecorator" project="Opdracht3" 
-    file="/Opdracht3/src/domain/KassaBonDecorator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1887" y="220"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+  <class id="12" language="java" name="domain.FooterBoodschap" project="Opdracht3" 
+    file="/Opdracht3/src/domain/FooterBoodschap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="935" y="348"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="domain.KassaBonMain" project="Opdracht3" 
+  <class id="13" language="java" name="domain.KassaBonMain" project="Opdracht3" 
     file="/Opdracht3/src/domain/KassaBonMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="37" width="283" x="1394" y="546"/>    
-    <display autosize="false" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="836" y="683"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="domain.Klant" project="Opdracht3" file="/Opdracht3/src/domain/Klant.java" 
+  <interface id="14" language="java" name="domain.Subject" project="Opdracht3" file="/Opdracht3/src/domain/Subject.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="468" y="688"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="2087" y="58"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </interface>  
+  <class id="15" language="java" name="domain.StatusVerwijderd" project="Opdracht3" 
+    file="/Opdracht3/src/domain/StatusVerwijderd.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="355" y="817"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="domain.Korting" project="Opdracht3" file="/Opdracht3/src/domain/Korting.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="240" y="211"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="29" language="java" name="domain.Korting1Item" project="Opdracht3" 
+  <class id="16" language="java" name="domain.Korting1Item" project="Opdracht3" 
     file="/Opdracht3/src/domain/Korting1Item.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="241" y="369"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1028" y="45"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="domain.Korting5Items" project="Opdracht3" 
+  <class id="17" language="java" name="domain.Korting5Items" project="Opdracht3" 
     file="/Opdracht3/src/domain/Korting5Items.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="90" y="255"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1151" y="41"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <enumeration id="31" language="java" name="domain.Kortingen" project="Opdracht3" 
+  <class id="18" language="java" name="domain.Klant" project="Opdracht3" file="/Opdracht3/src/domain/Klant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="87" x="1561" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="domain.KortingLeuvenaar" project="Opdracht3" 
+    file="/Opdracht3/src/domain/KortingLeuvenaar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1222" y="112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="domain.KassaBon" project="Opdracht3" file="/Opdracht3/src/domain/KassaBon.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="864" y="761"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="domain.FooterTotaal" project="Opdracht3" 
+    file="/Opdracht3/src/domain/FooterTotaal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1272" y="356"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="domain.Mail" project="Opdracht3" file="/Opdracht3/src/domain/Mail.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="87" x="644" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="domain.Datum" project="Opdracht3" file="/Opdracht3/src/domain/Datum.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1027" y="618"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="domain.StatusHersteld" project="Opdracht3" 
+    file="/Opdracht3/src/domain/StatusHersteld.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="272" y="736"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="domain.Winkel" project="Opdracht3" file="/Opdracht3/src/domain/Winkel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="83" y="48"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <interface id="26" language="java" name="domain.Status" project="Opdracht3" file="/Opdracht3/src/domain/Status.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="328" y="1105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </interface>  
+  <enumeration id="27" language="java" name="domain.Kortingen" project="Opdracht3" 
     file="/Opdracht3/src/domain/Kortingen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="232" y="306"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="53" width="119" x="181" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </enumeration>  
-  <class id="32" language="java" name="domain.KortingLeuvenaar" project="Opdracht3" 
-    file="/Opdracht3/src/domain/KortingLeuvenaar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="107" y="360"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="33" language="java" name="domain.Mail" project="Opdracht3" file="/Opdracht3/src/domain/Mail.java" 
+  <class id="28" language="java" name="domain.Cd" project="Opdracht3" file="/Opdracht3/src/domain/Cd.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="79" y="204"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1087" y="929"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <interface id="34" language="java" name="domain.Observer" project="Opdracht3" 
-    file="/Opdracht3/src/domain/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="565" y="725"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+  <class id="29" language="java" name="domain.Adres" project="Opdracht3" file="/Opdracht3/src/domain/Adres.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="87" x="1434" y="140"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="domain.HeaderKassabonNummer" project="Opdracht3" 
+    file="/Opdracht3/src/domain/HeaderKassabonNummer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="732" y="334"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <interface id="31" language="java" name="domain.IKorting" project="Opdracht3" 
+    file="/Opdracht3/src/domain/IKorting.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1086" y="133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </interface>  
+  <class id="32" language="java" name="domain.FooterVasteBoodschap" project="Opdracht3" 
+    file="/Opdracht3/src/domain/FooterVasteBoodschap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="424" y="323"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="domain.Item" project="Opdracht3" file="/Opdracht3/src/domain/Item.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="794" y="853"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="domain.StatusBeschadigd" project="Opdracht3" 
+    file="/Opdracht3/src/domain/StatusBeschadigd.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="446" y="893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
   <class id="35" language="java" name="domain.Reservatie" project="Opdracht3" 
     file="/Opdracht3/src/domain/Reservatie.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="920" y="414"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1029" y="734"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="36" language="java" name="domain.Spel" project="Opdracht3" file="/Opdracht3/src/domain/Spel.java" 
+  <class id="36" language="java" name="io.IOReader" project="Opdracht3" file="/Opdracht3/src/io/IOReader.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="420" y="449"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="133" y="506"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <interface id="37" language="java" name="domain.Status" project="Opdracht3" file="/Opdracht3/src/domain/Status.java" 
+  <class id="37" language="java" name="io.IOWriterDB" project="Opdracht3" file="/Opdracht3/src/io/IOWriterDB.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1048" y="67"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </interface>  
-  <class id="38" language="java" name="domain.StatusBeschadigd" project="Opdracht3" 
-    file="/Opdracht3/src/domain/StatusBeschadigd.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="827" y="160"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="102" y="146"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="39" language="java" name="domain.StatusHersteld" project="Opdracht3" 
-    file="/Opdracht3/src/domain/StatusHersteld.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="594" y="167"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="40" language="java" name="domain.StatusUitgeleend" project="Opdracht3" 
-    file="/Opdracht3/src/domain/StatusUitgeleend.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="493" y="39"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="41" language="java" name="domain.StatusUitleenbaar" project="Opdracht3" 
-    file="/Opdracht3/src/domain/StatusUitleenbaar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="957" y="238"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <class id="42" language="java" name="domain.StatusVerwijderd" project="Opdracht3" 
-    file="/Opdracht3/src/domain/StatusVerwijderd.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="655" y="102"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="false" package="false" protected="false" private="false" static="false"/>    
-    </display>  
-  </class>  
-  <interface id="43" language="java" name="domain.Subject" project="Opdracht3" file="/Opdracht3/src/domain/Subject.java" 
+  <class id="38" language="java" name="io.IOReaderDB" project="Opdracht3" file="/Opdracht3/src/io/IOReaderDB.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="269" y="563"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="251" y="150"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
-  </interface>  
-  <class id="44" language="java" name="domain.Winkel" project="Opdracht3" file="/Opdracht3/src/domain/Winkel.java" 
+  </class>  
+  <class id="39" language="java" name="io.ExcelHandler" project="Opdracht3" file="/Opdracht3/src/io/ExcelHandler.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="57" y="517"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="399" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="45" language="java" name="controller.WinkelController.btnUitleningAddListener" project="Opdracht3" 
+  <class id="40" language="java" name="io.IOReaderTemplate" project="Opdracht3" 
+    file="/Opdracht3/src/io/IOReaderTemplate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="137" y="411"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="io.IOWriter" project="Opdracht3" file="/Opdracht3/src/io/IOWriter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="85" y="220"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="main.Main" project="Opdracht3" file="/Opdracht3/src/main/Main.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="305" y="505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="ui.KlantPanel" project="Opdracht3" file="/Opdracht3/src/ui/KlantPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="112" y="596"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="ui.WinkelPanel" project="Opdracht3" file="/Opdracht3/src/ui/WinkelPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="595" y="744"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="ui.KassaBonFormulier" project="Opdracht3" 
+    file="/Opdracht3/src/ui/KassaBonFormulier.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="580" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="controller.WinkelController.btnZoekItemsListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="454" y="995"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1503" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="46" language="java" name="controller.WinkelController.btnUitleningVerwijderListener" project="Opdracht3" 
+  <class id="47" language="java" name="controller.WinkelController.btnTypeAddListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="161" y="949"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1514" y="353"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="47" language="java" name="controller.WinkelController.btnExitListener" project="Opdracht3" 
+  <class id="48" language="java" name="controller.WinkelController.btnUitleningVoegToeListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="167" y="662"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1567" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="48" language="java" name="controller.WinkelController.btnLijstVanAlleListener" project="Opdracht3" 
+  <class id="49" language="java" name="controller.WinkelController" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="550" y="839"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1855" y="114"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="49" language="java" name="controller.WinkelController.btnUitleningKlantListener" project="Opdracht3" 
+  <class id="50" language="java" name="controller.WinkelController.btnUitleningAddListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="106" y="843"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1647" y="490"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="50" language="java" name="controller.WinkelController.btnZoekItemsListener" project="Opdracht3" 
+  <class id="51" language="java" name="controller.WinkelController.btnUitleningVerwijderListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="108" y="901"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1850" y="483"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="51" language="java" name="controller.WinkelController.btnTypeAddListener" project="Opdracht3" 
+  <class id="52" language="java" name="controller.WinkelController.btnExitListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="280" y="989"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1779" y="410"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="52" language="java" name="controller.WinkelController.btnUitleningVoegToeListener" project="Opdracht3" 
+  <class id="53" language="java" name="controller.WinkelController.btnLijstVanAlleListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="114" y="778"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="2056" y="484"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="53" language="java" name="controller.WinkelController" project="Opdracht3" 
+  <class id="54" language="java" name="controller.WinkelController.btnZoekIDListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="344" y="839"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="1930" y="418"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="54" language="java" name="controller.WinkelController.btnKlantAddListener" project="Opdracht3" 
+  <class id="55" language="java" name="controller.WinkelController.btnUitleningKlantListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="112" y="714"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="2135" y="407"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <association id="55">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="56" name="adres"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <realization id="59">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="37"/>  
-  </realization>  
-  <association id="60">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="61" name="kassabon"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="56" language="java" name="controller.WinkelController.btnKlantInschrijvenListener" project="Opdracht3" 
+    file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2192" y="316"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="controller.WinkelController.btnKlantAddListener" project="Opdracht3" 
+    file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2214" y="228"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="controller.WinkelController.btnKlantUitschrijvenListener" project="Opdracht3" 
+    file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2175" y="160"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="test.AdresTest" project="Opdracht3" file="/Opdracht3/src/test/AdresTest.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1314" y="217"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="test.ItemTest" project="Opdracht3" file="/Opdracht3/src/test/ItemTest.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="913" y="1083"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="test.KlantTest" project="Opdracht3" file="/Opdracht3/src/test/KlantTest.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1358" y="40"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="test.ReservatieTest" project="Opdracht3" 
+    file="/Opdracht3/src/test/ReservatieTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1405" y="826"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
+    </display>  
+  </class>  
   <association id="63">    
-    <end type="SOURCE" refId="53" navigable="false">      
-      <attribute id="64" name="observers"/>      
-      <multiplicity id="65" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="64" name="reservatieGelijk"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="34" navigable="true"/>    
+    <end type="TARGET" refId="35" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <realization id="67">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="37"/>  
+  <realization id="66">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
-  <nesting id="68">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="48"/>  
-  </nesting>  
-  <association id="69">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="70" name="item"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
+  <realization id="67">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="68">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="69" name="adresGelijk"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="72">    
+  <association id="71">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="72" name="adresNietGelijk"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="74">    
     <end type="SOURCE" refId="24"/>    
     <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <nesting id="73">    
-    <end type="SOURCE" refId="53"/>    
+  </realization>  
+  <realization id="75">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <nesting id="76">    
+    <end type="SOURCE" refId="49"/>    
     <end type="TARGET" refId="46"/>  
   </nesting>  
-  <association id="74">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="75" name="uitleenbaar"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
+  <generalization id="77">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="78">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="79" name="kassabon"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="77">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="78" name="kassabon"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
+  <association id="81">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="82" name="adresNietGelijk"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="80">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="81" name="uitgeleend"/>      
-      <multiplicity id="82" minimum="0" maximum="1"/>    
+  <association id="84">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="85" name="uniekeKorting"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="83">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="45"/>  
-  </nesting>  
-  <realization id="84">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="34"/>  
-  </realization>  
-  <association id="85">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="86" name="uniekeKorting"/>      
-      <multiplicity id="87" minimum="0" maximum="1"/>    
+  <association id="87">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="88" name="item"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="88">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="43"/>  
-  </realization>  
-  <nesting id="89">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="52"/>  
-  </nesting>  
   <association id="90">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="91" name="lijnBestelling"/>      
-      <multiplicity id="92" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="91" name="item"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="93">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="49"/>  
-  </nesting>  
+  <generalization id="93">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
   <association id="94">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="95" name="kassabon"/>      
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="95" name="item"/>      
       <multiplicity id="96" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="98" name="winkelController"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
+  <generalization id="97">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="98">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="99" name="reservatie"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="53" navigable="true"/>    
+    <end type="TARGET" refId="35" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="101" name="item"/>      
-      <multiplicity id="102" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <nesting id="101">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="52"/>  
+  </nesting>  
+  <nesting id="102">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="51"/>  
+  </nesting>  
   <realization id="103">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="22"/>  
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
   <association id="104">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="105" name="kassabon"/>      
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="105" name="item"/>      
       <multiplicity id="106" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="107">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="54"/>  
-  </nesting>  
-  <realization id="108">    
-    <end type="SOURCE" refId="41"/>    
-    <end type="TARGET" refId="37"/>  
-  </realization>  
-  <realization id="109">    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="37"/>  
-  </realization>  
+  <association id="107">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="108" name="verwijderd"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="110">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="111" name="kassabon"/>      
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="111" name="adresGelijk"/>      
       <multiplicity id="112" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="113">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="22"/>  
+  <nesting id="113">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="55"/>  
+  </nesting>  
+  <nesting id="114">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="57"/>  
+  </nesting>  
+  <association id="115">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="116" name="kassabon"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="119" name="winkelPanel"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="121">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="31"/>  
   </realization>  
-  <association id="114">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="115" name="winkelPanel"/>      
-      <multiplicity id="116" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="117">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="118" name="status"/>      
-      <multiplicity id="119" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="37" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="120">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="121" name="kassabon"/>      
-      <multiplicity id="122" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <nesting id="122">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="53"/>  
+  </nesting>  
   <association id="123">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="124" name="verwijderd"/>      
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="124" name="item"/>      
       <multiplicity id="125" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="126">    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="37"/>  
-  </realization>  
-  <association id="127">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="128" name="datum"/>      
-      <multiplicity id="129" minimum="0" maximum="1"/>    
+  <association id="126">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="127" name="itemGelijk"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="130">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <nesting id="131">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="50"/>  
-  </nesting>  
+  <association id="129">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="130" name="adres"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <generalization id="132">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="25"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
   <association id="133">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="134" name="startDatum"/>      
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="134" name="adres"/>      
       <multiplicity id="135" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="136">    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="137" name="item"/>      
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="137" name="datum"/>      
       <multiplicity id="138" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="139">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <association id="140">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="141" name="Statusbeschadigd"/>      
-      <multiplicity id="142" minimum="0" maximum="1"/>    
+  <association id="139">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="140" name="startDatum"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="38" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="143">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="22"/>  
-  </realization>  
-  <generalization id="144">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
+  <association id="142">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="143" name="klant"/>      
+      <multiplicity id="144" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="145">    
-    <end type="SOURCE" refId="16" navigable="false">      
+    <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="146" name="kassabon"/>      
       <multiplicity id="147" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="148">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="149" name="item"/>      
-      <multiplicity id="150" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="149" name="observers"/>      
+      <multiplicity id="150" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="151">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
+  <nesting id="151">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="47"/>  
+  </nesting>  
   <association id="152">    
-    <end type="SOURCE" refId="41" navigable="false">      
+    <end type="SOURCE" refId="62" navigable="false">      
       <attribute id="153" name="item"/>      
       <multiplicity id="154" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="155">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="156" name="kassabon"/>      
-      <multiplicity id="157" minimum="0" maximum="1"/>    
+  <generalization id="155">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <realization id="156">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="157">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <association id="158">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="159" name="uitleenbaar"/>      
+      <multiplicity id="160" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="161">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="33"/>  
+  </generalization>  
+  <association id="162">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="163" name="kassabon"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="166" name="itemNietGelijk"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="168">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <generalization id="169">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <nesting id="170">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="48"/>  
+  </nesting>  
+  <realization id="171">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="172">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <association id="173">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="174" name="item"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="176">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="177" name="uitgeleend"/>      
+      <multiplicity id="178" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="180" name="klantNietGelijk"/>      
+      <multiplicity id="181" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="182">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="183">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="184" name="kassabon"/>      
+      <multiplicity id="185" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="186">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="58"/>  
+  </nesting>  
+  <association id="187">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="188" name="item"/>      
+      <multiplicity id="189" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="190">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="33"/>  
+  </generalization>  
+  <association id="191">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="192" name="status"/>      
+      <multiplicity id="193" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="158">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="159">    
-    <end type="SOURCE" refId="53" navigable="false">      
-      <attribute id="160" name="Klanten"/>      
-      <multiplicity id="161" minimum="0" maximum="2147483647"/>    
+  <association id="194">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="195" name="winkelController"/>      
+      <multiplicity id="196" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="49" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="162">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="7"/>  
+  <association id="197">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="198" name="adres"/>      
+      <multiplicity id="199" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="200">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="33"/>  
   </generalization>  
-  <realization id="163">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="22"/>  
+  <association id="201">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="202" name="Klanten"/>      
+      <multiplicity id="203" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="204">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="205">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="206" name="reservatieNietGelijk"/>      
+      <multiplicity id="207" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="208">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="54"/>  
+  </nesting>  
+  <association id="209">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="210" name="klantGelijk"/>      
+      <multiplicity id="211" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="212">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="213" name="kassabon"/>      
+      <multiplicity id="214" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="215">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="216" name="itemNietGelijk"/>      
+      <multiplicity id="217" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="218">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="56"/>  
+  </nesting>  
+  <association id="219">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="220" name="kassabon"/>      
+      <multiplicity id="221" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="222">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="26"/>  
   </realization>  
-  <association id="164">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="165" name="item"/>      
-      <multiplicity id="166" minimum="0" maximum="1"/>    
+  <association id="223">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="224" name="lijnBestelling"/>      
+      <multiplicity id="225" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="226">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <realization id="227">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="14"/>  
+  </realization>  
+  <realization id="228">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <association id="229">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="230" name="Statusbeschadigd"/>      
+      <multiplicity id="231" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="232">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <association id="233">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="234" name="kassabon"/>      
+      <multiplicity id="235" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="236">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="237" name="nieuwItem"/>      
+      <multiplicity id="238" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="239">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="240" name="datum"/>      
+      <multiplicity id="241" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="167">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <nesting id="168">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="47"/>  
+  <nesting id="242">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="50"/>  
   </nesting>  
-  <generalization id="169">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <nesting id="170">    
-    <end type="SOURCE" refId="53"/>    
-    <end type="TARGET" refId="51"/>  
-  </nesting>  
-  <generalization id="171">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="false" package="false" protected="false" private="false" static="false"/>    
     <operations public="false" package="false" protected="false" private="false" static="false"/>  
