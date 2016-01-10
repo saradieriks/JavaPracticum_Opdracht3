@@ -143,7 +143,7 @@ public class WinkelController extends JFrame implements Subject {
 	    		try {
 					if (IOWriter.writeKlant(nieuwe) == true) {
 						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-						Klanten.add(nieuwe);
+						bouwKlantLijst();
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
