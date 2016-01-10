@@ -1,16 +1,29 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import domain.Adres;
+import domain.Cd;
+import domain.Film;
 import domain.Item;
+import domain.Klant;
 import domain.Observer;
 import domain.Reservatie;
+import domain.Spel;
 import domain.Subject;
+import io.IOReader;
+import io.IOWriter;
 import ui.WinkelPanel;
 
 public class WinkelController extends JFrame implements Subject {
@@ -44,47 +57,227 @@ public class WinkelController extends JFrame implements Subject {
 
     public WinkelController() {
         WinkelPanel paneel = new WinkelPanel();
+        paneel.setBtnExit(new btnExitListener());
+        paneel.setBtnTypeAdd(new btnTypeAddListener());
+        paneel.setBtnKlantAdd(new btnKlantAddListener());
+        paneel.setBtnUitleningAdd(new btnUitleningAddListener());
+        paneel.setBtnUitleningVoegToe(new btnUitleningVoegToeListener());
+        paneel.setBtnUitleningVerwijder(new btnUitleningVerwijderListener());
+        paneel.setBtnLijstVanAlle(new btnLijstVanAlleListener());
+        paneel.setBtnZoekItems(new btnZoekItemsListener());
         paneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         paneel.setVisible(true);
         paneel.show();
     }
-	
-	// Deze methode moet nog verder afgewerkt worden
-	public Boolean maakNieuweReservatie(String id, int klantID, int aantalDagen) {
-		/*
-		 * Deze maakt een nieuwe reservatie aan en zal indien positief dan ook
-		 * een refresh doen van de reservaties via de ioReader
-		 */
-		return true;
-	}
-	
-	// Deze methode moet nog verder afgewerkt worden
-	public Double brengTerug(List<Item> lijst) {
-		/*
-		 * Deze functie bepaalt het totaal te betalen bedrag en de boeten. 
-		 * Concreet past deze functie de objecten aan en vult overal het bedrag 
-		 * en de boete in.
-		 */
-		return 0D; 
-	}
-	
-	// Deze methode moet nog afgewerkt worden
-	public String geefAlleItems() {
-		/*
-		 * Dit geeft een geformateerde lijst voor consoledisplay terug.
-		 * opgave punt 4
-		 */
-		return "";
-	}
-	
-	// Deze methode moet nog afgewerkt worden
-	public String zoekItems(String woord, String type) {
-		/*
-		 * Geeft geformateerde lijst van alle items met dit woord in de titel 
-		 * van dat type. Het type moet meegegeven worden als "movie" of "game".
-		 */
-		return "";
-	}
 
+	class btnExitListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 System.exit(0);		 
+		 }
+	}
+	
+	class btnTypeAddListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 Item nieuwe;
+	    		if (WinkelPanel.getCbType() == 'M') {
+	    			nieuwe = new Film(WinkelPanel.getTxtItemTitel(), WinkelPanel.getCbType());
+	    		}
+	    		else if (WinkelPanel.getCbType() == 'G') {
+	    			nieuwe = new Spel(WinkelPanel.getTxtItemTitel(), WinkelPanel.getCbType());
+	    		}
+	    		else {
+	    			nieuwe = new Cd(WinkelPanel.getTxtItemTitel(), WinkelPanel.getCbType());
+	    		}
+	    		try {
+					if (IOWriter.writeItem(nieuwe) == true) {
+						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}		 
+		 }
+	}
+	
+	class btnKlantAddListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 Klant nieuwe = new Klant(WinkelPanel.getTxtKlantNaam(), WinkelPanel.getTxtKlantVoornaam(), new Adres(WinkelPanel.getTxtKlantStraat(), 
+					 WinkelPanel.getTxtKlantNummer(), WinkelPanel.getTxtKlantBox(), WinkelPanel.getTxtKlantPostcode(), WinkelPanel.getTxtKlantGemeente(),
+					 WinkelPanel.getTxtKlantLand()), WinkelPanel.getTxtKlantEmail());
+	    		try {
+					if (IOWriter.writeKlant(nieuwe) == true) {
+						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}		 
+		 }
+	}
+	
+	class btnUitleningAddListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 		 
+		 }
+	}
+	
+	class btnUitleningVoegToeListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 if (Reservatie.isAvailable(WinkelPanel.getTxtUitleningTitel(), WinkelPanel.getCbType())) {
+	    			JOptionPane.showMessageDialog(null, "Item beschikbaar", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    			Reservatie nieuwe = new Reservatie(Item.vindItem(WinkelPanel.getTxtUitleningTitel(), WinkelPanel.getCbType()),
+	    					WinkelPanel.getTxtUitleningDagen(), Klant.vindKlantId(WinkelPanel.getTxtUitleningNaam(),
+	    					WinkelPanel.getTxtUitleningVoornaam()));
+	    			if (Klant.vindKlantId(WinkelPanel.getTxtUitleningNaam(), WinkelPanel.getTxtUitleningVoornaam()) == -1) {
+	    				JOptionPane.showMessageDialog(null, "Klant niet gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    			}
+	    			else {
+	    				JOptionPane.showMessageDialog(null, "Klant gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    			}
+	    			try {
+						if (IOWriter.writeReservatie(nieuwe) == true) {
+							WinkelPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
+									WinkelPanel.getTxtUitleningDagen()});
+							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+						}
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}   		
+	    		}
+	    		else {
+	    			JOptionPane.showMessageDialog(null, "Item niet gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    		}		 
+		 }
+	}
+	
+	class btnUitleningVerwijderListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 		 
+		 }
+	}
+	
+	class btnUitleningKlantListener implements ActionListener{
+		 public void actionPerformed(ActionEvent e) {
+			 for (int i = 0; i < Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), WinkelPanel.getTxtKlantVoornaam()).size(); i++){
+	    			char lijn1 = Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), 
+	    					WinkelPanel.getTxtKlantVoornaam()).get(i).getItem().getType();
+	    			String lijn2 = Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), 
+	    					WinkelPanel.getTxtKlantVoornaam()).get(i).getItem().getTitel();
+	    			int lijn3 = Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), WinkelPanel.getTxtKlantVoornaam()).get(i).getAatalDagen();
+	    			Object[] rowData = { lijn1, lijn2, lijn3 };
+	    			WinkelPanel.getModel().addRow(rowData);
+	    		}		 
+		 }
+	}
+	
+	class btnLijstVanAlleListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			try {
+				IOReader.refreshItems();
+				StringBuilder alleItems = new StringBuilder();
+				alleItems.append("---MOVIES---\n");
+				List<String> movies = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
+				{
+					movies.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+				}
+				java.util.Collections.sort(movies);
+				for (String movie: movies)
+				{
+					alleItems.append(movie + "\n");
+				}
+				alleItems.append("\n---GAMES---\n");
+				List<String> games = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
+				{
+					games.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+				}
+				java.util.Collections.sort(games);
+				for (String game: games)
+				{
+					alleItems.append(game + "\n");
+				}
+				alleItems.append("\n---CDs---\n");
+				List<String> cds = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
+				{
+					cds.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+				}
+				java.util.Collections.sort(cds);
+				for (String cd: cds)
+				{
+					alleItems.append(cd + "\n");
+				}
+				JOptionPane.showMessageDialog(null, alleItems.toString(), "RESULTAAT" , JOptionPane.INFORMATION_MESSAGE);
+					
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}	
+		}
+	}
+	
+	class btnZoekItemsListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			try {
+				IOReader.refreshItems();
+				StringBuilder alleItems = new StringBuilder();
+				alleItems.append("---MOVIES---\n");
+				List<String> movies = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getMovies().entrySet())
+				{
+					if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((WinkelPanel.ZoekText.getText()).toLowerCase()))
+					{
+						movies.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					}
+				    
+				}
+				java.util.Collections.sort(movies);
+				for (String movie: movies)
+				{
+					alleItems.append(movie + "\n");
+				}
+				alleItems.append("\n---GAMES---\n");
+				List<String> games = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getGames().entrySet())
+				{
+					if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((WinkelPanel.getZoekText()).toLowerCase()))
+					{
+						games.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					}
+				    
+				}
+				java.util.Collections.sort(games);
+				for (String game: games)
+				{
+					alleItems.append(game + "\n");
+				}
+				alleItems.append("\n---CDs---\n");
+				List<String> cds = new ArrayList<>();
+				for (Map.Entry<String, String> entry : IOReader.getCDs().entrySet())
+				{
+					if ((entry.getValue().replaceAll(Pattern.quote("+")," ")).toLowerCase().contains((WinkelPanel.getZoekText()).toLowerCase()))
+					{
+						cds.add(entry.getValue().replaceAll(Pattern.quote("+")," "));
+					}
+				    
+				}
+				java.util.Collections.sort(cds);
+				for (String cd: cds)
+				{
+					alleItems.append(cd + "\n");
+				}
+				JOptionPane.showMessageDialog(null, alleItems.toString(), "RESULTAAT" , JOptionPane.INFORMATION_MESSAGE);	
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
 
 }

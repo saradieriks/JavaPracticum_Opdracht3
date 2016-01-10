@@ -42,18 +42,36 @@ public class WinkelPanel extends JFrame {
     private JPanel cardPanel, jpKlant, jpUitlening, jpItem, buttonPanel, exitPanel, jpInventaris;
     private JLabel jlKlantVoornaam, jlKlantNaam, jlKlantStraat, jlKlantNummer, jlKlantBox, jlKlantPostcode, jlKlantGemeente, jlKlantLand, jlKlantEmail,
     	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType, jlUitleningDagen, jlTest;
-    private JTextField txtItemTitel, txtKlantVoornaam, txtKlantNaam, txtKlantStraat, txtKlantNummer, txtKlantBox, txtKlantPostcode, txtKlantGemeente,
-    	txtKlantLand, txtKlantEmail,txtUitleningNaam, txtUitleningVoornaam, txtUitleningTitel, txtUitleningPrijs, txtUitleningDagen, txtTerugbrengenBoete;
-    private JButton btnKlant, btnUitlening, btnTerugbrengen, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, 
-    	btnUitleningVoegToe, btnUitleningVerwijder, btnInventaris, btnUitleningKlant;
+    private static JTextField txtItemTitel;
+	private static JTextField txtKlantVoornaam;
+	private static JTextField txtKlantNaam;
+	private static JTextField txtKlantStraat;
+	private static JTextField txtKlantNummer;
+	private static JTextField txtKlantBox;
+	private static JTextField txtKlantPostcode;
+	private static JTextField txtKlantGemeente;
+	private static JTextField txtKlantLand;
+	private static JTextField txtKlantEmail;
+	private static JTextField txtUitleningNaam;
+	private static JTextField txtUitleningVoornaam;
+	private static JTextField txtUitleningTitel;
+	private JTextField txtUitleningPrijs;
+	private static JTextField txtUitleningDagen;
+	private JTextField txtTerugbrengenBoete;
+    private JButton btnKlant, btnUitlening, btnItem, btnExit, btnTypeAdd, btnKlantAdd, btnUitleningAdd, 
+    	btnUitleningVoegToe, btnUitleningVerwijder, btnInventaris, btnUitleningKlant, btnZoekItems;
     private CardLayout cardLayout = new CardLayout();
     private Character[] type = { 'M', 'G', 'C' };
-    private JComboBox cbType, cbDag, cbMaand, cbJaar;
+    private static JComboBox cbType;
+	private JComboBox cbDag;
+	private JComboBox cbMaand;
+	private JComboBox cbJaar;
     private JCheckBox cbBetaald;
     public JTable tblUitleningen;
     private JButton btnLijstVanAlle;
-    private JTextField ZoekText;
+    private static JTextField ZoekText;
     private String[] kolomNamen = {"Type", "Titel", "Dagen"};
+    private static DefaultTableModel model;
     
     public WinkelPanel() {
 	    setTitle("Winkel");
@@ -91,7 +109,7 @@ public class WinkelPanel extends JFrame {
 	    jlKlantEmail = new JLabel("Email: "); jlKlantEmail.setBounds(10, 160, 100, 20); jpKlant.add(jlKlantEmail);
 	    txtKlantEmail = new JTextField(); txtKlantEmail.setBounds(110, 160, 200, 20); jpKlant.add(txtKlantEmail);
 	    btnKlantAdd = new JButton("Voeg klant toe"); btnKlantAdd.setBounds(60, 190, 150, 20);
-	    btnKlantAdd.addActionListener(new ActionListener() {
+	    /*btnKlantAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		Klant nieuwe = new Klant(getTxtKlantNaam(), getTxtKlantVoornaam(), new Adres(getTxtKlantStraat(), getTxtKlantNummer(), getTxtKlantBox(),
 	    				getTxtKlantPostcode(), getTxtKlantGemeente(), getTxtKlantLand()), getTxtKlantEmail());
@@ -115,11 +133,11 @@ public class WinkelPanel extends JFrame {
 					e1.printStackTrace();
 				}
 	    	}
-	    });
+	    });*/
 	    jpKlant.add(btnKlantAdd);
 	    
 	    // Uitlening-paneel
-	    DefaultTableModel model = new DefaultTableModel(kolomNamen, 0);
+	    model = new DefaultTableModel(kolomNamen, 0);
 	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(10, 130, 400, 400); jpUitlening.add(tblUitleningen);
 	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
 	    model.addRow(rowData);
@@ -128,7 +146,7 @@ public class WinkelPanel extends JFrame {
 	    jlUitleningNaam = new JLabel("Naam klant: "); jlUitleningNaam.setBounds(10, 40, 100, 20); jpUitlening.add(jlUitleningNaam);
 	    txtUitleningNaam = new JTextField(); txtUitleningNaam.setBounds(110, 40, 200, 20); jpUitlening.add(txtUitleningNaam);
 	    btnUitleningKlant = new JButton("Haal uitleningen op"); btnUitleningKlant.setBounds(320, 40, 200, 20); jpUitlening.add(btnUitleningKlant);
-	    btnUitleningKlant.addActionListener(new ActionListener() {
+	    /*btnUitleningKlant.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		for (int i = 0; i < Reservatie.haalReservatiesOp(getTxtKlantNaam(), getTxtKlantVoornaam()).size(); i++){
 	    			char lijn1 = Reservatie.haalReservatiesOp(getTxtKlantNaam(), getTxtKlantVoornaam()).get(i).getItem().getType();
@@ -138,7 +156,7 @@ public class WinkelPanel extends JFrame {
 	    			model.addRow(rowData);
 	    		}
 	    	}
-	    });
+	    });*/
 	    jlUitleningType = new JLabel("Type item: "); jlUitleningType.setBounds(10, 70, 100, 20); jpUitlening.add(jlUitleningType);
 	    cbType = new JComboBox(type); cbType.setBounds(110, 70, 50, 20); jpUitlening.add(cbType);
 	    jlUitleningTitel = new JLabel("Titel item: "); jlUitleningTitel.setBounds(170, 70, 100, 20); jpUitlening.add(jlUitleningTitel);
@@ -146,7 +164,7 @@ public class WinkelPanel extends JFrame {
 	    jlUitleningDagen = new JLabel("Aantal dagen:"); jlUitleningDagen.setBounds(490, 70, 100, 20); jpUitlening.add(jlUitleningDagen);
 	    txtUitleningDagen = new JTextField(); txtUitleningDagen.setBounds(600, 70, 100, 20); jpUitlening.add(txtUitleningDagen);
 	    btnUitleningVoegToe = new JButton("Voeg item toe"); btnUitleningVoegToe.setBounds(10, 100, 200, 20);
-	    btnUitleningVoegToe.addActionListener(new ActionListener() {
+	    /*btnUitleningVoegToe.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		if (Reservatie.isAvailable(getTxtUitleningTitel(), getCbType())) {
 	    			JOptionPane.showMessageDialog(null, "Item beschikbaar", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
@@ -178,22 +196,22 @@ public class WinkelPanel extends JFrame {
 	    			JOptionPane.showMessageDialog(null, "Item niet gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 	    		}
 	    	}
-	    });
+	    });*/
 	    jpUitlening.add(btnUitleningVoegToe);
 	    btnUitleningVerwijder = new JButton("Verwijder item"); btnUitleningVerwijder.setBounds(220, 100, 200, 20); jpUitlening.add(btnUitleningVerwijder);
-	    btnUitleningVerwijder.addActionListener(new ActionListener() {
+	    /*btnUitleningVerwijder.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		
 	    	}
-	    });
+	    });*/
 	    jlUitleningPrijs = new JLabel("Prijs:"); jlUitleningPrijs.setBounds(10, 540, 100, 20); jpUitlening.add(jlUitleningPrijs);
 	    txtUitleningPrijs = new JTextField(); txtUitleningPrijs.setBounds(110, 540, 200, 20); jpUitlening.add(txtUitleningPrijs);
 	    btnUitleningAdd = new JButton("Voeg uitlening toe"); btnUitleningAdd.setBounds(60, 570, 150, 20);
-	    btnUitleningAdd.addActionListener(new ActionListener() {
+	    /*btnUitleningAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	  		  	
 	    	}
-	    });
+	    });*/
 	    jpUitlening.add(btnUitleningAdd);   
 	    
 	    // Item-paneel
@@ -202,7 +220,7 @@ public class WinkelPanel extends JFrame {
 	    jlItemType = new JLabel("Type item: "); jlItemType.setBounds(10, 40, 100, 20); jpItem.add(jlItemType);
 	    cbType = new JComboBox(type); cbType.setBounds(110, 40, 50, 20); jpItem.add(cbType);
 	    btnTypeAdd = new JButton("Voeg item toe"); btnTypeAdd.setBounds(60, 70, 150, 20);
-	    btnTypeAdd.addActionListener(new ActionListener() {
+	    /*btnTypeAdd.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		Item nieuwe;
 	    		if (getCbType() == 'M') {
@@ -226,7 +244,7 @@ public class WinkelPanel extends JFrame {
 					e1.printStackTrace();
 				}
 	    	}
-	    });
+	    });*/
 	    jpItem.add(btnTypeAdd);
 	    
 	    // Inventaris-paneel
@@ -240,7 +258,7 @@ public class WinkelPanel extends JFrame {
 	    jpInventaris.add(ZoekText);
 	    ZoekText.setColumns(10);
 	    
-	    JButton btnZoekItems = new JButton("Zoek items");
+	    btnZoekItems = new JButton("Zoek items");
 	    btnZoekItems.setBounds(24, 139, 97, 25);
 	    jpInventaris.add(btnZoekItems);
 	    
@@ -248,7 +266,7 @@ public class WinkelPanel extends JFrame {
 	    lblZoekterm.setBounds(26, 95, 116, 16);
 	    jpInventaris.add(lblZoekterm);
 	    
-	    btnLijstVanAlle.addActionListener(new ActionListener () {
+	    /*btnLijstVanAlle.addActionListener(new ActionListener () {
 
 			public void actionPerformed(ActionEvent e) {
 				
@@ -294,9 +312,9 @@ public class WinkelPanel extends JFrame {
 					e1.printStackTrace();
 				}	
 			}
-	    });
+	    });*/
 	    
-	    btnZoekItems.addActionListener(new ActionListener () {
+	    /*btnZoekItems.addActionListener(new ActionListener () {
 
 			public void actionPerformed(ActionEvent e) {
 				
@@ -353,13 +371,7 @@ public class WinkelPanel extends JFrame {
 					e1.printStackTrace();
 				}	
 			}
-	    });
-	    
-	    
-
-	    
-	    		
-	    
+	    });*/
 	    
 	    // Card toevoegen aan de main panel
 	    cardPanel.add(jpKlant, "1");
@@ -397,11 +409,11 @@ public class WinkelPanel extends JFrame {
 	        }
 	    });
 	    btnExit = new JButton("Exit");
-	    btnExit.addActionListener(new ActionListener() {
+	    /*btnExit.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		System.exit(0);
 	    	}
-	    });
+	    });*/
 	    buttonPanel.add(btnKlant);
 	    buttonPanel.add(btnUitlening);
 	    buttonPanel.add(btnItem);
@@ -412,7 +424,7 @@ public class WinkelPanel extends JFrame {
 	    getContentPane().add(exitPanel, BorderLayout.SOUTH);
     }
     
-    public String getTxtItemTitel() {
+    public static String getTxtItemTitel() {
 		return txtItemTitel.getText();
 	}
 
@@ -420,7 +432,7 @@ public class WinkelPanel extends JFrame {
 		this.txtItemTitel = txtItemTitel;
 	}
 
-	public String getTxtKlantVoornaam() {
+	public static String getTxtKlantVoornaam() {
 		return txtKlantVoornaam.getText();
 	}
 
@@ -428,15 +440,23 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantVoornaam = txtKlantVoornaam;
 	}
 
-	public String getTxtKlantNaam() {
+	public static String getTxtKlantNaam() {
 		return txtKlantNaam.getText();
+	}
+
+	public void setZoekText(JTextField ZoekText) {
+		this.ZoekText = ZoekText;
+	}
+	
+	public static String getZoekText() {
+		return ZoekText.getText();
 	}
 
 	public void setTxtKlantNaam(JTextField txtKlantNaam) {
 		this.txtKlantNaam = txtKlantNaam;
 	}
 
-	public String getTxtKlantStraat() {
+	public static String getTxtKlantStraat() {
 		return txtKlantStraat.getText();
 	}
 
@@ -444,7 +464,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantStraat = txtKlantStraat;
 	}
 
-	public String getTxtKlantNummer() {
+	public static String getTxtKlantNummer() {
 		return txtKlantNummer.getText();
 	}
 
@@ -452,7 +472,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantNummer = txtKlantNummer;
 	}
 
-	public String getTxtKlantBox() {
+	public static String getTxtKlantBox() {
 		return txtKlantBox.getText();
 	}
 
@@ -460,7 +480,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantBox = txtKlantBox;
 	}
 
-	public String getTxtKlantPostcode() {
+	public static String getTxtKlantPostcode() {
 		return txtKlantPostcode.getText();
 	}
 
@@ -468,7 +488,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantPostcode = txtKlantPostcode;
 	}
 
-	public String getTxtKlantGemeente() {
+	public static String getTxtKlantGemeente() {
 		return txtKlantGemeente.getText();
 	}
 
@@ -476,7 +496,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantGemeente = txtKlantGemeente;
 	}
 
-	public String getTxtKlantLand() {
+	public static String getTxtKlantLand() {
 		return txtKlantLand.getText();
 	}
 
@@ -484,7 +504,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantLand = txtKlantLand;
 	}
 
-	public String getTxtKlantEmail() {
+	public static String getTxtKlantEmail() {
 		return txtKlantEmail.getText();
 	}
 
@@ -492,7 +512,7 @@ public class WinkelPanel extends JFrame {
 		this.txtKlantEmail = txtKlantEmail;
 	}
 
-	public String getTxtUitleningNaam() {
+	public static String getTxtUitleningNaam() {
 		return txtUitleningNaam.getText();
 	}
 
@@ -500,7 +520,7 @@ public class WinkelPanel extends JFrame {
 		this.txtUitleningNaam = txtUitleningNaam;
 	}
 
-	public String getTxtUitleningVoornaam() {
+	public static String getTxtUitleningVoornaam() {
 		return txtUitleningVoornaam.getText();
 	}
 
@@ -508,7 +528,7 @@ public class WinkelPanel extends JFrame {
 		this.txtUitleningVoornaam = txtUitleningVoornaam;
 	}
 
-	public String getTxtUitleningTitel() {
+	public static String getTxtUitleningTitel() {
 		return txtUitleningTitel.getText();
 	}
 
@@ -524,7 +544,7 @@ public class WinkelPanel extends JFrame {
 		this.txtUitleningPrijs = txtUitleningPrijs;
 	}
 
-	public int getTxtUitleningDagen() {
+	public static int getTxtUitleningDagen() {
 		return Integer.parseInt(txtUitleningDagen.getText());
 	}
 
@@ -540,7 +560,7 @@ public class WinkelPanel extends JFrame {
 		this.txtTerugbrengenBoete = txtTerugbrengenBoete;
 	}
 
-	public char getCbType() {
+	public static char getCbType() {
 		return (char) cbType.getSelectedItem();
 	}
 
@@ -578,5 +598,65 @@ public class WinkelPanel extends JFrame {
 
 	public void setCbBetaald(JCheckBox cbBetaald) {
 		this.cbBetaald = cbBetaald;
+	}
+	
+	public void setModel (DefaultTableModel model) {
+		this.model = model;
+	}
+	
+	public static DefaultTableModel getModel() {
+		return model;
+	}
+	
+	public void setBtnExit(ActionListener listenerForBtnExit){
+		btnExit.addActionListener(listenerForBtnExit);		 
+	   }
+	
+	public void setBtnKlant(ActionListener listenerForBtnKlant){
+		btnKlant.addActionListener(listenerForBtnKlant);		 
+	   } 
+	
+	public void setBtnUitlening(ActionListener listenerForBtnUitlening){
+		btnUitlening.addActionListener(listenerForBtnUitlening);		 
+	   } 
+	
+	public void setBtnItem(ActionListener listenerForBtnItem){
+		btnItem.addActionListener(listenerForBtnItem);		 
+	   } 
+	
+	public void setBtnTypeAdd(ActionListener listenerForBtnTypeAdd){
+		btnTypeAdd.addActionListener(listenerForBtnTypeAdd);		 
+	   } 
+	
+	public void setBtnKlantAdd(ActionListener listenerForBtnKlantAdd){
+		btnKlantAdd.addActionListener(listenerForBtnKlantAdd);		 
+	   } 
+	
+	public void setBtnUitleningAdd(ActionListener listenerForBtnUitleningAdd){
+		btnUitleningAdd.addActionListener(listenerForBtnUitleningAdd);		 
+	   } 
+	
+	public void setBtnUitleningVoegToe(ActionListener listenerForBtnUitleningVoegToe){
+		btnUitleningVoegToe.addActionListener(listenerForBtnUitleningVoegToe);		 
+	   } 
+	
+	public void setBtnUitleningVerwijder(ActionListener listenerForBtnUitleningVerwijder){
+		btnUitleningVerwijder.addActionListener(listenerForBtnUitleningVerwijder);		 
+	   } 
+	
+	public void setBtnInventaris(ActionListener listenerForBtnInventaris){
+		btnInventaris.addActionListener(listenerForBtnInventaris);		 
+	   } 
+	
+	public void setBtnUitleningKlant(ActionListener listenerForBtnUitleningKlant){
+		btnUitleningKlant.addActionListener(listenerForBtnUitleningKlant);		 
+	   } 
+	
+	public void setBtnLijstVanAlle(ActionListener listenerForBtnLijstVanAlle) {
+		btnLijstVanAlle.addActionListener(listenerForBtnLijstVanAlle);
+	}
+	
+	public void setBtnZoekItems(ActionListener listenerForBtnZoekItems) {
+		btnZoekItems.addActionListener(listenerForBtnZoekItems);
 	}
 }
