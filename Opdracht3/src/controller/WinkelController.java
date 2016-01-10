@@ -13,12 +13,15 @@ import domain.Reservatie;
 import domain.Subject;
 import ui.WinkelPanel;
 
+import domain.Klant;
+import domain.Adres;
+
 public class WinkelController extends JFrame implements Subject {
 
 	public static Map <String,List<Item>> Items = new HashMap<>();
 	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
 	private static List<Observer>observers = new ArrayList<Observer>();
-	
+	private static List<Klant>Klanten = new ArrayList<Klant>();
 	/*
 	 * De list observers moet alle klanten bevatten met IsObserver == true
 	 * klanten die at runtime observer worden, worden toegevoegd via de methode binnen klant
@@ -28,6 +31,20 @@ public class WinkelController extends JFrame implements Subject {
 	 */
 	
 	//observer methods
+	private void bouwKlantLijst()
+	{
+		for (Map.Entry<Integer, String> entry : IOReader.getKlanten().entrySet()) {
+		    Integer key = entry.getKey();
+		    String value = entry.getValue();
+		    String w[] = value.split(";");
+		    Adres bestaandAdresKlant = new Adres(w[2],w[3],w[4],w[5]);
+		    Boolean observer = false;
+		    if (w[9]=="1"){observer = true;}
+		    Klant bestaand = new Klant(key,w[1], w[0],bestaandAdresKlant,w[8],observer);
+		    Klanten.add(bestaand);
+		    
+		}
+	}
 	public void addObserver(Observer o) {
 		observers.add(o);	
 	}
