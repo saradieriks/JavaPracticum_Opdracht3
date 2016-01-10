@@ -20,6 +20,5 @@ public class StatusVerwijderd implements Status{
 	}
 	
 	public void verwijderen(){
-		//code om product te verwijderen.
 	}
 }
