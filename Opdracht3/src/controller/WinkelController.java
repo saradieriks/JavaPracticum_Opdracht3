@@ -22,6 +22,7 @@ import domain.Observer;
 import domain.Reservatie;
 import domain.Spel;
 import domain.Subject;
+import io.IOAdapter;
 import io.IOReader;
 import io.IOWriter;
 import ui.WinkelPanel;
@@ -37,8 +38,10 @@ public class WinkelController extends JFrame implements Subject {
 	private static List<Observer>observers = new ArrayList<Observer>();
 	private static List<Klant>Klanten = new ArrayList<Klant>();
 	
-	public KlantPanel klantPaneel;
+	private Integer ioKeuze;
 	
+	public KlantPanel klantPaneel;
+	public IOAdapter ioAdapter;
 
 	
 	//observer methods
@@ -79,7 +82,12 @@ public class WinkelController extends JFrame implements Subject {
 	}
 
     @SuppressWarnings("deprecation")
-	public WinkelController() {
+	public WinkelController(Integer ioKeuze) {
+    	
+    	this.ioKeuze = ioKeuze;
+    	
+    	ioAdapter = new IOAdapter(this.ioKeuze);
+    	
     	bouwKlantLijst();
         WinkelPanel paneel = new WinkelPanel();
         paneel.setBtnExit(new btnExitListener());
@@ -103,6 +111,8 @@ public class WinkelController extends JFrame implements Subject {
         klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         klantPaneel.setVisible(true);
         klantPaneel.show();
+        
+        
         
     }
 
