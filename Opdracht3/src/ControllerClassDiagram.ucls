@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="controller.WinkelController.btnZoekItemsListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="128" y="65"/>    
+    <position height="-1" width="-1" x="665" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="controller.WinkelController.btnTypeAddListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="127" y="193"/>    
+    <position height="-1" width="-1" x="528" y="159"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="controller.WinkelController.btnUitleningVoegToeListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="129" y="314"/>    
+    <position height="-1" width="-1" x="489" y="270"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="controller.WinkelController.btnUitleningAddListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="365" y="387"/>    
+    <position height="-1" width="-1" x="443" y="389"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="controller.WinkelController.btnUitleningVerwijderListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="605" y="446"/>    
+    <position height="-1" width="-1" x="661" y="398"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="controller.WinkelController.btnExitListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="855" y="471"/>    
+    <position height="-1" width="-1" x="867" y="435"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="controller.WinkelController.btnLijstVanAlleListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1073" y="475"/>    
+    <position height="-1" width="-1" x="1070" y="440"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="controller.WinkelController.btnZoekIDListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1302" y="445"/>    
+    <position height="-1" width="-1" x="1276" y="445"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="controller.WinkelController.btnUitleningKlantListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1542" y="400"/>    
+    <position height="-1" width="-1" x="1289" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="controller.WinkelController.btnKlantInschrijvenListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1769" y="341"/>    
+    <position height="-1" width="-1" x="1511" y="283"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="controller.WinkelController.btnKlantAddListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1774" y="225"/>    
+    <position height="-1" width="-1" x="1327" y="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="controller.WinkelController.btnKlantUitschrijvenListener" project="Opdracht3" 
     file="/Opdracht3/src/controller/WinkelController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1652" y="87"/>    
+    <position height="-1" width="-1" x="1263" y="59"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
