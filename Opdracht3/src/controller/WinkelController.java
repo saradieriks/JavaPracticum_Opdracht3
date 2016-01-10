@@ -25,6 +25,7 @@ import domain.Subject;
 import io.IOReader;
 import io.IOWriter;
 import ui.WinkelPanel;
+import ui.KlantPanel;
 
 import domain.Klant;
 import domain.Adres;
@@ -91,6 +92,12 @@ public class WinkelController extends JFrame implements Subject {
         paneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         paneel.setVisible(true);
         paneel.show();
+        
+        KlantPanel klantPaneel = new KlantPanel();
+        klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        klantPaneel.setVisible(true);
+        klantPaneel.show();
+        
     }
 
 	class btnExitListener implements ActionListener{
