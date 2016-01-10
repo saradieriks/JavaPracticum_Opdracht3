@@ -39,7 +39,7 @@ public class KlantPanel extends JFrame {
 
 	private static final long VersionUID = 1L;
     private JLabel jlKlantNaam, jlPrijs;
-    private static JLabel jlKlantNaamInput, jlPrijsInput, jlWhite;
+    private JLabel jlKlantNaamInput, jlPrijsInput, jlWhite;
     private JCheckBox cbInschrijven;
     private JTable tblUitleningen;
     private static DefaultTableModel model;
@@ -80,15 +80,15 @@ public class KlantPanel extends JFrame {
 		return jlKlantNaamInput.getText();
 	}
 
-	public void setjlKlantNaamInput(JLabel jlKlantNaamInput) {
-		this.jlKlantNaamInput = jlKlantNaamInput;
+	public void setjlKlantNaamInput(String klantNaam) {
+		this.jlKlantNaamInput.setText(klantNaam);
 	}
 	public static String getjlPrijsInput() { //static
 		return jlPrijsInput.getText();
 	}
 
-	public void setjlPrijsInput(JLabel jlPrijsInput) {
-		this.jlPrijsInput = jlPrijsInput;
+	public void setjlPrijsInput(String PrijsInput) {
+		this.jlPrijsInput.setText(PrijsInput);
 	}
 	
 	public void setcbInschrijven(ActionListener listenerForcbInschrijven) {

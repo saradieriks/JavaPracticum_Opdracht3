@@ -36,6 +36,9 @@ public class WinkelController extends JFrame implements Subject {
 	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
 	private static List<Observer>observers = new ArrayList<Observer>();
 	private static List<Klant>Klanten = new ArrayList<Klant>();
+	
+	public KlantPanel klantPaneel;
+	
 	/*
 	 * De list observers moet alle klanten bevatten met IsObserver == true
 	 * klanten die at runtime observer worden, worden toegevoegd via de methode binnen klant
@@ -75,6 +78,10 @@ public class WinkelController extends JFrame implements Subject {
 			
 		}
 	}
+	
+	private void updateKlantPanel(){
+		
+	}
 
     @SuppressWarnings("deprecation")
 	public WinkelController() {
@@ -95,7 +102,7 @@ public class WinkelController extends JFrame implements Subject {
         paneel.setVisible(true);
         paneel.show();
         
-        KlantPanel klantPaneel = new KlantPanel();
+        klantPaneel = new KlantPanel();
         klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         klantPaneel.setVisible(true);
         klantPaneel.show();
@@ -172,6 +179,8 @@ public class WinkelController extends JFrame implements Subject {
 	    			}
 	    			else {
 	    				JOptionPane.showMessageDialog(null, "Klant gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    				String klantNaam = WinkelPanel.getTxtUitleningNaam() + " " + WinkelPanel.getTxtUitleningVoornaam();
+						klantPaneel.setjlKlantNaamInput(klantNaam);
 	    			}
 	    			try {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
@@ -179,7 +188,7 @@ public class WinkelController extends JFrame implements Subject {
 									WinkelPanel.getTxtUitleningDagen()});
 							KlantPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
 									WinkelPanel.getTxtUitleningDagen()});
-							//klantPaneel.setjlKlantNaamInput();
+							
 							
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
