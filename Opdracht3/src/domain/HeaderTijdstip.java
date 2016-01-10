@@ -1,6 +1,6 @@
 package domain;
 
-public class HeaderTijdstip extends HeaderDecorator{
+public class HeaderTijdstip extends KassaBonDecorator{
 	KassaBonMain kassabon;
 	
 	public HeaderTijdstip(KassaBonMain kassabon){
