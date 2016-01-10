@@ -12,7 +12,7 @@ public class Klant implements Observer {
 	private String voornaam;
 	private Adres adres;
 	private String email;
-	private Boolean isObserver;
+	private int isObserver;
 	private WinkelController winkelController;
 	
 	public int getKlantID() {
@@ -46,11 +46,10 @@ public class Klant implements Observer {
 		this.email = email;
 	}
 	
-	public Integer getIsObserver() {
-		if (this.isObserver == true || this.isObserver == null){return 1;}
-		else return 0;
+	public int getIsObserver() {
+		return isObserver;
 	}
-	public void setIsObserver(Boolean isObserver) {
+	public void setIsObserver(int isObserver) {
 		this.isObserver = isObserver;
 	}
 	
@@ -64,7 +63,7 @@ public class Klant implements Observer {
 	}
 	
 	public Klant (int klantID, String naam, String voornaam, Adres adres,
-			  String email, Boolean observer) {
+			  String email, int observer) {
 	this.klantID = klantID;
 	this.naam = naam;
 	this.voornaam = voornaam;
