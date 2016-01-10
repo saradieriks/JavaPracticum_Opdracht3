@@ -62,9 +62,11 @@ public class WinkelController extends JFrame implements Subject {
 	public void addObserver(Observer o) {
 		observers.add(o);	
 	}
+	
 	public void removeObserver(Observer o) {
 		observers.remove(o);
 	}
+	
 	private void notifyObservers(Item item) {
 		Iterator i = observers.iterator();
 		while (i.hasNext() ) {
@@ -175,6 +177,10 @@ public class WinkelController extends JFrame implements Subject {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
 							WinkelPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
 									WinkelPanel.getTxtUitleningDagen()});
+							KlantPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
+									WinkelPanel.getTxtUitleningDagen()});
+							klantPaneel.setjlKlantNaamInput();
+							
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
 						else {
@@ -206,6 +212,7 @@ public class WinkelController extends JFrame implements Subject {
 	    			int lijn3 = Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), WinkelPanel.getTxtKlantVoornaam()).get(i).getAatalDagen();
 	    			Object[] rowData = { lijn1, lijn2, lijn3 };
 	    			WinkelPanel.getModel().addRow(rowData);
+	    			KlantPanel.getModel().addRow(rowData);
 	    		}		 
 		 }
 	}

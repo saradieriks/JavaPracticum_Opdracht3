@@ -95,7 +95,13 @@ public class KlantPanel extends JFrame {
 		cbInschrijven.addActionListener(listenerForcbInschrijven);
 	}
 	
-
+	public void setModel (DefaultTableModel model) {
+		this.model = model;
+	}
+	
+	public static DefaultTableModel getModel() {
+		return model;
+	}
 
 	
 
