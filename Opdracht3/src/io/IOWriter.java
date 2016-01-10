@@ -109,7 +109,7 @@ public class IOWriter {
 			String write = 
 					aantalItems +
 					"=Klant:" + Integer.toString(reservatie.klantID()) + 
-					";Item:" + Integer.toString(reservatie.getItem().getID()) +
+					";Item:" + reservatie.getItem().getType() + Integer.toString(reservatie.getItem().getID()) +
 					";Prijs:" + Double.toString(reservatie.getPrijs()) +
 					";StartDatum:" + reservatie.getStartDatum().toString() + 
 					";AantalDagen:" + Integer.toString(reservatie.getAatalDagen()) +

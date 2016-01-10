@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import io.IOReader;
@@ -142,17 +143,27 @@ public class Reservatie {
 		return teruggeven;
 	}
 	
-	public static List<Reservatie> haalReservatiesOp (String naam, String voornaam) {
-		List<Reservatie> object = new ArrayList<Reservatie>();
+	// public Reservatie (Item item, int aantalDagen, int klantID)
+	public static ArrayList<Reservatie> haalReservatiesOp (String naam, String voornaam) {
+		ArrayList<Reservatie> object = new ArrayList<Reservatie>();
 		int id = Klant.vindKlantId(naam, voornaam);
 		for (Map.Entry<String, String> entry: IOReader.getReservaties().entrySet()) {
-			int begin = 6;
-			int tijdelijk = entry.getValue().indexOf(";");
-			int einde = tijdelijk - 6;
-			int gevonden = Integer.parseInt(entry.getValue().substring(begin, einde));
-			if (gevonden == id) {
-				Reservatie res = new Reservatie();
-				System.out.println("Gevonden");
+			Matcher matcher = Pattern.compile("\\d+").matcher(entry.getValue());
+			matcher.find();
+			int gevondenKlant = Integer.valueOf(matcher.group());
+			if (gevondenKlant == id) {
+				String tijdelijk = entry.getValue().substring(13);
+				String type = String.valueOf(tijdelijk.charAt(0));
+				matcher = Pattern.compile("\\d+").matcher(tijdelijk);
+				matcher.find();
+				int gevondenItem = Integer.valueOf(matcher.group());
+				String idItem = type + gevondenItem; 
+				tijdelijk = entry.getValue().substring(entry.getValue().indexOf("AantalDagen"));
+				matcher = Pattern.compile("\\d+").matcher(tijdelijk);
+				matcher.find();
+				int dagen = Integer.valueOf(matcher.group());
+				Reservatie res = new Reservatie(Item.vindItemUitId(idItem) , dagen, gevondenKlant);
+				object.add(res);
 			}
 		}
 		return object;
