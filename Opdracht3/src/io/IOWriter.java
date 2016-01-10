@@ -73,7 +73,7 @@ public class IOWriter {
 			
 			String write = id + "=" + klant.getVoornaam() + ";" + klant.getNaam() + ";" + klant.getAdres().getStraat() + ";" + klant.getAdres().getNummer() +
 					";" + klant.getAdres().getBox() + ";" + klant.getAdres().getPostcode() + ";" + klant.getAdres().getGemeente() + ";" 
-					+ klant.getAdres().getLand() + ";" + klant.getEmail() +";" + klant.getIsObserver().toString();
+					+ klant.getAdres().getLand() + ";" + klant.getEmail() +";" + klant.getIsObserver();
 	        if (reader.hasItems("klant")) {
 	        	write = "\r\n" + write;
 	        }
