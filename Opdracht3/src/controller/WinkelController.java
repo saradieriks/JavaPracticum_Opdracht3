@@ -51,9 +51,9 @@ public class WinkelController extends JFrame implements Subject {
 		    String value = entry.getValue();
 		    String w[] = value.split(";");
 		    Adres bestaandAdresKlant = new Adres(w[2],w[3],w[4],w[5]);
-		    Boolean observer = false;
-		    if (w[9]=="1"){observer = true;}
-		    Klant bestaand = new Klant(key,w[1], w[0],bestaandAdresKlant,w[8],observer);
+		    int obs = Integer.parseInt(w[9]);
+		 
+		    Klant bestaand = new Klant(key,w[1], w[0],bestaandAdresKlant,w[8],obs);
 		    Klanten.add(bestaand);
 		    
 		}
@@ -73,6 +73,7 @@ public class WinkelController extends JFrame implements Subject {
 	}
 
     public WinkelController() {
+    	bouwKlantLijst();
         WinkelPanel paneel = new WinkelPanel();
         paneel.setBtnExit(new btnExitListener());
         paneel.setBtnTypeAdd(new btnTypeAddListener());
