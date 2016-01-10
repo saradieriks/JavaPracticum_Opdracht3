@@ -50,7 +50,7 @@ public class WinkelController extends JFrame implements Subject {
 		    Integer key = entry.getKey();
 		    String value = entry.getValue();
 		    String w[] = value.split(";");
-		    Adres bestaandAdresKlant = new Adres(w[2],w[3],w[4],w[5]);
+		    Adres bestaandAdresKlant = new Adres(w[2],w[3],w[4],w[5],w[6],w[7]);
 		    int obs = Integer.parseInt(w[9]);
 		    Klant bestaand = new Klant(key,w[1], w[0],bestaandAdresKlant,w[8],obs);
 		    if (obs == 1){ addObserver(bestaand);}
@@ -110,6 +110,8 @@ public class WinkelController extends JFrame implements Subject {
 	    		try {
 					if (IOWriter.writeItem(nieuwe) == true) {
 						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+						notifyObservers(nieuwe);
+						
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
