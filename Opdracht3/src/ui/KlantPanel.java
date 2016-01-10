@@ -52,11 +52,11 @@ public class KlantPanel extends JFrame {
 	    
 
 	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 50, 20); add(jlKlantNaam);
-	    jlKlantNaamInput = new JLabel("De Naam"); jlKlantNaamInput.setBounds(60, 10, 100, 20); add(jlKlantNaamInput);
+	    jlKlantNaamInput = new JLabel(" "); jlKlantNaamInput.setBounds(60, 10, 100, 20); add(jlKlantNaamInput);
 	    cbInschrijven = new JCheckBox("Ik wil mij inschrijven op de nieuwe items"); cbInschrijven.setBounds(200, 10, 300, 20); add(cbInschrijven);
 	    
-	    jlPrijs = new JLabel("Prijs: "); jlPrijs.setBounds(10, 40, 50, 20); add(jlPrijs);
-	    jlPrijsInput = new JLabel("EUR: 000"); jlPrijsInput.setBounds(60, 40, 100, 20); add(jlPrijsInput);
+	    jlPrijs = new JLabel("Prijs EUR: "); jlPrijs.setBounds(10, 40, 50, 20); add(jlPrijs);
+	    jlPrijsInput = new JLabel("0.00"); jlPrijsInput.setBounds(60, 40, 100, 20); add(jlPrijsInput);
 	    
 	    
 	    model = new DefaultTableModel(kolomNamen, 0);
@@ -76,14 +76,14 @@ public class KlantPanel extends JFrame {
 		this.cbInschrijven = cbInschrijven;
 	}
 	
-    public static String getjlKlantNaamInput() { //static
+    public String getjlKlantNaamInput() { 
 		return jlKlantNaamInput.getText();
 	}
 
 	public void setjlKlantNaamInput(String klantNaam) {
 		this.jlKlantNaamInput.setText(klantNaam);
 	}
-	public static String getjlPrijsInput() { //static
+	public String getjlPrijsInput() { 
 		return jlPrijsInput.getText();
 	}
 
