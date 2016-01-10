@@ -1,3 +1,4 @@
+
 package ui;
 
 import java.awt.BorderLayout;
@@ -5,6 +6,10 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -13,7 +18,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import domain.Adres;
 import domain.Cd;
@@ -23,50 +34,76 @@ import domain.Item;
 import domain.Klant;
 import domain.Reservatie;
 import domain.Spel;
-import io.IOWriter;
 
 public class KlantPanel extends JFrame {
 
-	
-
-	private static final long serialVersionUID = 1L;
-    private JPanel jpKlantinfo, jpArtikels, jpBetalingsinfo;
-    private JLabel jlKlantlabel, jlKlanttext, jlTotaalbedraglabel, jlTotaalbedragtext;
-    private CardLayout cardLayout = new CardLayout();
-    private Character[] type = { 'M', 'G', 'C' };
-    private Integer[] dag = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
-    private String[] maand = { "januari", "februari", "maart", "april", "mei", "juni",
-    		"juli", "augustus", "september", "oktober", "november", "december" };
-    private Integer[] jaar = { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030 };
-    private JComboBox cbType, cbDag, cbMaand, cbJaar;
-    private JCheckBox cbBetaald;
+	private static final long VersionUID = 1L;
+    private JLabel jlKlantNaam, jlPrijs;
+    private static JLabel jlKlantNaamInput, jlPrijsInput, jlWhite;
+    private JCheckBox cbInschrijven;
+    private JTable tblUitleningen;
+    private static DefaultTableModel model;
+    private String[] kolomNamen = {"Type", "Titel", "Dagen"};
     
     public KlantPanel() {
 	    setTitle("Uw bestelling");
-	    setSize(700, 300); // grootte scherm
+	    setSize(700, 600); // grootte scherm
 	    
-	    jpKlantinfo = new JPanel();
-	    jpArtikels = new JPanel();
-	    jpBetalingsinfo = new JPanel();
-	    
-	    jlKlantlabel = new JLabel("Klant naam: "); jlKlantlabel.setBounds(10, 10, 100, 20); jpKlantinfo.add(jlKlantlabel); 
-	    jlKlanttext = new JLabel(); jlKlanttext.setBounds(10, 50, 100, 20); jpKlantinfo.add(jlKlanttext);
-	    jlTotaalbedraglabel = new JLabel("Totaalbedrag: "); jlTotaalbedraglabel.setBounds(10, 10, 100, 20); jpBetalingsinfo.add(jlTotaalbedraglabel);
 	    
 
+	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 50, 20); add(jlKlantNaam);
+	    jlKlantNaamInput = new JLabel("De Naam"); jlKlantNaamInput.setBounds(60, 10, 100, 20); add(jlKlantNaamInput);
+	    cbInschrijven = new JCheckBox("Ik wil mij inschrijven op de nieuwe items"); cbInschrijven.setBounds(200, 10, 300, 20); add(cbInschrijven);
+	    
+	    jlPrijs = new JLabel("Prijs: "); jlPrijs.setBounds(10, 40, 50, 20); add(jlPrijs);
+	    jlPrijsInput = new JLabel("EUR: 000"); jlPrijsInput.setBounds(60, 40, 100, 20); add(jlPrijsInput);
+	    
+	    
+	    model = new DefaultTableModel(kolomNamen, 0);
+	    tblUitleningen = new JTable(model); tblUitleningen.setBounds(20, 80, 400, 400); add(tblUitleningen);
+	    Object[] rowData = { "Type", "Titel", "Aantal dagen" };
+	    model.addRow(rowData);
+	    
+	    jlWhite = new JLabel(" "); add(jlWhite);
+	    
     }
+    
+	public Boolean getCbInschrijven() {
+		return cbInschrijven.isSelected();
+	}
 
+	public void setInschrijven(JCheckBox cbInschrijven) {
+		this.cbInschrijven = cbInschrijven;
+	}
+	
+    public static String getjlKlantNaamInput() { //static
+		return jlKlantNaamInput.getText();
+	}
+
+	public void setjlKlantNaamInput(JLabel jlKlantNaamInput) {
+		this.jlKlantNaamInput = jlKlantNaamInput;
+	}
+	public static String getjlPrijsInput() { //static
+		return jlPrijsInput.getText();
+	}
+
+	public void setjlPrijsInput(JLabel jlPrijsInput) {
+		this.jlPrijsInput = jlPrijsInput;
+	}
+	
+	public void setcbInschrijven(ActionListener listenerForcbInschrijven) {
+		cbInschrijven.addActionListener(listenerForcbInschrijven);
+	}
+	
+	public void setModel (DefaultTableModel model) {
+		this.model = model;
+	}
+	
+	public static DefaultTableModel getModel() {
+		return model;
+	}
 
 	
-	/* Informatie:
-	 * Klantenpaneel met:
-	 * [Panel jpKlantinfo]
-	 * 	Klant : Voornaam Achternaam
-	 * [Panel jpArtikels]
-	 * 	Tabel met [Titel][Type][Aantaldagen]
-	 * [Panel jpBetalingsinfo]
-	 * 	Informatie over openstaand saldo
-	 */
-	
+
 
 }

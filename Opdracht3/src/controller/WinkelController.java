@@ -25,6 +25,7 @@ import domain.Subject;
 import io.IOReader;
 import io.IOWriter;
 import ui.WinkelPanel;
+import ui.KlantPanel;
 
 import domain.Klant;
 import domain.Adres;
@@ -46,6 +47,7 @@ public class WinkelController extends JFrame implements Subject {
 	//observer methods
 	private void bouwKlantLijst()
 	{
+		Klanten.clear();
 		for (Map.Entry<Integer, String> entry : IOReader.getKlanten().entrySet()) {
 		    Integer key = entry.getKey();
 		    String value = entry.getValue();
@@ -61,9 +63,11 @@ public class WinkelController extends JFrame implements Subject {
 	public void addObserver(Observer o) {
 		observers.add(o);	
 	}
+	
 	public void removeObserver(Observer o) {
 		observers.remove(o);
 	}
+	
 	private void notifyObservers(Item item) {
 		Iterator i = observers.iterator();
 		while (i.hasNext() ) {
@@ -91,6 +95,12 @@ public class WinkelController extends JFrame implements Subject {
         paneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         paneel.setVisible(true);
         paneel.show();
+        
+        KlantPanel klantPaneel = new KlantPanel();
+        klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        klantPaneel.setVisible(true);
+        klantPaneel.show();
+        
     }
 
 	class btnExitListener implements ActionListener{
@@ -134,7 +144,7 @@ public class WinkelController extends JFrame implements Subject {
 	    		try {
 					if (IOWriter.writeKlant(nieuwe) == true) {
 						JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
-						Klanten.add(nieuwe);
+						bouwKlantLijst();
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Failure", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
@@ -168,6 +178,10 @@ public class WinkelController extends JFrame implements Subject {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
 							WinkelPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
 									WinkelPanel.getTxtUitleningDagen()});
+							KlantPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
+									WinkelPanel.getTxtUitleningDagen()});
+							klantPaneel.setjlKlantNaamInput();
+							
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
 						else {
@@ -199,6 +213,7 @@ public class WinkelController extends JFrame implements Subject {
 	    			int lijn3 = Reservatie.haalReservatiesOp(WinkelPanel.getTxtKlantNaam(), WinkelPanel.getTxtKlantVoornaam()).get(i).getAatalDagen();
 	    			Object[] rowData = { lijn1, lijn2, lijn3 };
 	    			WinkelPanel.getModel().addRow(rowData);
+	    			KlantPanel.getModel().addRow(rowData);
 	    		}		 
 		 }
 	}
