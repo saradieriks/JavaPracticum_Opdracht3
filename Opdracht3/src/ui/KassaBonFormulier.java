@@ -9,6 +9,17 @@ import javax.swing.border.EmptyBorder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import domain.FooterBoodschap;
+import domain.FooterTotaal;
+import domain.FooterVasteBoodschap;
+import domain.HeaderDatumUitlening;
+import domain.HeaderKassabonNummer;
+import domain.HeaderOpeningsUren;
+import domain.HeaderTijdstip;
+import domain.KassaBon;
+import domain.KassaBonMain;
+
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
@@ -26,8 +37,7 @@ public class KassaBonFormulier extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldBody;
-	String[] writeOpties = {"txt", "excel", "sql"};
-	
+	KassaBonMain kassabon;
 
 	/**
 	 * Launch the application.
@@ -147,8 +157,34 @@ public class KassaBonFormulier extends JFrame {
 		JButton btnDrukKassabon = new JButton("Druk kassabon");
 		btnDrukKassabon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+				if(chckbxKassabonnummer.isSelected()){
+					kassabon = new HeaderKassabonNummer(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxDatumUitlening.isSelected()){
+					kassabon = new HeaderDatumUitlening(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxTijdstipUitlening.isSelected()){
+					kassabon = new HeaderTijdstip(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxOpeningsurenWinkel.isSelected()){
+					kassabon = new HeaderOpeningsUren(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxUitleentotaal.isSelected()){
+					kassabon = new FooterTotaal(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxWinkelboodschap.isSelected()){
+					kassabon = new FooterBoodschap(kassabon);
+					kassabon.getDescription();
+				}
+				if(chckbxVasteBoodschap.isSelected()){
+					kassabon = new FooterVasteBoodschap(kassabon);
+					kassabon.getDescription();
+				}
 			}
 		});
 		contentPane.add(btnDrukKassabon, "4, 36");
