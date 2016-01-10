@@ -47,7 +47,7 @@ public class Klant implements Observer {
 	}
 	
 	public Integer getIsObserver() {
-		if (this.isObserver == true){return 1;}
+		if (this.isObserver == true || this.isObserver == null){return 1;}
 		else return 0;
 	}
 	public void setIsObserver(Boolean isObserver) {
