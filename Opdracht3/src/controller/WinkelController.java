@@ -62,13 +62,14 @@ public class WinkelController extends JFrame implements Subject {
 		observers.add(o);	
 	}
 	public void removeObserver(Observer o) {
-		observers.add(o);
+		observers.remove(o);
 	}
 	private void notifyObservers(Item item) {
 		Iterator i = observers.iterator();
 		while (i.hasNext() ) {
 			Observer o = (Observer) i.next();
 			o.update(this, item);
+			
 		}
 	}
 
