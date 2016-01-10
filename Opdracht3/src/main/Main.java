@@ -33,36 +33,35 @@ public class Main {
 	
 	public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
+        	IOPanel ioPanel;
         	
         	private Integer ioKeuze = 0;
         	
+        	
             @Override
             public void run() {
-            	
-        		try  (InputStream in = new FileInputStream("settings.properties")){
-        			
-        			Properties prop = new Properties();
-        			prop.load(in);
-        			
-        			ioKeuze = Integer.parseInt(prop.getProperty("IOKeuze"));
-        			
 
-        		} catch (IOException e) {
-        			JOptionPane.showMessageDialog(null, "Instellingen konden niet gevonden worden. Geef nieuwe instellingen in.");
-        		}
+	        		try  (InputStream in = new FileInputStream("settings.properties")){
+	        			
+	        			Properties prop = new Properties();
+	        			prop.load(in);
+	        			
+	        			ioKeuze = Integer.parseInt(prop.getProperty("IOKeuze"));
+	        			
+	
+	        		} catch (IOException e) {
+	        			JOptionPane.showMessageDialog(null, "de instellingen voor het opslagmedium zijn niet gevonden. Gelieve nieuwe instellingen in te geven.");
+	        		}
             	
-        		
-        		do{
-        			
-        			ioSelectie();
-        			
-        		} while (ioKeuze == 0 && ioKeuze == null);
-        		
-        		
-        		
+            	
         		if (ioKeuze != 0){
         			
         			WinkelController frame = new WinkelController();
+        		}
+        		else {
+        			
+        			ioSelectie();
+        			
         		}
         		
                 
@@ -70,14 +69,15 @@ public class Main {
             
             private void ioSelectie(){
             	
-            	IOPanel ioPanel = new IOPanel();
+            	ioPanel = new IOPanel();
         		ioPanel.setjbTxtListener(new jbTxtListener());
         		ioPanel.setjbDbListener(new jbDbListener());
             	ioPanel.setjbExcelListener(new jbExcelListener());
             	ioPanel.setVisible(true);
+            	ioPanel.setSize(400, 100);
             	
-            	
-            }
+            }	
+            
             
             class jbTxtListener implements ActionListener{
 	       		 public void actionPerformed(ActionEvent e) {
@@ -91,6 +91,8 @@ public class Main {
 					} catch (IOException e2) {
 						e2.printStackTrace();
 					}
+	       			run();
+	       			ioPanel.setVisible(false);
 	       		 }
        		}
             class jbDbListener implements ActionListener{
@@ -105,6 +107,8 @@ public class Main {
 					} catch (IOException e2) {
 						e2.printStackTrace();
 					}
+          			run();
+	       			ioPanel.setVisible(false);
           		 }
           	}
             class jbExcelListener implements ActionListener{
@@ -119,6 +123,8 @@ public class Main {
 					} catch (IOException e2) {
 						e2.printStackTrace();
 					}
+          			run();
+	       			ioPanel.setVisible(false);
           		 }
           	}
             
