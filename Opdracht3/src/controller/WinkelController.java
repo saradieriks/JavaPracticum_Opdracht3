@@ -289,7 +289,7 @@ public class WinkelController extends JFrame implements Subject {
 				
 				if (k.getKlantID() == ID && k.getIsObserver() == 1 && gevonden == false)
 				{
-					addObserver(k);
+					
 					JOptionPane.showMessageDialog(null, "Deze was al ingeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
 					gevonden = true;
 				}
@@ -320,7 +320,7 @@ public class WinkelController extends JFrame implements Subject {
 			{
 				if (k.getKlantID() == ID && k.getIsObserver() == 1)
 				{
-					addObserver(k);
+					removeObserver(k);
 					k.setIsObserver(0);
 				
 					JOptionPane.showMessageDialog(null, "Deze is nu uitgeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
@@ -329,7 +329,7 @@ public class WinkelController extends JFrame implements Subject {
 				
 				if (k.getKlantID() == ID && k.getIsObserver() == 0 && gevonden == false)
 				{
-					addObserver(k);
+					
 					JOptionPane.showMessageDialog(null, "Deze was niet ingeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
 					gevonden = true;
 				}
