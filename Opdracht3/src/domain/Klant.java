@@ -107,9 +107,10 @@ public class Klant implements Observer {
 
 	
 	public void update(Subject o, Item item) {
-		if (this.isObserver == 1 && o == winkelController ) {
+		{
 			Mail mailClient = new Mail();
 			mailClient.stuurMailnaarKlant(this,item);
+			
 					}
 	}
 	
