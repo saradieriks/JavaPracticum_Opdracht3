@@ -65,6 +65,7 @@ public class IOWriterDB {
 			        		+ "voornaam VARCHAR(255), "
 			        		+ "adres VARCHAR(255), "
 			        		+ "email VARCHAR(255), "
+			        		+ "observer INTEGER, "
 			        		+ "PRIMARY KEY ( id ))";
 			        st.executeUpdate(sql);
 		        }
@@ -127,12 +128,13 @@ public class IOWriterDB {
 				+ klant.getAdres().getGemeente() + ";"
 				+ klant.getAdres().getLand();
 		String email = klant.getEmail();
+		int observer = klant.getIsObserver();
 		DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         con = DriverManager.getConnection(db);
         st = con.createStatement();
         sql = "INSERT INTO KLANTEN " +
-    			"(naam, voornaam, adres, email)" +
-    			"VALUES('"+naam+"', '"+voornaam+"', '"+adres+"', '"+email+"')";
+    			"(naam, voornaam, adres, email, observer)" +
+    			"VALUES('"+naam+"', '"+voornaam+"', '"+adres+"', '"+email+"', "+observer+")";
         st.executeUpdate(sql);
 		IOReaderDB.refreshKlanten();
 		con.close();
