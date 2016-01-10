@@ -62,6 +62,16 @@ public class Klant implements Observer {
 		this.email = email;
 	}
 	
+	public Klant (int klantID, String naam, String voornaam, Adres adres,
+			  String email, Boolean observer) {
+	this.klantID = klantID;
+	this.naam = naam;
+	this.voornaam = voornaam;
+	this.adres = adres;
+	this.email = email;
+	this.isObserver = observer;
+}
+	
 	public Klant (String naam, String voornaam, Adres adres, String email) {
 		this.naam = naam;
 		this.voornaam = voornaam;
