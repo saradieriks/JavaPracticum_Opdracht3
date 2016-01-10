@@ -51,12 +51,12 @@ public class KlantPanel extends JFrame {
 	    
 	    
 
-	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 50, 20); add(jlKlantNaam);
-	    jlKlantNaamInput = new JLabel(" "); jlKlantNaamInput.setBounds(60, 10, 100, 20); add(jlKlantNaamInput);
+	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 100, 20); add(jlKlantNaam);
+	    jlKlantNaamInput = new JLabel(" "); jlKlantNaamInput.setBounds(110, 10, 100, 20); add(jlKlantNaamInput);
 	    cbInschrijven = new JCheckBox("Ik wil mij inschrijven op de nieuwe items"); cbInschrijven.setBounds(200, 10, 300, 20); add(cbInschrijven);
 	    
-	    jlPrijs = new JLabel("Prijs EUR: "); jlPrijs.setBounds(10, 40, 50, 20); add(jlPrijs);
-	    jlPrijsInput = new JLabel("0.00"); jlPrijsInput.setBounds(60, 40, 100, 20); add(jlPrijsInput);
+	    jlPrijs = new JLabel("Prijs EUR: "); jlPrijs.setBounds(10, 40, 100, 20); add(jlPrijs);
+	    jlPrijsInput = new JLabel("0.00"); jlPrijsInput.setBounds(110, 40, 100, 20); add(jlPrijsInput);
 	    
 	    
 	    model = new DefaultTableModel(kolomNamen, 0);
