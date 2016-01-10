@@ -39,13 +39,7 @@ public class WinkelController extends JFrame implements Subject {
 	
 	public KlantPanel klantPaneel;
 	
-	/*
-	 * De list observers moet alle klanten bevatten met IsObserver == true
-	 * klanten die at runtime observer worden, worden toegevoegd via de methode binnen klant
-	 * maakKlantObserver
-	 * Wanneer een nieuw item wordt toegevoegd moet de methode
-	 * notifyObservers(item) uitgevoerd worden.
-	 */
+
 	
 	//observer methods
 	private void bouwKlantLijst()
@@ -104,6 +98,8 @@ public class WinkelController extends JFrame implements Subject {
         paneel.show();
         
         klantPaneel = new KlantPanel();
+        klantPaneel.setcbInschrijven(new cbInschrijvenListener());
+        
         klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         klantPaneel.setVisible(true);
         klantPaneel.show();
@@ -115,6 +111,28 @@ public class WinkelController extends JFrame implements Subject {
 			 System.exit(0);		 
 		 }
 	}
+	class cbInschrijvenListener implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		for (Klant k: Klanten)
+    		{
+    			if ((k.getNaam().equals(WinkelPanel.getTxtUitleningNaam())) && (k.getVoornaam().equals(WinkelPanel.getTxtUitleningVoornaam())))
+    					{
+    				Boolean gedaan = false;
+    				if (k.getIsObserver() == 1)
+    				{k.setIsObserver(0);
+    				removeObserver(k);
+    				gedaan = true;
+    				}
+    				if (k.getIsObserver() == 0 && gedaan == false)
+    				{k.setIsObserver(1);
+    				addObserver(k);
+    				}
+    					}
+    		}
+    		
+    	}
+    }
+	
 	
 	class btnTypeAddListener implements ActionListener{
 		 public void actionPerformed(ActionEvent e) {
