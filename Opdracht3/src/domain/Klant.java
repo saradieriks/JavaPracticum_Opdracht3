@@ -104,21 +104,10 @@ public class Klant implements Observer {
 	
 	//observer pattern
 	
-	public void maakKlantObserver(Boolean isObserver, WinkelController winkelController)
-	{
-		this.isObserver = isObserver;
-		if (isObserver == true)
-		{
-			winkelController.addObserver(this);
-		}
-		else
-		{
-			winkelController.removeObserver(this);
-		}
-	}
+
 	
 	public void update(Subject o, Item item) {
-		if (this.isObserver == true && o == winkelController ) {
+		if (this.isObserver == 1 && o == winkelController ) {
 			Mail mailClient = new Mail();
 			mailClient.stuurMailnaarKlant(this,item);
 					}
