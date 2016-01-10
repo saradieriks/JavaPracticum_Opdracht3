@@ -85,6 +85,9 @@ public class WinkelController extends JFrame implements Subject {
         paneel.setBtnUitleningVerwijder(new btnUitleningVerwijderListener());
         paneel.setBtnLijstVanAlle(new btnLijstVanAlleListener());
         paneel.setBtnZoekItems(new btnZoekItemsListener());
+        paneel.setBtnKlantInschrijven( new btnKlantInschrijvenListener());
+        paneel.setBtnKlantUitschrijven( new btnKlantUitschrijvenListener());
+        paneel.setBtnZoekID (new btnZoekIDListener());
         paneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         paneel.setVisible(true);
         paneel.show();
@@ -245,6 +248,104 @@ public class WinkelController extends JFrame implements Subject {
 			}	
 		}
 	}
+	//
+	class btnZoekIDListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+				
+				StringBuilder result = new StringBuilder();
+				for (Klant k : Klanten)
+				{
+					if (k.getNaam().equals(WinkelPanel.getKlantNaam()))
+					{
+						result.append("\n"+ k.getKlantID() + ":"+
+					k.getVoornaam() + " " + k.getNaam() + " "+ k.getEmail());
+					}
+				}
+				JOptionPane.showMessageDialog(null, result.toString(), "GEVONDEN" , JOptionPane.INFORMATION_MESSAGE);
+		
+			
+		}
+	}
+	
+	class btnKlantInschrijvenListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			try
+			{
+				WinkelPanel.getID();
+
+			int ID = WinkelPanel.getID();
+			Boolean gevonden = false;
+			for (Klant k: Klanten)
+				
+			{
+				if (k.getKlantID() == ID && k.getIsObserver() == 0)
+				{
+					addObserver(k);
+					k.setIsObserver(1);
+					
+					JOptionPane.showMessageDialog(null, "Deze is nu ingeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
+					gevonden = true;
+				}
+				
+				if (k.getKlantID() == ID && k.getIsObserver() == 1 && gevonden == false)
+				{
+					addObserver(k);
+					JOptionPane.showMessageDialog(null, "Deze was al ingeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
+					gevonden = true;
+				}
+			}
+			if (gevonden == false)
+			{
+				JOptionPane.showMessageDialog(null, "Klant niet gevonden", "NOK" , JOptionPane.INFORMATION_MESSAGE);
+			}
+			}
+			catch (Exception e1)
+			{
+				JOptionPane.showMessageDialog(null, "Gelieve een getal in te geven", "PAS OP" , JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+	}
+	
+	class btnKlantUitschrijvenListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			try
+			{
+
+			
+			int ID = WinkelPanel.getID();
+			Boolean gevonden = false;
+			
+			for (Klant k: Klanten)
+				
+			{
+				if (k.getKlantID() == ID && k.getIsObserver() == 1)
+				{
+					addObserver(k);
+					k.setIsObserver(0);
+				
+					JOptionPane.showMessageDialog(null, "Deze is nu uitgeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
+					gevonden = true;
+				}
+				
+				if (k.getKlantID() == ID && k.getIsObserver() == 0 && gevonden == false)
+				{
+					addObserver(k);
+					JOptionPane.showMessageDialog(null, "Deze was niet ingeschreven.", "OK" , JOptionPane.INFORMATION_MESSAGE);
+					gevonden = true;
+				}
+			}
+			if (gevonden == false)
+			{
+				JOptionPane.showMessageDialog(null, "Klant niet gevonden", "NOK" , JOptionPane.INFORMATION_MESSAGE);
+			}
+			}
+			catch (Exception e1)
+			{
+				JOptionPane.showMessageDialog(null, "Gelieve een getal in te geven", "PAS OP" , JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+		}
+	
 	
 	class btnZoekItemsListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {

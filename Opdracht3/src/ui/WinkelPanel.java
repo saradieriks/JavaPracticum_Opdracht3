@@ -55,6 +55,7 @@ public class WinkelPanel extends JFrame {
 	private static JTextField txtUitleningNaam;
 	private static JTextField txtUitleningVoornaam;
 	private static JTextField txtUitleningTitel;
+	
 	private JTextField txtUitleningPrijs;
 	private static JTextField txtUitleningDagen;
 	private JTextField txtTerugbrengenBoete;
@@ -72,6 +73,12 @@ public class WinkelPanel extends JFrame {
     private static JTextField ZoekText;
     private String[] kolomNamen = {"Type", "Titel", "Dagen"};
     private static DefaultTableModel model;
+    private static JTextField textID;
+    private JLabel lblKlantInuitschrijvenOp;
+    private static JTextField textKlantNaam;
+    private JButton btnZoekID;
+    private JButton btnKlantInschrijven;
+    private JButton btnKlantUitschrijven;
     
     public WinkelPanel() {
 	    setTitle("Winkel");
@@ -254,16 +261,16 @@ public class WinkelPanel extends JFrame {
 	    jpInventaris.add(btnLijstVanAlle);
 	    
 	    ZoekText = new JTextField();
-	    ZoekText.setBounds(26, 113, 177, 22);
+	    ZoekText.setBounds(98, 76, 177, 22);
 	    jpInventaris.add(ZoekText);
 	    ZoekText.setColumns(10);
 	    
 	    btnZoekItems = new JButton("Zoek items");
-	    btnZoekItems.setBounds(24, 139, 97, 25);
+	    btnZoekItems.setBounds(130, 105, 97, 25);
 	    jpInventaris.add(btnZoekItems);
 	    
 	    JLabel lblZoekterm = new JLabel("Zoekterm:");
-	    lblZoekterm.setBounds(26, 95, 116, 16);
+	    lblZoekterm.setBounds(26, 76, 116, 16);
 	    jpInventaris.add(lblZoekterm);
 	    
 	    /*btnLijstVanAlle.addActionListener(new ActionListener () {
@@ -373,11 +380,44 @@ public class WinkelPanel extends JFrame {
 			}
 	    });*/
 	    
+	    JLabel lblKlantId = new JLabel("Klant ID:");
+	    lblKlantId.setBounds(26, 208, 56, 16);
+	    jpInventaris.add(lblKlantId);
+	    
+	    textID= new JTextField();
+	    textID.setBounds(87, 205, 116, 22);
+	    jpInventaris.add(textID);
+	    textID.setColumns(10);
+	    
+	    btnKlantInschrijven = new JButton("Klant inschrijven");
+	    btnKlantInschrijven.setBounds(24, 234, 154, 25);
+	    jpInventaris.add(btnKlantInschrijven);
+	    
+	    btnKlantUitschrijven = new JButton("Klant uitschrijven");
+	  
+	    btnKlantUitschrijven.setBounds(26, 266, 152, 25);
+	    jpInventaris.add(btnKlantUitschrijven);
+	    
+	    lblKlantInuitschrijvenOp = new JLabel("Klant in/uitschrijven op mail nieuwe items:");
+	    lblKlantInuitschrijvenOp.setBounds(26, 179, 283, 16);
+	    jpInventaris.add(lblKlantInuitschrijvenOp);
+	    
+	    textKlantNaam = new JTextField();
+	    textKlantNaam.setBounds(26, 337, 235, 22);
+	    jpInventaris.add(textKlantNaam);
+	    textKlantNaam.setColumns(10);
+	    
+	    btnZoekID = new JButton("Zoek ID's van deze klant naam");
+	    btnZoekID.setBounds(24, 311, 237, 25);
+	    jpInventaris.add(btnZoekID);
+	    
 	    // Card toevoegen aan de main panel
 	    cardPanel.add(jpKlant, "1");
 	    cardPanel.add(jpUitlening, "2");
 	    cardPanel.add(jpItem,  "3");
 	    cardPanel.add(jpInventaris, "4");
+	    
+
 	    
 
 	    btnKlant = new JButton("Nieuwe Klant");
@@ -608,6 +648,19 @@ public class WinkelPanel extends JFrame {
 		return model;
 	}
 	
+	public static int getID()  {
+
+			return Integer.parseInt(textID.getText());
+
+
+	}
+	
+	public static String getKlantNaam() {
+		
+		return textKlantNaam.getText();
+		
+	}
+	
 	public void setBtnExit(ActionListener listenerForBtnExit){
 		btnExit.addActionListener(listenerForBtnExit);		 
 	   }
@@ -659,4 +712,16 @@ public class WinkelPanel extends JFrame {
 	public void setBtnZoekItems(ActionListener listenerForBtnZoekItems) {
 		btnZoekItems.addActionListener(listenerForBtnZoekItems);
 	}
+	
+	public void setBtnKlantInschrijven(ActionListener listenerForBtnKlantInschrijven) {
+		btnKlantInschrijven.addActionListener(listenerForBtnKlantInschrijven);
+	}
+	public void setBtnKlantUitschrijven(ActionListener listenerForBtnKlantUitschrijven) {
+		btnKlantUitschrijven.addActionListener(listenerForBtnKlantUitschrijven);
+	}
+	public void setBtnZoekID(ActionListener listenerForBtnZoekID) {
+		btnZoekID.addActionListener(listenerForBtnZoekID);
+	}
+	
+	
 }
