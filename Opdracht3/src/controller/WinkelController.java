@@ -179,7 +179,7 @@ public class WinkelController extends JFrame implements Subject {
 									WinkelPanel.getTxtUitleningDagen()});
 							KlantPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
 									WinkelPanel.getTxtUitleningDagen()});
-							klantPaneel.setjlKlantNaamInput();
+							//klantPaneel.setjlKlantNaamInput();
 							
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
