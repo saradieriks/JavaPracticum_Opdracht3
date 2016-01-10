@@ -16,7 +16,12 @@ public class Mail {
 	public void stuurMailnaarKlant(Klant klant, Item item)
 	{
 		this.eMail = klant.getEmail();
-		this.boodschap = "Wij willen u graag verwittigen over het nieuwe beschikbare item" + item.getTitel();
+		String type ="";
+		if (item.getType() == 'M') {type = "de net binnen gekomen film: ";}
+		if (item.getType() == 'C') {type = "de net binnen gekomen CD: ";}
+		if (item.getType() == 'G') {type = "de net binnen gekomen game: ";}
+		this.boodschap = "\nBeste, " + klant.getVoornaam() + " " +
+		klant.getNaam() + "\nWij willen u graag verwittigen over " + type + item.getTitel();
 		stuurMail(eMail, boodschap);
 	}
 	
