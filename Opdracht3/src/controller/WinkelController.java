@@ -72,7 +72,8 @@ public class WinkelController extends JFrame implements Subject {
 		}
 	}
 
-    public WinkelController() {
+    @SuppressWarnings("deprecation")
+	public WinkelController() {
     	bouwKlantLijst();
         WinkelPanel paneel = new WinkelPanel();
         paneel.setBtnExit(new btnExitListener());
