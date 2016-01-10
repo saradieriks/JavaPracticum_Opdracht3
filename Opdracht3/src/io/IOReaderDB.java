@@ -97,7 +97,8 @@ public class IOReaderDB {
         	String voornaam = rs.getString("voornaam");
         	String adres = rs.getString("adres");
         	String email = rs.getString("email");
-        	klanten.put(id, voornaam+";"+naam+";"+adres+";"+email);
+        	int observer = rs.getInt("observer");
+        	klanten.put(id, voornaam+";"+naam+";"+adres+";"+email+";"+observer);
         }
         con.close();
         return true;
