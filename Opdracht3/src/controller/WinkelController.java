@@ -50,6 +50,7 @@ public class WinkelController extends JFrame implements Subject {
 	//observer methods
 	private void bouwKlantLijst()
 	{
+		Klanten.clear();
 		for (Map.Entry<Integer, String> entry : IOReader.getKlanten().entrySet()) {
 		    Integer key = entry.getKey();
 		    String value = entry.getValue();
