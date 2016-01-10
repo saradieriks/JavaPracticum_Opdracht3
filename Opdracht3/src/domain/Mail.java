@@ -16,6 +16,7 @@ public class Mail {
 	public void stuurMailnaarKlant(Klant klant, Item item)
 	{
 		this.eMail = klant.getEmail();
+		if (this.eMail == null || this.eMail.isEmpty()){eMail= "<<<PAS OP: GEEN MAIL ADRES!>>>";}
 		String type ="";
 		if (item.getType() == 'M') {type = "de net binnen gekomen film: ";}
 		if (item.getType() == 'C') {type = "de net binnen gekomen CD: ";}
