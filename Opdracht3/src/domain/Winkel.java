@@ -6,8 +6,6 @@ import java.util.Map;
 
 /*
 * De Winkel klasse is de facade klasse van het domein
-* 
-* WORK IN PROGRESS :-)
 *
 */
 

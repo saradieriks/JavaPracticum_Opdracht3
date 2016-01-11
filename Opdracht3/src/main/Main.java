@@ -56,7 +56,7 @@ public class Main {
             	
         		if (ioKeuze != 0){
         			
-        			WinkelController frame = new WinkelController(ioKeuze);
+        			WinkelController frame = new WinkelController(1);
         		}
         		else {
         			

@@ -38,7 +38,7 @@ public class IOAdapter {
 	
 	public boolean writeItem(Item item){
 		try{
-			switch(this.ioKeuze){
+			switch(ioKeuze){
 		
 			case 1:
 				return IOWriter.writeItem(item);

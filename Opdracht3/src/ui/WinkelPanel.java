@@ -25,23 +25,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-import domain.Adres;
-import domain.Cd;
-import domain.Datum;
-import domain.Film;
-import domain.Item;
-import domain.Klant;
-import domain.Reservatie;
-import domain.Spel;
-import io.IOReader;
-import io.IOWriter;
 
 public class WinkelPanel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
     private JPanel cardPanel, jpKlant, jpUitlening, jpItem, buttonPanel, exitPanel, jpInventaris;
     private JLabel jlKlantVoornaam, jlKlantNaam, jlKlantStraat, jlKlantNummer, jlKlantBox, jlKlantPostcode, jlKlantGemeente, jlKlantLand, jlKlantEmail,
-    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType, jlUitleningDagen, jlTest;
+    	jlUitleningNaam, jlUitleningVoornaam, jlUitleningTitel, jlUitleningType, jlUitleningPrijs, jlItemTitel, jlItemType, jlUitleningDagen;
     private static JTextField txtItemTitel;
 	private static JTextField txtKlantVoornaam;
 	private static JTextField txtKlantNaam;
