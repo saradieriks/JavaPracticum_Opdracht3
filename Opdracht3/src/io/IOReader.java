@@ -74,6 +74,7 @@ public class IOReader extends IOReaderTemplate {
 	}
 	
 	//0;Klant:1;Item:;Prijs:20.5;StartDatum:21 september 2015;AantalDagen:2;Boete:30.5;betaald:false
+	
 	public static Boolean refreshReservaties() throws IOException {
 		reservaties = new HashMap<String, String>();
 		String regel;
@@ -98,6 +99,7 @@ public class IOReader extends IOReaderTemplate {
 	}
 	
 	//0=Bart;Jaspers;Steegje;1;1;3000;Leuven;belgie;bartje@gmail.com
+	
 	public static Boolean refreshKlanten() throws IOException {
 		klanten = new HashMap<Integer, String>();
 		String regel;

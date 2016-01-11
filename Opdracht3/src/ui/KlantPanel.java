@@ -39,7 +39,7 @@ public class KlantPanel extends JFrame {
 
 	private static final long VersionUID = 1L;
     private JLabel jlKlantNaam, jlPrijs;
-    private static JLabel jlKlantNaamInput, jlPrijsInput, jlWhite;
+    private JLabel jlKlantNaamInput, jlPrijsInput, jlWhite;
     private JCheckBox cbInschrijven;
     private JTable tblUitleningen;
     private static DefaultTableModel model;
@@ -51,12 +51,12 @@ public class KlantPanel extends JFrame {
 	    
 	    
 
-	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 50, 20); add(jlKlantNaam);
-	    jlKlantNaamInput = new JLabel("De Naam"); jlKlantNaamInput.setBounds(60, 10, 100, 20); add(jlKlantNaamInput);
+	    jlKlantNaam = new JLabel("Klant: "); jlKlantNaam.setBounds(10, 10, 100, 20); add(jlKlantNaam);
+	    jlKlantNaamInput = new JLabel(" "); jlKlantNaamInput.setBounds(110, 10, 100, 20); add(jlKlantNaamInput);
 	    cbInschrijven = new JCheckBox("Ik wil mij inschrijven op de nieuwe items"); cbInschrijven.setBounds(200, 10, 300, 20); add(cbInschrijven);
 	    
-	    jlPrijs = new JLabel("Prijs: "); jlPrijs.setBounds(10, 40, 50, 20); add(jlPrijs);
-	    jlPrijsInput = new JLabel("EUR: 000"); jlPrijsInput.setBounds(60, 40, 100, 20); add(jlPrijsInput);
+	    jlPrijs = new JLabel("Prijs EUR: "); jlPrijs.setBounds(10, 40, 100, 20); add(jlPrijs);
+	    jlPrijsInput = new JLabel("0.00"); jlPrijsInput.setBounds(110, 40, 100, 20); add(jlPrijsInput);
 	    
 	    
 	    model = new DefaultTableModel(kolomNamen, 0);
@@ -76,19 +76,19 @@ public class KlantPanel extends JFrame {
 		this.cbInschrijven = cbInschrijven;
 	}
 	
-    public static String getjlKlantNaamInput() { //static
+    public String getjlKlantNaamInput() { 
 		return jlKlantNaamInput.getText();
 	}
 
-	public void setjlKlantNaamInput(JLabel jlKlantNaamInput) {
-		this.jlKlantNaamInput = jlKlantNaamInput;
+	public void setjlKlantNaamInput(String klantNaam) {
+		this.jlKlantNaamInput.setText(klantNaam);
 	}
-	public static String getjlPrijsInput() { //static
+	public String getjlPrijsInput() { 
 		return jlPrijsInput.getText();
 	}
 
-	public void setjlPrijsInput(JLabel jlPrijsInput) {
-		this.jlPrijsInput = jlPrijsInput;
+	public void setjlPrijsInput(String PrijsInput) {
+		this.jlPrijsInput.setText(PrijsInput);
 	}
 	
 	public void setcbInschrijven(ActionListener listenerForcbInschrijven) {

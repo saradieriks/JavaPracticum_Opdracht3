@@ -22,6 +22,7 @@ import domain.Observer;
 import domain.Reservatie;
 import domain.Spel;
 import domain.Subject;
+import io.IOAdapter;
 import io.IOReader;
 import io.IOWriter;
 import ui.WinkelPanel;
@@ -36,13 +37,12 @@ public class WinkelController extends JFrame implements Subject {
 	private static Map <String,List<Reservatie>> Reservaties = new HashMap<>();
 	private static List<Observer>observers = new ArrayList<Observer>();
 	private static List<Klant>Klanten = new ArrayList<Klant>();
-	/*
-	 * De list observers moet alle klanten bevatten met IsObserver == true
-	 * klanten die at runtime observer worden, worden toegevoegd via de methode binnen klant
-	 * maakKlantObserver
-	 * Wanneer een nieuw item wordt toegevoegd moet de methode
-	 * notifyObservers(item) uitgevoerd worden.
-	 */
+	
+	private Integer ioKeuze;
+	
+	public KlantPanel klantPaneel;
+	public IOAdapter ioAdapter;
+
 	
 	//observer methods
 	private void bouwKlantLijst()
@@ -76,9 +76,18 @@ public class WinkelController extends JFrame implements Subject {
 			
 		}
 	}
+	
+	private void updateKlantPanel(){
+		
+	}
 
     @SuppressWarnings("deprecation")
-	public WinkelController() {
+	public WinkelController(Integer ioKeuze) {
+    	
+    	this.ioKeuze = ioKeuze;
+    	
+    	ioAdapter = new IOAdapter(this.ioKeuze);
+    	
     	bouwKlantLijst();
         WinkelPanel paneel = new WinkelPanel();
         paneel.setBtnExit(new btnExitListener());
@@ -96,10 +105,14 @@ public class WinkelController extends JFrame implements Subject {
         paneel.setVisible(true);
         paneel.show();
         
-        KlantPanel klantPaneel = new KlantPanel();
+        klantPaneel = new KlantPanel();
+        klantPaneel.setcbInschrijven(new cbInschrijvenListener());
+        
         klantPaneel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         klantPaneel.setVisible(true);
         klantPaneel.show();
+        
+        
         
     }
 
@@ -108,6 +121,28 @@ public class WinkelController extends JFrame implements Subject {
 			 System.exit(0);		 
 		 }
 	}
+	class cbInschrijvenListener implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		for (Klant k: Klanten)
+    		{
+    			if ((k.getNaam().equals(WinkelPanel.getTxtUitleningNaam())) && (k.getVoornaam().equals(WinkelPanel.getTxtUitleningVoornaam())))
+    					{
+    				Boolean gedaan = false;
+    				if (k.getIsObserver() == 1)
+    				{k.setIsObserver(0);
+    				removeObserver(k);
+    				gedaan = true;
+    				}
+    				if (k.getIsObserver() == 0 && gedaan == false)
+    				{k.setIsObserver(1);
+    				addObserver(k);
+    				}
+    					}
+    		}
+    		
+    	}
+    }
+	
 	
 	class btnTypeAddListener implements ActionListener{
 		 public void actionPerformed(ActionEvent e) {
@@ -173,6 +208,8 @@ public class WinkelController extends JFrame implements Subject {
 	    			}
 	    			else {
 	    				JOptionPane.showMessageDialog(null, "Klant gevonden", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
+	    				String klantNaam = WinkelPanel.getTxtUitleningNaam() + " " + WinkelPanel.getTxtUitleningVoornaam();
+						klantPaneel.setjlKlantNaamInput(klantNaam);
 	    			}
 	    			try {
 						if (IOWriter.writeReservatie(nieuwe) == true) {
@@ -180,7 +217,7 @@ public class WinkelController extends JFrame implements Subject {
 									WinkelPanel.getTxtUitleningDagen()});
 							KlantPanel.getModel().addRow(new Object[]{WinkelPanel.getCbType(), WinkelPanel.getTxtUitleningTitel(), 
 									WinkelPanel.getTxtUitleningDagen()});
-							klantPaneel.setjlKlantNaamInput();
+							
 							
 							JOptionPane.showMessageDialog(null, "Succes", "InfoBox: " , JOptionPane.INFORMATION_MESSAGE);
 						}
